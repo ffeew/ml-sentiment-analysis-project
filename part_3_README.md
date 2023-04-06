@@ -10,7 +10,7 @@ Since transition probabilities must now include 2 previous states, $q(y_i|y_{i-2
 
 Initialisation 
 
-$\pi(-1, t) = \begin{cases} 1, \text{if t = START} \\ 0, otherwise. \end{cases}$
+> $\pi(-1, t) = \begin{cases} 1, \text{if t = START} \\ 0, otherwise. \end{cases}$
 
 $\pi(0, u) =  
 \begin{cases}
