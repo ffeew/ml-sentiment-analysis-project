@@ -8,35 +8,24 @@ The second-order model will require $N$, the number of tags, $M$, the number of 
 
 Since transition probabilities must now include 2 previous states, $q(y_i|y_{i-2}, y_{i-1})$, the Viterbi Algorithm for Second-Order HMM is:
 > Initialisation 
-<br>
 $\pi(-1, t) =  
 \begin{cases}
 1, \text{if t = START} \\
 0, otherwise.
 \end{cases}$
-<br>
 $\pi(0, u) =  
 \begin{cases}
 1, \text{if u = START} \\
 0, otherwise.
 \end{cases}$
-<br>
 For j = 0, ..., n - 1:
-<br>
 $\quad\text{For each } v \in \Gamma :$
-<br>
 $\quad\quad\pi(j + 1, v) = max_{t, u\in\Gamma}\{\pi(j - 1,t) \times \pi(j, u)\times a_{t,u,v}\times b_v(x_{j+1})\}$
-<br>
 Final Step
-<br>
 $\pi(n+1,\text{STOP}) = max_{t,u\in\Gamma}\{\pi(n - 1, t)\times\pi(n,u)\times a_{t,u,\text{STOP}}\}$
-<br>
 Backtracking
-<br>
 $y_n^* = \text{argmax}_{t, u\in\Gamma}\{\pi(n - 1, t)\times\pi(n,u)\times a_{t, u,\text{STOP}}\}$
-<br>
 For j = n - 1, ..., 1:
-<br>
 $\quad y_j^* = \text{argmax}_{t, u\in\Gamma}\{\pi(j - 1,t)\times\pi(j,u)\times a_{t,u,y_{j+1}^*}\}$
 
 <br>
@@ -45,17 +34,15 @@ $\quad y_j^* = \text{argmax}_{t, u\in\Gamma}\{\pi(j - 1,t)\times\pi(j,u)\times a
 
 The new transition parameters can be learned by the equation from this [paper](https://aclanthology.org/P99-1023.pdf):
 > $q(y_i|y_{i-2},y_{i-1}) = k_3\cdot\frac{N_3}{C_2} + (1-k_3)k_2\cdot\frac{N_2}{C_1}+(1-k_3)(1-k_2)\cdot\frac{N_1}{C_0}$
-<br>
 where
-<br>
-$N_1$ = number of times $y_i$ occurs <br>
-$N_2$ = number of times sequence $y_{i-1}y_i$ occurs <br>
-$N_3$ = number of times sequence $y_{i-2}y_{i-1}y_i$ occurs <br>
-$C_0$ = total number of tags that appear <br>
-$C_1$ = number of times $y_{i-1}$ occurs <br>
-$C_2$ = number of times sequence $y_{i-2}y_{i-1}$ occurs <br>
-$k_2 = \frac{log(N_2+1) + 1}{log(N_2+1)+2}$ <br>
-$k_3 = \frac{log(N_3+1) + 1}{log(N_3+1)+2}$ <br>
+$N_1$ = number of times $y_i$ occurs
+$N_2$ = number of times sequence $y_{i-1}y_i$ occurs
+$N_3$ = number of times sequence $y_{i-2}y_{i-1}y_i$ occurs
+$C_0$ = total number of tags that appear
+$C_1$ = number of times $y_{i-1}$ occurs
+$C_2$ = number of times sequence $y_{i-2}y_{i-1}$ occurs
+$k_2 = \frac{log(N_2+1) + 1}{log(N_2+1)+2}$
+$k_3 = \frac{log(N_3+1) + 1}{log(N_3+1)+2}$
 
 <br>
 
