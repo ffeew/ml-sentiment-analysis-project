@@ -1,5 +1,9 @@
 from collections import deque
 import numpy as np
+import json
+
+FILE_TRAIN_EN = "./EN/train"
+Q_OUT_EN = "./EN/q"
 
 def q_2(tags):
     """First pass counts each occurence as defined in the README,
@@ -65,7 +69,52 @@ def q_2(tags):
             out[(y[0], y[1], y[2])] = (k_3 * (n_3 / c_2)) + ((1 - k_3) * k_2 * (n_2 / c_1)) + ((1 - k_3) * (1 - k_2) * (n_1 / c0))
     print("out:", out)
     return out
-    
 
-tags = [1, 2, 3, 1, 2, 3, 4, 1, 2, 3, 4, 5, 6, 7, 8, 9, 1, 2, 3]
-q_2(tags)
+
+def gen_2nd_ord_trans_probs(file_in):
+    out = {}
+    len_2_seqs = {}
+    len_3_seqs = {}
+
+    with open(file_in) as f_in:
+        y = deque()
+        for line in f_in:
+            if line == "\n":
+                y.clear()
+                continue
+            if len(y) == 3:
+                if (y[0], y[1]) in len_2_seqs:
+                    len_2_seqs[(y[0], y[1])] += 1
+                else:
+                    len_2_seqs[(y[0], y[1])] = 1
+                if (y[0], y[1], y[2]) in len_3_seqs:
+                    len_3_seqs[(y[0], y[1], y[2])] += 1
+                else:
+                    len_3_seqs[(y[0], y[1], y[2])] = 1
+            y.append(line.split()[1])
+            if len(y) > 3:
+                y.popleft()
+
+    with open(file_in) as f_in:
+        y = deque()
+        for line in f_in:
+            if line == "\n":
+                y.clear()
+                continue
+            if len(y) == 3:
+                if not (y[0], y[1], y[2]) in out:
+                    out[(y[0], y[1], y[2])] = len_3_seqs[(y[0], y[1], y[2])] / len_2_seqs[(y[0], y[1])]
+            y.append(line.split()[1])
+            if len(y) > 3:
+                y.popleft()
+    with open(Q_OUT_EN, "w") as f_out:        
+        f_out.write(json.dumps({json.dumps(k): v for k, v in out.items()}))
+
+# tags = [1, 2, 3, 1, 2, 3, 4, 1, 2, 3, 4, 5, 6, 7, 8, 9, 1, 2, 3]
+# q_2(tags)
+
+gen_2nd_ord_trans_probs(FILE_TRAIN_EN)
+with open(Q_OUT_EN, "r") as f:
+    d = json.loads(f.read())
+    q = {tuple(json.loads(k)): v for k, v in d.items()}
+print(q)

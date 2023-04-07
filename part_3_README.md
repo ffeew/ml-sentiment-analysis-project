@@ -9,24 +9,29 @@ The second-order model will require $N$, the number of tags, $M$, the number of 
 Since transition probabilities must now include 2 previous states, $q(y_i|y_{i-2}, y_{i-1})$, the Viterbi Algorithm for Second-Order HMM is:
 
 Initialisation 
-
-$\pi(-1, t) = 
+$\begin{equation}
+\pi(-1, t) = 
 \begin{cases} 
-1, \text{if t = START} \\\\ 
+1, \text{if t = START} \\ 
 0, otherwise. 
-\end{cases}$
+\end{cases}
+\end{equation}$
 
-$\pi(0, u) =  
+$\begin{equation}
+\pi(0, u) =  
 \begin{cases}
-1, \text{if u = START} \\\\
+1, \text{if u = START} \\
 0, otherwise.
-\end{cases}$
+\end{cases}
+\end{equation}$
 
 For j = 0, ..., n - 1:
 
 $\quad\text{For each } v \in \Gamma :$
 
-$\quad\quad\pi(j + 1, v) = max_{t, u\in\Gamma} \{ \pi(j - 1,t) \times \pi(j, u)\times a_{t,u,v}\times b_v(x_{j+1}) \} $
+$\begin{equation}
+\quad\quad\pi(j + 1, v) = max_{t, u\in\Gamma}\{ \pi(j - 1,t) \times \pi(j, u)\times a_{t,u,v}\times b_v(x_{j+1})\}
+\end{equation}$
 
 Final Step
 
@@ -43,6 +48,13 @@ $\quad y_j^* = \text{argmax}_{t, u\in\Gamma}\{\pi(j - 1,t)\times\pi(j,u)\times a
 <br>
 
 **How to learn the new transition parameters?**
+
+The new transition parameters can be learned by using the estimate:
+$\frac{count(y_{i-2}y_{i-1}y_{i})}{count(y_{i-2}y_{i-1})}$
+which can be derived from the following:
+$p(y_{i}|y_{i-1}, y_{i-2}) = \frac{p(y_{i-2}, y_{i-1}, y_{i})}{p(y_{i-2}, y_{i-1})} = \frac{count(y_{i-2}y_{i-1}y_{i})}{count(y_{i-2}y_{i-1})}$ 
+
+SHIFT BELOW
 
 The new transition parameters can be learned by the equation from this [paper](https://aclanthology.org/P99-1023.pdf):
 
