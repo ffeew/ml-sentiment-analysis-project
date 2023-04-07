@@ -10,11 +10,15 @@ Since transition probabilities must now include 2 previous states, $q(y_i|y_{i-2
 
 Initialisation 
 
-> $\pi(-1, t) = \begin{cases} 1, \text{if t = START} \\ 0, otherwise. \end{cases}$
+$\pi(-1, t) = 
+\begin{cases} 
+1, \text{if t = START} \\\\ 
+0, otherwise. 
+\end{cases}$
 
 $\pi(0, u) =  
 \begin{cases}
-1, \text{if u = START} \\
+1, \text{if u = START} \\\\
 0, otherwise.
 \end{cases}$
 
@@ -22,7 +26,7 @@ For j = 0, ..., n - 1:
 
 $\quad\text{For each } v \in \Gamma :$
 
-$\quad\quad\pi(j + 1, v) = max_{t, u\in\Gamma}\{\pi(j - 1,t) \times \pi(j, u)\times a_{t,u,v}\times b_v(x_{j+1})\}$
+$\quad\quad\pi(j + 1, v) = max_{t, u\in\Gamma} \{ \pi(j - 1,t) \times \pi(j, u)\times a_{t,u,v}\times b_v(x_{j+1}) \} $
 
 Final Step
 
