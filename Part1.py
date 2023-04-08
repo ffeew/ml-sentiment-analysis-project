@@ -11,7 +11,17 @@ class gen_e:
         self.x = []
         self.k = 1
 
+        # try:
+        #     self.e = self.load_e("FR/count_e.json")
+        #     self.y_count = self.load_y("FR/count_y.json")
+        #     self.x = self.load_x("FR/x_set.json")
+        # except:
+        #     self.count_e("FR/train")
+
+
     def read_file(self, filename):
+
+        #returns each row of the file as a list of strings separated by spaces
 
         raw = []
         data = []
@@ -21,7 +31,6 @@ class gen_e:
         for i in range(len(raw)):
             data.append(raw[i].strip("\n").split())
         return data
-        #print(self.data)
 
     def count_e(self, filename):
 
@@ -61,11 +70,12 @@ class gen_e:
 
     def predict_y(self, dataset,filename=""):
 
-        #require dataset to be a 2d numpy array
-        print(dataset[0][0])
-        print(self.e.keys())
+    
+        # print(dataset.T.shape)
+        # print(dataset[0][0])
+        # print(self.e.keys())
         y_p = []
-        for k in range(dataset.shape[0]):
+        for k in range(len(dataset)):
             if len(dataset[k]):
                 max_p = 0
                 max_y = ""
@@ -80,8 +90,8 @@ class gen_e:
 
         if(len(filename)):
             with open(filename, "w",encoding="utf8") as file:
-                for y in y_p:
-                    file.write(y+"\n")
+                for i in range(len(y_p)):
+                    file.write((str(dataset[i][0]) if len(dataset[i]) else "")+" "+y_p[i]+"\n")
 
         return y_p
     
@@ -109,6 +119,7 @@ class gen_e:
 
 if __name__ == "__main__":
     count = gen_e()
-    x_p = np.array(count.read_file("FR/dev.in"))
+    x_p = count.read_file("FR/dev.in")
+    #print(x_p)
     count.count_e("FR/train")
     count.predict_y(x_p, "FR/dev.p1.out")
