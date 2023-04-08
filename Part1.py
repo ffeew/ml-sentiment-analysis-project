@@ -117,6 +117,7 @@ class gen_e:
                 return 0
         else:
             return self.k/(self.y_count[y]+self.k)
+        
 
 if __name__ == "__main__":
     count = gen_e("EN")
