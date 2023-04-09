@@ -203,7 +203,7 @@ def viterbi(sentence: str, transition: dict, emission: gen_e) -> tuple:
     # fill up the start probabilities
     for i, key in enumerate(states):
         viterbi[0, i] = np.log(transition["START"].get(
-            key, 0) * emission.get_e(key, words[0]))
+            ("START", key), 0) * emission.get_e(key, words[0]))
     # fill in the rest of the matrix
     for i in range(1, len(words)):
         for j, tag in enumerate(states):
