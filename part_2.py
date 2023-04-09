@@ -37,6 +37,7 @@ def estimate_transition_parameters(path: str) -> dict[dict]:
             inner[tag] = inner.get(tag, 0) + 1
             transition[previous] = inner
             previous = tag
+    print(transition)
 
     # divide by the number of times the previous tag occurs
     state_count = df["tag"].value_counts()
@@ -73,18 +74,16 @@ def viterbi(sentence: str, transition: dict, emission: gen_e) -> tuple:
     # split the sentence into words
     words = sentence.split("\n")
 
-    # initialize the viterbi matrix
-    viterbi = np.zeros((len(words), len(transition.keys())-1))
-    backpointer = np.zeros((len(words), len(transition.keys())-1))
-
-    # get the states from the transition matrix
     states = [key for key in transition.keys() if key != "START"]
+
+    # initialize the viterbi matrix
+    viterbi = np.zeros((len(words), len(states)))
+    backpointer = np.zeros((len(words)-1, len(states)))
 
     # fill up the start probabilities
     for i, key in enumerate(states):
         viterbi[0, i] = np.log(transition["START"].get(
-            key, 0)) * np.log(emission.get_e(key, words[0]))
-        backpointer[0, i] = 0
+            key, 0) * emission.get_e(key, words[0]))
     # fill in the rest of the matrix
     for i in range(1, len(words)):
         for j, tag in enumerate(states):
