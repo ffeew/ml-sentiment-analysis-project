@@ -1,20 +1,9 @@
 {
-    "O": 2191,
-    "B-INTJ": 257,
-    "B-PP": 716,
-    "B-NP": 2768,
-    "I-NP": 1904,
-    "B-VP": 1327,
-    "B-PRT": 85,
-    "I-VP": 607,
-    "B-ADJP": 159,
-    "B-SBAR": 71,
-    "B-ADVP": 386,
-    "I-INTJ": 88,
-    "B-CONJP": 2,
-    "I-CONJP": 2,
-    "I-ADVP": 51,
-    "I-ADJP": 61,
-    "I-SBAR": 4,
-    "I-PP": 6
+    "O": 24512,
+    "B-positive": 810,
+    "I-positive": 181,
+    "B-negative": 675,
+    "B-neutral": 113,
+    "I-negative": 233,
+    "I-neutral": 43
 }

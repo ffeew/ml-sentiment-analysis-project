@@ -1,14 +1,26 @@
-from copy import deepcopy
+from tqdm import tqdm
 from collections import deque
+from nltk.tokenize import word_tokenize
+from nltk import pos_tag
+from nltk.corpus import stopwords
+from nltk.stem import WordNetLemmatizer
+from sklearn.preprocessing import LabelEncoder
+from collections import defaultdict
+from nltk.corpus import wordnet as wn
 
+import nltk
 import numpy as np
 import pandas as pd
-import json
 
 from Part1 import gen_e
 
-FILE_TRAIN_EN = "./EN/train"
-Q_OUT_EN = "./EN/q"
+def nltk_setup():
+    nltk.download('punkt')
+    nltk.download('wordnet')
+    nltk.download('omw-1.4')
+    nltk.download('averaged_perceptron_tagger')
+    nltk.download('stopwords')
+
 
 def thede_smoothing(tags):
     """First pass counts each occurence as defined in the README,
@@ -89,46 +101,6 @@ def thede_smoothing(tags):
     return dict_out
 
 
-def gen_2nd_ord_trans_probs(file_in):
-    out = {}
-    len_2_seqs = {}
-    len_3_seqs = {}
-
-    with open(file_in) as f_in:
-        y = deque()
-        for line in f_in:
-            if line == "\n":
-                y.clear()
-                continue
-            if len(y) == 3:
-                if (y[0], y[1]) in len_2_seqs:
-                    len_2_seqs[(y[0], y[1])] += 1
-                else:
-                    len_2_seqs[(y[0], y[1])] = 1
-                if (y[0], y[1], y[2]) in len_3_seqs:
-                    len_3_seqs[(y[0], y[1], y[2])] += 1
-                else:
-                    len_3_seqs[(y[0], y[1], y[2])] = 1
-            y.append(line.split()[1])
-            if len(y) > 3:
-                y.popleft()
-
-    with open(file_in) as f_in:
-        y = deque()
-        for line in f_in:
-            if line == "\n":
-                y.clear()
-                continue
-            if len(y) == 3:
-                if not (y[0], y[1], y[2]) in out:
-                    out[(y[0], y[1], y[2])] = len_3_seqs[(y[0], y[1], y[2])] / len_2_seqs[(y[0], y[1])]
-            y.append(line.split()[1])
-            if len(y) > 3:
-                y.popleft()
-    with open(Q_OUT_EN, "w") as f_out:        
-        f_out.write(json.dumps({json.dumps(k): v for k, v in out.items()}))
-
-
 def estimate_new_transition_parameters(path: str) -> dict[dict]:
     """Estimate the transition parameters from the training data.
     :param path: The path to the training data.
@@ -201,12 +173,82 @@ def viterbi(sentence: str, transition: dict, emission: gen_e) -> tuple:
     return result
 
 
+def word_preprocess(sentences: list, lang:str, mode:str, sentence_tags: list=None) -> list:
+    if mode == "train":
+        text = pd.DataFrame({"original": sentences, "tags": sentence_tags})
+        print(text)
+    else:
+        text = pd.DataFrame([" ".join(x.split("\n")) for x in sentences]).rename(columns={0: "original"})
+    # Step - a : Remove blank rows if any.
+    text['original'].dropna(inplace=True)
+    # Step - b : Change all the text to lower case. This is required as python interprets 'dog' and 'DOG' differently
+    text['original'] = [entry.lower() for entry in text['original']]
+    # Step - c : Tokenization : In this each entry in the corpus will be broken into set of words
+    text['original'] = [word_tokenize(entry) for entry in text['original']]
+    # Step - d : Remove Stop words, Non-Numeric and perfom Word Stemming/Lemmenting.
+    # WordNetLemmatizer requires Pos tags to understand if the word is noun or verb or adjective etc. By default it is set to Noun
+    tag_map = defaultdict(lambda : wn.NOUN)
+    tag_map['J'] = wn.ADJ
+    tag_map['V'] = wn.VERB
+    tag_map['R'] = wn.ADV
+    for index,entry in tqdm(enumerate(text['original'])):
+        # Declaring Empty List to store the words that follow the rules for this step
+        Final_words = []
+        # Initializing WordNetLemmatizer()
+        word_Lemmatized = WordNetLemmatizer()
+        # pos_tag function below will provide the 'tag' i.e if the word is Noun(N) or Verb(V) or something else.
+        for word, tag in pos_tag(entry):
+            # Below condition is to check for Stop words and consider only alphabets
+            if word not in stopwords.words(lang) and word.isalpha():
+                word_Final = word_Lemmatized.lemmatize(word,tag_map[tag[0]])
+                Final_words.append(word_Final)
+        # The final processed set of words for each iteration will be stored in 'text_final'
+        text.loc[index,'text_final'] = str(Final_words)
+    # out = ["\n".join(x) for x in text.loc[:, 'text_final'].values.tolist()]
+    if mode == "train":
+        out = [x[1:-1].split(", ") for x in text.loc[:, 'text_final'].values.tolist()]
+        out = ["\n".join([x[1:-1] for x in y]) for y in out]
+    else:
+        out = [x[1:-1].split(", ") for x in text.loc[:, 'text_final'].values.tolist()]
+        out = ["\n".join([x[1:-1] for x in y]) for y in out]
+    return out
+
+
+def train_preprocess(path_in, path_out, lang):
+    data = []
+    with open(path_in, 'r') as f:
+        for line in f.readlines():
+            # remove the newline character
+            data.append(line[:-1].split(" "))
+    text = [x[0] for x in data]
+    tags = [x[1] if len(x) == 2 else '' for x in data]
+    sentence = []
+    sentence_tags = []
+    data_out = []
+    for word, tag in zip(text, tags):
+        if word == '' and len(sentence) > 0:
+            cleaned = word_preprocess(sentence, lang, "train", sentence_tags)
+            cleaned_data = list(filter(None, [[x, y] if x != "" else None for x, y in zip(cleaned, sentence_tags)]))
+            for x in cleaned_data:
+                data_out.append(x)
+            data_out.append("")
+            sentence = []
+            sentence_tags = []
+        elif tag != "O":
+            sentence.append(word)
+            sentence_tags.append(tag)
+
+    with open(path_out, "w") as f_out:
+        for x in data_out:
+            if x == "":
+                f_out.write("\n")
+            else:
+                f_out.write(x[0] + " " + x[1] + "\n")
+
 def main():  
-    # gen_2nd_ord_trans_probs(FILE_TRAIN_EN)
-    # with open(Q_OUT_EN, "r") as f:
-    #     d = json.loads(f.read())
-    #     q = {tuple(json.loads(k)): v for k, v in d.items()}
-    # print(q)
+    # nltk_setup()
+    train_preprocess("EN/train", "EN/train_new", "english")
+    return
 
     count = gen_e()
     count.count_e("FR/train")
@@ -216,7 +258,11 @@ def main():
     path_out = "FR/dev.p4.out"
     with open(path_in, 'r') as f:
         data = f.read()
-    sentences = data.split("\n\n")[:-1]
+    sentences = word_preprocess(data.split("\n\n")[:-1], "french")
+    # sentences = word_preprocess(sentences, "french")
+    # sentences = [word_preprocess(" ".join(sentence.split("\n"))) for sentence in sentences]
+    print(sentences)
+    return
 
     tags = [viterbi(sentence, trans, count) for sentence in sentences]
 
