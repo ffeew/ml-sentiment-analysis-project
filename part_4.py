@@ -176,7 +176,6 @@ def viterbi(sentence: str, transition: dict, emission: gen_e) -> tuple:
 def word_preprocess(sentences: list, lang:str, mode:str, sentence_tags: list=None) -> list:
     if mode == "train":
         text = pd.DataFrame({"original": sentences, "tags": sentence_tags})
-        print(text)
     else:
         text = pd.DataFrame([" ".join(x.split("\n")) for x in sentences]).rename(columns={0: "original"})
     # Step - a : Remove blank rows if any.
@@ -184,7 +183,7 @@ def word_preprocess(sentences: list, lang:str, mode:str, sentence_tags: list=Non
     # Step - b : Change all the text to lower case. This is required as python interprets 'dog' and 'DOG' differently
     text['original'] = [entry.lower() for entry in text['original']]
     # Step - c : Tokenization : In this each entry in the corpus will be broken into set of words
-    text['original'] = [word_tokenize(entry) for entry in text['original']]
+    text['original'] = [word_tokenize(entry, lang) for entry in text['original']]
     # Step - d : Remove Stop words, Non-Numeric and perfom Word Stemming/Lemmenting.
     # WordNetLemmatizer requires Pos tags to understand if the word is noun or verb or adjective etc. By default it is set to Noun
     tag_map = defaultdict(lambda : wn.NOUN)
@@ -207,7 +206,7 @@ def word_preprocess(sentences: list, lang:str, mode:str, sentence_tags: list=Non
     # out = ["\n".join(x) for x in text.loc[:, 'text_final'].values.tolist()]
     if mode == "train":
         out = [x[1:-1].split(", ") for x in text.loc[:, 'text_final'].values.tolist()]
-        out = ["\n".join([x[1:-1] for x in y]) for y in out]
+        out = ["".join([x[1:-1] for x in y]) for y in out]
     else:
         out = [x[1:-1].split(", ") for x in text.loc[:, 'text_final'].values.tolist()]
         out = ["\n".join([x[1:-1] for x in y]) for y in out]
@@ -235,34 +234,38 @@ def train_preprocess(path_in, path_out, lang):
             sentence = []
             sentence_tags = []
         elif tag != "O":
+        # else:
             sentence.append(word)
             sentence_tags.append(tag)
-
-    with open(path_out, "w") as f_out:
+    with open(path_out, "w", encoding="utf-8") as f_out:
         for x in data_out:
             if x == "":
                 f_out.write("\n")
             else:
+                
+                if "\n" in x[0]:
+                    x[0] = x[0].encode("unicode_escape").decode("utf-8")
                 f_out.write(x[0] + " " + x[1] + "\n")
 
 def main():  
     # nltk_setup()
     train_preprocess("EN/train", "EN/train_new", "english")
-    return
+    train_preprocess("FR/train", "FR/train_new", "french")
+    # return
 
     count = gen_e()
-    count.count_e("FR/train")
-    trans = estimate_new_transition_parameters("FR/train")
+    count.count_e("FR/train_new")
+    trans = estimate_new_transition_parameters("FR/train_new")
 
     path_in = "FR/dev.in"
     path_out = "FR/dev.p4.out"
     with open(path_in, 'r') as f:
         data = f.read()
-    sentences = word_preprocess(data.split("\n\n")[:-1], "french")
+    sentences = word_preprocess(data.split("\n\n")[:-1], "french", "test")
     # sentences = word_preprocess(sentences, "french")
     # sentences = [word_preprocess(" ".join(sentence.split("\n"))) for sentence in sentences]
-    print(sentences)
-    return
+    # print(sentences)
+    # return
 
     tags = [viterbi(sentence, trans, count) for sentence in sentences]
 
@@ -279,14 +282,15 @@ def main():
 
     # generate the tags for EN/dev.in
     count = gen_e()
-    count.count_e("EN/train")
-    trans = estimate_new_transition_parameters("EN/train")
+    count.count_e("EN/train_new")
+    trans = estimate_new_transition_parameters("EN/train_new")
 
     path_in = "EN/dev.in"
     path_out = "EN/dev.p4.out"
     with open(path_in, 'r') as f:
         data = f.read()
     sentences = data.split("\n\n")[:-1]
+    sentences = word_preprocess(data.split("\n\n")[:-1], "english", "test")
 
     tags = [viterbi(sentence, trans, count) for sentence in sentences]
 

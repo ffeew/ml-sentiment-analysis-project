@@ -53,8 +53,7 @@ u B-NP
 get B-VP
 hint I-NP
 maybe B-ADVP
-wan
-na I-VP
+wanna I-VP
 talk I-VP
 u B-NP
 
@@ -79,8 +78,7 @@ life I-NP
 
 seem B-VP
 like B-PP
-get
-ta B-VP
+getta B-VP
 ignore I-VP
 whole I-NP
 week I-NP
@@ -197,8 +195,7 @@ like I-VP
 surprise I-NP
 
 think B-VP
-gon
-na I-VP
+gonna I-VP
 
 ugh B-INTJ
 chick I-NP
@@ -210,12 +207,10 @@ status I-NP
 cussin B-VP
 im B-NP
 even I-VP
-gon
-na I-VP
+gonna I-VP
 stoop I-VP
 leve I-NP
-wan
-na B-VP
+wanna B-VP
 bomb I-VP
 as I-NP
 bad I-ADVP
@@ -571,8 +566,7 @@ today B-NP
 stay B-VP
 tune I-VP
 
-get
-ta B-VP
+getta B-VP
 dress I-VP
 london B-NP
 fashion I-NP
@@ -597,8 +591,7 @@ old B-ADJP
 imma B-NP
 still B-VP
 rockin I-VP
-baby
-even B-NP
+babyeven B-NP
 break B-VP
 hip I-NP
 
@@ -631,8 +624,7 @@ learn I-NP
 sure B-ADJP
 check I-VP
 
-gon
-na B-VP
+gonna B-VP
 start I-VP
 gym I-NP
 back I-NP
@@ -1155,8 +1147,7 @@ via B-PP
 need B-VP
 draw I-VP
 faster B-ADVP
-gon
-na I-VP
+gonna I-VP
 scan I-VP
 two B-NP
 week I-NP
@@ -1329,8 +1320,7 @@ wonderful I-NP
 wife I-NP
 
 bestfriend B-NP
-wan
-na B-VP
+wanna B-VP
 go I-VP
 wit B-PP
 get I-VP
@@ -1422,8 +1412,7 @@ know B-VP
 need B-VP
 stop I-VP
 room I-NP
-gon
-na I-VP
+gonna I-VP
 get I-VP
 fill I-VP
 water B-NP
@@ -1645,8 +1634,7 @@ sleep I-NP
 hour I-NP
 trip I-NP
 
-wan
-na B-VP
+wanna B-VP
 see I-VP
 ya B-NP
 bro B-INTJ
@@ -1726,8 +1714,7 @@ u B-NP
 wed B-NP
 cpr I-NP
 paul B-NP
-levit
-z I-NP
+levitz I-NP
 lecture I-NP
 year I-NP
 dc B-NP
@@ -1783,13 +1770,11 @@ bro I-INTJ
 unc B-NP
 say B-VP
 time I-NP
-gon
-na B-VP
+gonna B-VP
 get I-VP
 stay B-VP
 cu B-SBAR
-gon
-na I-VP
+gonna I-VP
 cum I-VP
 
 place I-NP
@@ -1811,8 +1796,7 @@ beautiful I-NP
 neice I-NP
 nx B-NP
 week I-NP
-gon
-na B-VP
+gonna B-VP
 spoil I-VP
 rotton B-ADVP
 
@@ -1833,8 +1817,7 @@ happens B-VP
 time I-NP
 every B-NP
 year I-NP
-wan
-na B-VP
+wanna B-VP
 actually B-ADVP
 make B-VP
 wish I-NP
@@ -1843,9 +1826,7 @@ true B-ADJP
 follow B-VP
 today B-NP
 
-pg
-lt
-e B-NP
+pglte B-NP
 donate B-VP
 state B-NP
 committe I-NP
@@ -1959,8 +1940,7 @@ monday I-NP
 loop B-NP
 production I-NP
 present B-VP
-rockstar
-thursday B-NP
+rockstarthursday B-NP
 oct I-NP
 equinox B-NP
 info B-NP
@@ -2246,8 +2226,7 @@ worth I-ADJP
 
 word B-INTJ
 way I-NP
-gon
-na I-VP
+gonna I-VP
 trust I-VP
 driver B-NP
 kill I-VP
@@ -2356,8 +2335,7 @@ next B-NP
 weekend I-NP
 roh I-NP
 show B-VP
-gon
-na B-VP
+gonna B-VP
 rep I-VP
 old B-NP
 school I-NP
@@ -2734,9 +2712,7 @@ route B-NP
 tomarrow B-NP
 wit B-PP
 cuhzans I-NP
-bestfriend
-lt
-ride B-NP
+bestfriendltride B-NP
 die B-VP
 fuxx B-VP
 widd B-PP
@@ -2876,8 +2852,7 @@ rehab B-NP
 work I-VP
 
 hoodie I-NP
-wan
-na B-VP
+wanna B-VP
 wear I-VP
 tonite B-NP
 
@@ -3376,8 +3351,7 @@ next B-NP
 week I-NP
 info I-NP
 
-get
-ta B-VP
+getta B-VP
 call I-VP
 mom B-NP
 let I-VP
@@ -3550,8 +3524,7 @@ ny B-NP
 
 ya B-INTJ
 know B-NP
-gon
-na I-VP
+gonna I-VP
 saturday B-NP
 could B-VP
 drive I-VP
@@ -3561,8 +3534,7 @@ room I-NP
 
 friggg B-NP
 flow B-NP
-gon
-na B-VP
+gonna B-VP
 new B-ADJP
 
 cruiser B-NP
@@ -3613,8 +3585,7 @@ put B-VP
 n B-PP
 hand I-NP
 say B-VP
-wan
-na B-VP
+wanna B-VP
 go I-VP
 eat I-VP
 hella I-INTJ
@@ -3714,8 +3685,7 @@ driver I-NP
 
 sorry B-ADJP
 baby I-NP
-gon
-na I-VP
+gonna I-VP
 sound I-VP
 silly I-NP
 reading B-VP
@@ -4046,8 +4016,7 @@ day I-NP
 
 aww B-INTJ
 yeah I-INTJ
-gon
-na B-VP
+gonna B-VP
 one B-NP
 remember I-VP
 cause B-SBAR
@@ -4095,8 +4064,7 @@ close B-VP
 eye I-NP
 side I-NP
 tomorrow B-NP
-gon
-na I-VP
+gonna I-VP
 fine I-ADJP
 
 ahaha B-INTJ
@@ -4381,8 +4349,7 @@ tomorrow B-NP
 hawaii B-NP
 
 kiss B-VP
-as
-sneeze I-NP
+assneeze I-NP
 lol B-INTJ
 
 swear B-VP
@@ -4666,8 +4633,7 @@ get I-VP
 small B-ADVP
 small I-ADVP
 
-gon
-na I-VP
+gonna I-VP
 run I-VP
 money B-NP
 day I-NP
@@ -5023,8 +4989,7 @@ b B-VP
 safe B-ADJP
 
 heart B-VP
-park
-ing B-NP
+parking B-NP
 day I-NP
 photo B-NP
 meter B-NP
@@ -5067,8 +5032,7 @@ could B-VP
 next B-NP
 year I-NP
 
-get
-ta B-VP
+getta B-VP
 let I-VP
 em B-NP
 lick B-VP
@@ -5110,8 +5074,7 @@ fire I-ADJP
 poll I-NP
 fiery B-ADJP
 tonight B-NP
-f
-ck I-VP
+fck I-VP
 scrub B-NP
 liason I-NP
 carbo I-NP
@@ -5243,8 +5206,7 @@ bh B-NP
 nk B-NP
 fam I-NP
 homies B-NP
-gon
-na I-VP
+gonna I-VP
 need I-VP
 company I-NP
 next B-NP

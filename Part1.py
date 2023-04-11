@@ -28,6 +28,7 @@ class gen_e:
         self.data = self.read_file(filename)
          
         for pair in self.data:
+            print(pair)
             if len(pair):
                 if not pair[0] in self.x:
                     self.x.append(pair[0])
