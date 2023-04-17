@@ -12,6 +12,9 @@ class gen_e:
         self.k = 1
         self.lang = lang
 
+        self.reload()
+
+    def reload(self):
         try:
             self.load_e("count_e.json")
             self.load_y("count_y.json")
