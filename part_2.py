@@ -112,8 +112,7 @@ def viterbi(sentence: str, transition: dict, emission: gen_e) -> tuple:
 
 if __name__ == "__main__":
     # generate the tags for FR/dev.in
-    count = gen_e()
-    count.count_e("FR/train")
+    count = gen_e("FR")
     trans = estimate_transition_parameters("FR/train")
 
     path_in = "FR/dev.in"
@@ -136,8 +135,7 @@ if __name__ == "__main__":
         f.write(final)
 
     # generate the tags for EN/dev.in
-    count = gen_e()
-    count.count_e("EN/train")
+    count = gen_e("EN")
     trans = estimate_transition_parameters("EN/train")
 
     path_in = "EN/dev.in"

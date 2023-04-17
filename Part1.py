@@ -3,13 +3,22 @@ import json
 
 class gen_e:
 
-    def __init__(self):
+    def __init__(self, lang="EN"):
 
         self.data = []
         self.e = {}
         self.y_count = {}
         self.x = []
         self.k = 1
+        self.lang = lang
+
+        try:
+            self.load_e("count_e.json")
+            self.load_y("count_y.json")
+            self.load_x("x_set.json")
+        except:
+            print("Files not found. Initializing...")
+            self.count_e(self.lang+"/train")
 
     def read_file(self, filename):
 
@@ -28,6 +37,7 @@ class gen_e:
         self.data = self.read_file(filename)
          
         for pair in self.data:
+
             if len(pair):
                 if not pair[0] in self.x:
                     self.x.append(pair[0])
@@ -47,19 +57,19 @@ class gen_e:
                 #     self.e[y][x] = self.k/(self.y_count[y]+self.k)
                 # else:
                 self.e[y][x] = self.e[y][x]/(self.y_count[y]+self.k)
-        with open("FR/count_e.json","w",encoding="utf8") as dict_file:
+        with open(self.lang+"/count_e.json","w",encoding="utf8") as dict_file:
             json.dump(self.e,dict_file,indent=4)
         
-        with open("FR/count_y.json","w",encoding="utf8") as y_file:
+        with open(self.lang+"/count_y.json","w",encoding="utf8") as y_file:
             json.dump(self.y_count,y_file, indent = 4)
 
-        with open("FR/x_set.json","w",encoding="utf8") as x_file:
+        with open(self.lang+"/x_set.json","w",encoding="utf8") as x_file:
             for x_ in self.x:
                 x_file.write(x_+"\n")
         
         #print(self.e)
 
-    def predict_y(self, dataset,filename=""):
+    def predict_y(self, dataset, filename=""):
 
         #require dataset to be a 2d numpy array
         print(dataset[0][0])
@@ -79,22 +89,22 @@ class gen_e:
         print(len(y_p))
 
         if(len(filename)):
-            with open(filename, "w",encoding="utf8") as file:
+            with open(self.lang+"/"+filename, "w",encoding="utf8") as file:
                 for y in y_p:
                     file.write(y+"\n")
 
         return y_p
     
-    def load_e(self,filename="FR/count_e.json"):
-        with open(filename,"r",encoding="utf8") as file:
+    def load_e(self,filename="count_e.json"):
+        with open(self.lang+"/"+filename,"r",encoding="utf8") as file:
             self.e = json.loads(file.read())
     
-    def load_y(self,filename="FR/count_y.json"):
-        with open(filename,"r",encoding="utf8") as file:
+    def load_y(self,filename="count_y.json"):
+        with open(self.lang+"/"+filename,"r",encoding="utf8") as file:
             self.y_count = json.loads(file.read())
     
-    def load_x(self,filename="FR/x_set.json"):
-        with open(filename,"r",encoding="utf8") as file:
+    def load_x(self,filename="x_set.json"):
+        with open(self.lang+"/"+filename,"r",encoding="utf8") as file:
             self.x = file.read().split("\n")
 
     def get_e(self, y, o):
@@ -108,7 +118,6 @@ class gen_e:
             return self.k/(self.y_count[y]+self.k)
 
 if __name__ == "__main__":
-    count = gen_e()
+    count = gen_e("FR")
     x_p = np.array(count.read_file("FR/dev.in"))
-    count.count_e("FR/train")
-    count.predict_y(x_p, "FR/dev.p1.out")
+    count.predict_y(x_p, "dev.p1.out")

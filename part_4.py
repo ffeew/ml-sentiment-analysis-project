@@ -253,8 +253,8 @@ def main():
     train_preprocess("FR/train", "FR/train_new", "french")
     # return
 
-    count = gen_e()
-    count.count_e("FR/train_new")
+    count = gen_e("FR")
+    count.count_e("train_new")
     trans = estimate_new_transition_parameters("FR/train_new")
 
     path_in = "FR/dev.in"
@@ -281,8 +281,8 @@ def main():
         f.write(final)
 
     # generate the tags for EN/dev.in
-    count = gen_e()
-    count.count_e("EN/train_new")
+    count = gen_e("EN")
+    count.count_e("train_new")
     trans = estimate_new_transition_parameters("EN/train_new")
 
     path_in = "EN/dev.in"

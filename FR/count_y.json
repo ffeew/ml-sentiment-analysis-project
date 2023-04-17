@@ -1,38 +1,9 @@
 {
-<<<<<<< HEAD
-    "O": 2191,
-    "B-INTJ": 257,
-    "B-PP": 716,
-    "B-NP": 2768,
-    "I-NP": 1904,
-    "B-VP": 1327,
-    "B-PRT": 85,
-    "I-VP": 607,
-    "B-ADJP": 159,
-    "B-SBAR": 71,
-    "B-ADVP": 386,
-    "I-INTJ": 88,
-    "B-CONJP": 2,
-    "I-CONJP": 2,
-    "I-ADVP": 51,
-    "I-ADJP": 61,
-    "I-SBAR": 4,
-    "I-PP": 6
-=======
-    "B-INTJ": 184,
-    "I-NP": 1644,
-    "B-NP": 1189,
-    "B-VP": 804,
-    "I-VP": 408,
-    "B-ADJP": 119,
-    "B-ADVP": 149,
-    "I-INTJ": 46,
-    "B-PP": 62,
-    "B-CONJP": 1,
-    "I-ADVP": 36,
-    "I-ADJP": 56,
-    "B-SBAR": 16,
-    "I-SBAR": 1,
-    "B-PRT": 1
->>>>>>> 0f3cce9f113b9dabdcd0d5ba3401411b76538df0
+    "O": 24512,
+    "B-positive": 810,
+    "I-positive": 181,
+    "B-negative": 675,
+    "B-neutral": 113,
+    "I-negative": 233,
+    "I-neutral": 43
 }
