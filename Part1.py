@@ -146,8 +146,21 @@ class gen_e:
                 return 0
         else:
             return self.k/(self.y_count[y]+self.k)
+        
+    def get_p(self, y, o):
+
+        total_y = np.sum(list(self.y_count.values()))
+
+        if o in self.x:
+            if o in self.e[y].keys():
+                return self.e[y][o]
+            else:
+                return 0
+        else:
+            return self.get_e(y,o)*self.y_count[y]/total_y
+        
 
 if __name__ == "__main__":
-    count = gen_e("EN")
-    x_p = count.read_file("EN/dev.in")
+    count = gen_e("FR")
+    x_p = count.read_file("FR/dev.in")
     count.naive_bayes(x_p, "dev.p1.out")
