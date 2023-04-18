@@ -247,14 +247,15 @@ def train_preprocess(path_in, path_out, lang):
                     x[0] = x[0].encode("unicode_escape").decode("utf-8")
                 f_out.write(x[0] + " " + x[1] + "\n")
 
-def main():  
-    # nltk_setup()
+def main():
+
+    #nltk_setup() #Initialization
     train_preprocess("EN/train", "EN/train_new", "english")
     train_preprocess("FR/train", "FR/train_new", "french")
     # return
 
     count = gen_e("FR")
-    count.count_e("train_new")
+    count.count_e("FR/train_new")
     trans = estimate_new_transition_parameters("FR/train_new")
 
     path_in = "FR/dev.in"
@@ -282,7 +283,7 @@ def main():
 
     # generate the tags for EN/dev.in
     count = gen_e("EN")
-    count.count_e("train_new")
+    count.count_e("EN/train_new")
     trans = estimate_new_transition_parameters("EN/train_new")
 
     path_in = "EN/dev.in"

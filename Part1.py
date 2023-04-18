@@ -75,10 +75,10 @@ class gen_e:
     def predict_y(self, dataset, filename=""):
 
         #require dataset to be a 2d numpy array
-        print(dataset[0][0])
-        print(self.e.keys())
+        # print(dataset[0][0])
+        # print(self.e.keys())
         y_p = []
-        for k in range(dataset.shape[0]):
+        for k in range(len(dataset)):
             if len(dataset[k]):
                 max_p = 0
                 max_y = ""
@@ -93,8 +93,35 @@ class gen_e:
 
         if(len(filename)):
             with open(self.lang+"/"+filename, "w",encoding="utf8") as file:
-                for y in y_p:
-                    file.write(y+"\n")
+                for i in range(len(dataset)):
+                    file.write((dataset[i][0] if len(dataset[i]) else "")+" "+y_p[i]+"\n")
+
+        return y_p
+    
+    def naive_bayes(self, dataset, filename=""):
+
+        #require dataset to be a 2d numpy array
+        # print(dataset[0][0])
+        # print(self.e.keys())
+        y_p = []
+        total_y = np.sum(list(self.y_count.values()))
+        for k in range(len(dataset)):
+            if len(dataset[k]):
+                max_p = 0
+                max_y = ""
+                for y in self.e.keys():
+                    if self.get_e(y,dataset[k][0])*self.y_count[y]/total_y>max_p:
+                        max_p = self.get_e(y,dataset[k][0])*self.y_count[y]/total_y
+                        max_y = y
+                y_p.append(max_y)
+            else:
+                y_p.append("")
+        print(len(y_p))
+
+        if(len(filename)):
+            with open(self.lang+"/"+filename, "w",encoding="utf8") as file:
+                for i in range(len(y_p)):
+                    file.write((dataset[i][0] if len(dataset[i]) else "")+" "+y_p[i]+"\n")
 
         return y_p
     
@@ -121,6 +148,6 @@ class gen_e:
             return self.k/(self.y_count[y]+self.k)
 
 if __name__ == "__main__":
-    count = gen_e("FR")
-    x_p = np.array(count.read_file("FR/dev.in"))
-    count.predict_y(x_p, "dev.p1.out")
+    count = gen_e("EN")
+    x_p = count.read_file("EN/dev.in")
+    count.naive_bayes(x_p, "dev.p1.out")

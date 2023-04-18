@@ -10,20 +10,20 @@ v I-NP
 seahawks I-ADJP
 sunday B-NP
 
-poll I-NP
-end I-NP
-bihar B-NP
-today B-NP
-count I-VP
-november B-NP
-http I-ADVP
+poll B-INTJ
+end B-INTJ
+bihar B-INTJ
+today B-INTJ
+count B-INTJ
+november B-INTJ
+http B-INTJ
 
 today B-NP
 great I-NP
 day I-NP
 keep B-VP
-get I-VP
-well I-ADVP
+get B-VP
+well I-ADJP
 thank B-VP
 lord B-NP
 
@@ -35,7 +35,7 @@ act B-ADJP
 fake I-ADJP
 today B-NP
 okay B-INTJ
-bcuz B-ADVP
+bcuz B-INTJ
 still B-ADVP
 love B-VP
 
@@ -64,9 +64,9 @@ r B-INTJ
 serious B-INTJ
 noobs B-INTJ
 
-fckn I-ADJP
-emily B-INTJ
-rodriguez I-INTJ
+fckn B-ADJP
+emily B-ADJP
+rodriguez I-ADJP
 bring B-VP
 cooky I-ADJP
 today B-NP
@@ -87,12 +87,12 @@ htc I-VP
 desire B-ADJP
 z I-ADJP
 earlier B-NP
-lo I-ADJP
-http B-SBAR
+lo B-INTJ
+http B-INTJ
 
 lmao B-INTJ
-hurrt B-NP
-rt I-ADJP
+hurrt I-VP
+rt B-INTJ
 every B-NP
 nigga B-NP
 tryna I-VP
@@ -105,7 +105,7 @@ skimp B-VP
 as I-NP
 braid I-ADVP
 
-home B-NP
+home I-NP
 chill I-VP
 guess B-VP
 stay I-VP
@@ -178,20 +178,20 @@ make B-VP
 grownwomanstuff I-ADJP
 shoegasm B-INTJ
 today B-NP
-hahahaha I-ADVP
+hahahaha I-ADJP
 
 even I-VP
 good B-INTJ
-cocktail I-INTJ
-friday I-NP
-http I-ADVP
+cocktail B-INTJ
+friday B-INTJ
+http B-INTJ
 
 keep B-VP
 tell B-VP
 nigger B-ADJP
 happen I-ADJP
 come B-VP
-thursday B-NP
+thursday I-NP
 im B-NP
 inna B-ADJP
 boardroom B-ADJP
@@ -257,20 +257,20 @@ get B-VP
 headline B-ADJP
 print B-ADJP
 anywhere B-ADJP
-religion B-ADJP
-mar I-ADJP
-http B-SBAR
+religion I-ADJP
+mar B-INTJ
+http B-INTJ
 
 ashhleybrookee I-ADJP
 may B-VP
 nasty I-ADJP
-work B-NP
+work B-VP
 
+lhs I-VP
+game I-NP
+go I-VP
+go B-VP
 lhs I-ADJP
-game B-NP
-go I-VP
-go I-VP
-lhs I-INTJ
 
 rt I-ADJP
 damnteenquotes B-INTJ
@@ -298,14 +298,14 @@ week I-NP
 learn I-VP
 hdcp I-INTJ
 copy I-NP
-protection B-ADJP
-scheme I-ADJP
-http B-SBAR
+protection I-ADJP
+scheme B-INTJ
+http B-INTJ
 
 friday I-NP
 night I-NP
-eats I-ADJP
-http B-SBAR
+eats B-INTJ
+http B-INTJ
 
 remember I-VP
 thiiis I-INTJ
@@ -322,8 +322,8 @@ schedule I-NP
 put B-VP
 camarillo I-ADJP
 shelter B-INTJ
-jan B-NP
-http I-ADVP
+jan B-INTJ
+http B-INTJ
 
 strong I-ADJP
 hunch B-INTJ
@@ -331,13 +331,13 @@ adam I-INTJ
 story I-NP
 tmz I-ADJP
 tonight B-NP
-gulp I-ADVP
+gulp I-ADJP
 
 win I-VP
-free B-ADJP
-pampers I-ADJP
-year B-NP
-http I-ADVP
+free I-NP
+pampers B-INTJ
+year B-INTJ
+http B-INTJ
 
 holy I-ADJP
 fuck B-INTJ
@@ -357,12 +357,12 @@ lineup B-INTJ
 tonight B-NP
 keppinger I-ADJP
 sits B-INTJ
-down B-INTJ
-play I-VP
+down B-ADVP
+play B-VP
 cj B-ADJP
-bat B-ADJP
-alysonfooter I-ADJP
-http B-SBAR
+bat I-ADJP
+alysonfooter B-INTJ
+http B-INTJ
 
 rt B-ADJP
 rockerfuckerak I-ADJP
@@ -477,8 +477,8 @@ get B-VP
 cheap B-ADJP
 broom B-ADJP
 ryerson B-ADJP
-ruquidditch I-ADJP
-ram B-SBAR
+ruquidditch B-ADJP
+ram I-ADJP
 
 yeah B-INTJ
 long B-NP
@@ -499,31 +499,31 @@ ten I-ADJP
 different B-NP
 people B-NP
 right B-ADVP
-eduardo B-ADVP
-surita B-VP
-freaking I-ADJP
-http B-SBAR
+eduardo B-VP
+surita I-ADJP
+freaking B-INTJ
+http B-INTJ
 
 favorite I-NP
 youtube B-NP
 video I-NP
 week I-NP
 drama B-NP
-edition I-ADJP
-http B-SBAR
+edition B-INTJ
+http B-INTJ
 
-take I-VP
-get B-VP
-trample I-VP
-justin B-NP
-bieber I-NP
-concert I-NP
-yoiu B-NP
-wake B-VP
-get B-VP
-part B-NP
-try B-VP
-http I-ADJP
+take B-INTJ
+get B-INTJ
+trample B-INTJ
+justin B-INTJ
+bieber B-INTJ
+concert B-INTJ
+yoiu B-INTJ
+wake B-INTJ
+get B-INTJ
+part B-INTJ
+try B-INTJ
+http B-INTJ
 
 first I-NP
 assignment I-ADJP
@@ -558,8 +558,8 @@ http B-INTJ
 
 see I-VP
 ppl B-NP
-celebrate I-ADJP
-birthday B-NP
+celebrate I-VP
+birthday I-NP
 like B-VP
 time I-NP
 year I-NP
@@ -587,11 +587,11 @@ hear B-VP
 week I-NP
 wingo B-ADJP
 tellin B-ADJP
-wood B-ADJP
-scared B-ADJP
+wood I-ADJP
+scared B-VP
+pow B-ADJP
 pow B-ADJP
 pow I-ADJP
-pow B-SBAR
 
 get B-VP
 ta I-ADJP
@@ -610,14 +610,14 @@ find B-VP
 
 rt I-ADJP
 oh B-INTJ
-forget I-VP
-another B-NP
-chance I-NP
-see I-VP
-pink I-NP
-story I-NP
-tonight B-NP
-http I-ADVP
+forget B-INTJ
+another B-INTJ
+chance B-INTJ
+see B-INTJ
+pink B-INTJ
+story B-INTJ
+tonight B-INTJ
+http B-INTJ
 
 joejonas B-ADJP
 nickjonas B-ADJP
@@ -663,7 +663,7 @@ god B-NP
 say B-VP
 day I-NP
 
-msloaf B-ADVP
+msloaf B-INTJ
 though B-ADVP
 agree B-VP
 offensive B-NP
@@ -689,11 +689,11 @@ guygirltweets I-INTJ
 get B-VP
 huge I-NP
 shout B-VP
-out I-ADJP
+out B-ADVP
 tell B-VP
 
 hard I-ADJP
-work B-NP
+work B-VP
 go I-VP
 gym I-NP
 tonight B-NP
@@ -718,15 +718,15 @@ pretty I-INTJ
 bad I-NP
 storm I-ADJP
 last B-NP
-evening I-ADVP
+evening I-NP
 
-rt I-ADJP
-designerdepot B-INTJ
-minimalist I-VP
-web I-INTJ
-design I-NP
-less B-NP
-http I-ADVP
+rt B-ADJP
+designerdepot B-ADJP
+minimalist I-ADJP
+web B-INTJ
+design B-INTJ
+less B-INTJ
+http B-INTJ
 
 bike I-NP
 
@@ -735,32 +735,32 @@ facee I-INTJ
 wild I-NP
 night I-NP
 
-plez I-ADJP
-check B-VP
-http I-ADJP
-blog B-NP
-http I-ADJP
-youtube B-NP
-channel I-ADJP
-u B-NP
-time I-NP
+plez B-INTJ
+check B-INTJ
+http B-INTJ
+blog B-INTJ
+http B-INTJ
+youtube B-INTJ
+channel B-INTJ
+u B-INTJ
+time B-INTJ
 
 jaredleto I-ADJP
 ive B-NP
 concert I-NP
 never I-VP
 get B-VP
-stage B-NP
+stage I-NP
 king I-NP
 queen I-ADVP
 
-http I-VP
-pepsi I-NP
-ring I-VP
-usually B-ADVP
-confirm B-VP
-win I-VP
-nokia I-INTJ
+http B-INTJ
+pepsi B-INTJ
+ring B-INTJ
+usually B-INTJ
+confirm B-INTJ
+win B-INTJ
+nokia B-INTJ
 
 jezkwon I-ADJP
 tweet B-VP

@@ -1,1520 +1,1520 @@
-B-INTJ
-B-CONJP
-B-CONJP
-O
-B-CONJP
-B-VP
-B-VP
-B-ADVP
-I-ADJP
-I-VP
-I-NP
-B-CONJP
-B-PP
-B-NP
-O
-
-B-NP
-B-VP
-I-PP
-B-NP
-B-NP
-O
-B-NP
-B-PP
-B-NP
-I-NP
-O
-
-B-NP
-B-VP
-I-VP
-B-NP
-I-NP
-I-NP
-O
-B-NP
-B-ADVP
-B-CONJP
-I-VP
-I-ADVP
-O
-B-CONJP
-B-NP
-B-CONJP
-O
-
-I-INTJ
-B-NP
-I-NP
-B-VP
-B-CONJP
-B-CONJP
-B-NP
-O
-B-NP
-I-INTJ
-B-CONJP
-B-NP
-B-ADVP
-B-VP
-B-NP
-
-B-CONJP
-B-CONJP
-B-VP
-B-PP
-I-VP
-B-CONJP
-B-ADJP
-B-PP
-B-CONJP
-O
-O
-B-NP
-I-NP
-B-NP
-B-VP
-B-PP
-I-VP
-B-PP
-B-CONJP
-B-NP
-O
-
-B-CONJP
-B-CONJP
-O
-B-NP
-B-VP
-B-NP
-B-VP
-B-CONJP
-B-PP
-B-CONJP
-B-NP
-B-PRT
-O
-B-NP
-B-VP
-B-ADJP
-I-ADJP
-B-ADVP
-B-NP
-I-VP
-B-CONJP
-I-NP
-O
-B-CONJP
-O
-
-B-CONJP
-B-CONJP
-B-CONJP
-B-VP
-I-VP
-I-VP
-B-NP
-B-CONJP
-B-NP
-O
-I-NP
-B-CONJP
-O
-
-B-CONJP
-B-CONJP
-B-CONJP
-B-CONJP
-B-CONJP
-B-CONJP
-B-CONJP
-I-NP
-I-NP
-O
-B-NP
-B-ADVP
-B-VP
-I-NP
-B-INTJ
-I-CONJP
-B-NP
-B-CONJP
-B-CONJP
-B-CONJP
-I-ADVP
-I-PP
-B-CONJP
-O
-B-CONJP
-
-B-CONJP
-O
-B-NP
-B-CONJP
-O
-O
-B-CONJP
-B-ADVP
-B-NP
-B-CONJP
-I-VP
-B-CONJP
-B-NP
-I-NP
-B-PRT
-O
-B-VP
-I-CONJP
-B-VP
-B-SBAR
-B-NP
-I-ADVP
-I-NP
-I-ADVP
-O
-I-INTJ
-B-CONJP
-I-NP
-B-CONJP
-O
-
-B-PP
-I-NP
-B-CONJP
-B-VP
-B-NP
-B-VP
-I-VP
-I-PP
-B-NP
-B-ADVP
-I-NP
-B-NP
-I-NP
-B-VP
-B-ADJP
-O
-B-NP
-B-VP
-B-ADJP
-B-PP
-B-CONJP
-I-NP
-
-B-PP
-B-CONJP
-B-PP
-B-NP
-B-VP
-B-CONJP
-B-NP
-B-CONJP
-B-CONJP
-B-NP
-B-VP
-I-VP
-B-PP
-B-NP
-B-CONJP
-
-B-VP
-B-NP
-I-NP
-B-CONJP
-I-CONJP
-I-NP
-B-PP
-I-NP
-O
-O
-B-CONJP
-B-NP
-B-NP
-I-NP
-B-NP
-B-VP
-B-NP
-B-NP
-B-CONJP
-I-CONJP
-I-NP
-O
-O
-B-NP
-B-CONJP
-B-CONJP
-B-NP
-I-CONJP
-B-NP
-O
-
-B-NP
-B-ADJP
-B-NP
-B-PP
-B-NP
-O
-B-NP
-B-VP
-B-ADJP
-B-CONJP
-B-CONJP
-I-CONJP
-B-NP
-B-CONJP
-B-INTJ
-
-B-CONJP
-O
-O
-B-CONJP
-O
-B-NP
-B-NP
-B-VP
-I-VP
-B-CONJP
-B-NP
-I-NP
-I-PP
-B-NP
-B-VP
-I-VP
-I-PP
-B-CONJP
-I-NP
-B-PP
-B-CONJP
-B-PP
-B-NP
-B-CONJP
-O
-B-CONJP
-B-PP
-B-ADVP
-O
-
-B-NP
-B-NP
-B-VP
-I-NP
-I-PP
-B-NP
-B-CONJP
-B-CONJP
-B-PP
-B-NP
-I-NP
-B-PP
-B-NP
-I-NP
-B-NP
-O
-B-CONJP
-B-NP
-B-CONJP
-B-CONJP
-I-PP
-B-NP
-I-NP
-O
-
-B-VP
-B-CONJP
-I-VP
-B-CONJP
-B-VP
-B-NP
-B-CONJP
-B-NP
-B-CONJP
-
-B-SBAR
-I-ADVP
-I-ADVP
-B-CONJP
-I-NP
-O
-B-CONJP
-
-B-NP
-B-CONJP
-B-CONJP
-B-CONJP
-B-CONJP
-B-CONJP
-O
-B-VP
-B-NP
-B-NP
-B-CONJP
-B-CONJP
-B-ADJP
-I-CONJP
-B-CONJP
-B-CONJP
-B-NP
-B-NP
-O
-O
-O
-B-PP
-B-NP
-B-CONJP
-B-NP
-I-CONJP
-I-NP
-O
-B-NP
-B-CONJP
-O
-
-B-CONJP
-I-NP
-B-NP
-B-CONJP
-B-CONJP
-B-NP
-B-VP
-B-PP
-B-NP
-I-NP
-B-VP
-I-VP
-B-VP
-B-ADJP
-B-ADJP
-B-NP
-B-CONJP
-
-B-CONJP
-B-INTJ
-B-CONJP
-B-ADVP
-B-NP
-I-ADJP
-B-CONJP
-B-NP
-B-VP
-I-VP
-B-SBAR
-B-PP
-B-NP
-B-NP
-B-INTJ
-B-CONJP
-I-INTJ
-B-CONJP
-B-INTJ
-B-CONJP
-
-B-NP
-B-VP
-I-NP
-I-INTJ
-B-CONJP
-B-NP
-B-VP
-I-VP
-I-VP
-B-CONJP
-O
-B-CONJP
-B-NP
-B-CONJP
-I-NP
-B-PP
-B-NP
-I-ADJP
-B-CONJP
-B-VP
-B-ADVP
-I-ADJP
-O
-
-B-CONJP
-B-CONJP
-B-VP
-B-CONJP
-B-NP
-B-CONJP
-I-NP
-B-CONJP
-B-CONJP
-O
-
-B-NP
-B-CONJP
-B-CONJP
-O
-B-CONJP
-B-NP
-B-VP
-B-ADVP
-B-NP
-B-VP
-I-VP
-I-VP
-B-NP
-B-CONJP
-B-CONJP
-B-CONJP
-O
-B-SBAR
-B-CONJP
-B-VP
-B-ADJP
-B-CONJP
-O
-B-CONJP
-
-B-CONJP
-B-NP
-B-VP
-I-VP
-I-ADJP
-O
-O
-B-NP
-B-VP
-O
-
-B-ADJP
-B-NP
-B-VP
-I-VP
-I-ADVP
-B-CONJP
-B-CONJP
-B-ADVP
-B-NP
-B-VP
-B-PP
-B-ADVP
-B-ADVP
-B-NP
-B-VP
-B-PP
-B-CONJP
-
-O
-B-CONJP
-O
-B-NP
-I-VP
-B-ADVP
-B-NP
-B-VP
-B-NP
-B-NP
-O
-B-CONJP
-B-PP
-B-CONJP
-B-VP
-B-CONJP
-I-NP
-O
-B-CONJP
-B-VP
-B-CONJP
-I-PP
-B-CONJP
-B-VP
-I-NP
-O
-B-CONJP
-
-O
-B-CONJP
-O
-B-CONJP
-B-CONJP
-O
-B-NP
-B-CONJP
-B-CONJP
-B-CONJP
-B-CONJP
-O
-B-NP
-I-NP
-O
-B-NP
-B-CONJP
-B-SBAR
-B-NP
-B-CONJP
-I-NP
-B-CONJP
-B-CONJP
-O
-B-CONJP
-
-I-NP
-B-INTJ
-B-CONJP
-B-CONJP
-
-B-NP
-I-VP
-B-ADVP
-B-NP
-B-NP
-B-VP
-B-CONJP
-I-NP
-O
-B-NP
-I-VP
-O
-
-O
-B-CONJP
-O
-B-VP
-I-VP
-B-NP
-B-CONJP
-I-NP
-O
-B-NP
-B-VP
-B-CONJP
-B-PP
-I-VP
-B-VP
-B-PRT
-B-PP
-B-NP
-B-CONJP
-B-CONJP
-B-PP
-B-NP
-B-NP
-B-CONJP
-
-B-NP
-B-VP
-B-NP
-I-ADJP
-B-CONJP
-B-CONJP
-B-VP
-I-VP
-B-NP
-I-NP
-B-PP
-B-CONJP
-B-NP
-O
-B-CONJP
-O
-
-B-VP
-B-ADJP
-B-CONJP
-B-PP
-B-NP
-I-NP
-O
-O
-I-ADVP
-O
-B-CONJP
-
-B-CONJP
-B-CONJP
-B-NP
-B-VP
-B-NP
-B-CONJP
-B-CONJP
-I-NP
-I-VP
-O
-
-B-NP
-B-CONJP
-I-NP
-B-CONJP
-I-PP
-B-ADVP
-B-CONJP
-B-CONJP
-B-CONJP
-B-PRT
-O
-
-B-CONJP
-B-CONJP
-B-PP
-B-NP
-O
-B-CONJP
-B-CONJP
-O
-B-CONJP
-B-CONJP
-B-CONJP
-O
-B-CONJP
-B-CONJP
-B-CONJP
-O
-B-CONJP
-B-CONJP
-
-O
-B-CONJP
-O
-B-NP
-B-VP
-B-VP
-B-VP
-B-VP
-O
-B-ADVP
-I-VP
-B-NP
-B-CONJP
-O
-I-PP
-B-VP
-I-VP
-B-CONJP
-O
-B-CONJP
-B-CONJP
-I-VP
-B-CONJP
-B-ADJP
-B-NP
-O
-O
-B-SBAR
-B-VP
-B-ADVP
-O
-
-B-NP
-B-CONJP
-I-VP
-B-VP
-I-PP
-I-PP
-B-NP
-B-CONJP
-O
-B-CONJP
-I-NP
-O
-B-PP
-I-ADVP
-O
-B-PP
-B-CONJP
-O
-I-PP
-I-NP
-I-ADVP
-B-PP
-B-NP
-B-CONJP
-B-PRT
-B-PP
-B-NP
-B-CONJP
-O
-B-ADVP
-B-CONJP
-O
-B-CONJP
-O
-B-CONJP
-
-O
-B-CONJP
-O
-I-NP
-O
-B-NP
-O
-B-NP
-O
-B-NP
-I-NP
-B-CONJP
-B-VP
-B-PP
-B-NP
-B-CONJP
-B-VP
-I-NP
-B-CONJP
-B-CONJP
-B-PP
-B-NP
-O
-B-INTJ
-
-B-CONJP
-B-CONJP
-I-NP
-I-VP
-O
-
-B-CONJP
-B-NP
-B-VP
-I-VP
-B-CONJP
-B-INTJ
-B-NP
-B-VP
-B-NP
-I-NP
-B-ADVP
-B-CONJP
-B-PP
-B-NP
-B-CONJP
-B-NP
-I-NP
-O
-B-NP
-I-VP
-B-NP
-O
-
-B-CONJP
-B-CONJP
-B-CONJP
-B-NP
-B-PP
-B-PP
-B-CONJP
-B-INTJ
-O
-B-NP
-B-CONJP
-I-NP
-B-CONJP
-I-NP
-B-CONJP
-
-B-CONJP
-B-INTJ
-B-INTJ
-B-ADVP
-B-CONJP
-B-VP
-B-NP
-B-CONJP
-B-NP
-O
-B-INTJ
-
-B-CONJP
-B-INTJ
-O
-B-CONJP
-B-CONJP
-B-CONJP
-B-NP
-I-VP
-B-CONJP
-B-NP
-O
-B-CONJP
-
-B-CONJP
-I-PP
-B-NP
-B-ADVP
-B-VP
-B-NP
-B-NP
-I-NP
-B-CONJP
-B-CONJP
-O
-B-CONJP
-O
-B-NP
-B-VP
-B-ADJP
-B-ADJP
-O
-
-O
-B-CONJP
-O
-B-CONJP
-B-CONJP
-B-ADJP
-B-VP
-B-CONJP
-I-VP
-B-NP
-O
-I-VP
-O
-B-CONJP
-B-CONJP
-B-CONJP
-I-PP
-B-NP
-B-ADVP
-B-NP
-B-VP
-B-ADJP
-O
-B-INTJ
-
-O
-B-CONJP
-B-CONJP
-I-NP
-O
-B-CONJP
-B-CONJP
-I-NP
-B-NP
-B-NP
-B-PP
-B-PP
-I-NP
-B-CONJP
-I-VP
-B-ADVP
-B-PP
-I-VP
-B-CONJP
-B-CONJP
-O
-B-CONJP
-B-CONJP
-B-CONJP
-
-B-CONJP
-B-INTJ
-B-NP
-B-VP
-B-NP
-I-ADVP
-I-NP
-B-ADVP
-B-ADJP
-O
-B-CONJP
-B-PP
-B-NP
-I-ADVP
-B-VP
-I-CONJP
-I-NP
-O
-B-NP
-I-NP
-O
-
-I-NP
-B-NP
-O
-B-CONJP
-B-NP
-B-NP
-B-VP
-B-PP
-I-VP
-B-PP
-B-CONJP
-B-NP
-B-NP
-B-ADVP
-I-ADVP
-I-INTJ
-I-NP
-I-INTJ
-B-CONJP
-B-CONJP
-O
-B-NP
-B-NP
-B-CONJP
-O
-B-CONJP
-
-B-NP
-I-NP
-B-CONJP
-B-CONJP
-B-NP
-I-NP
-O
-B-NP
-B-CONJP
-B-CONJP
-B-CONJP
-
-B-NP
-B-ADVP
-B-VP
-O
-I-PP
-I-VP
-I-VP
-B-PP
-B-NP
-I-NP
-I-NP
-I-NP
-O
-B-NP
-B-VP
-B-PRT
-I-PP
-O
-I-PP
-B-VP
-O
-B-NP
-B-NP
-B-INTJ
-O
-B-VP
-B-NP
-O
-B-CONJP
-
-B-NP
-I-NP
-B-CONJP
-B-VP
-B-NP
-B-CONJP
-B-CONJP
-I-NP
-B-PP
-B-NP
-I-NP
-O
-I-PP
-B-CONJP
-B-PP
-B-NP
-B-CONJP
-O
-B-NP
-B-CONJP
-O
-
-B-CONJP
-B-CONJP
-B-VP
-O
-B-ADVP
-B-NP
-B-VP
-I-VP
-B-CONJP
-B-NP
-I-NP
-B-INTJ
-B-NP
-B-VP
-B-PP
-B-VP
-B-NP
-B-SBAR
-I-NP
-B-VP
-B-CONJP
-B-INTJ
-
-O
-B-NP
-B-VP
-B-NP
-B-PP
-B-NP
-B-CONJP
-O
-B-NP
-B-CONJP
-B-NP
-I-NP
-O
-I-NP
-O
-B-CONJP
-O
-B-CONJP
-B-SBAR
-I-NP
-B-CONJP
-O
-B-CONJP
-B-CONJP
-
-B-NP
-I-VP
-B-NP
-B-NP
-B-CONJP
-B-NP
-B-CONJP
-B-PP
-B-CONJP
-I-NP
-B-NP
-I-NP
-O
-B-INTJ
-O
-
-B-CONJP
-O
-B-CONJP
-O
-B-CONJP
-O
-I-PP
-B-CONJP
-B-VP
-B-CONJP
-B-CONJP
-B-NP
-I-NP
-O
-
-B-ADVP
-I-VP
-B-PP
-B-NP
-O
-B-NP
-B-CONJP
-B-PP
-B-NP
-O
-B-INTJ
-
-O
-B-CONJP
-O
-B-CONJP
-I-NP
-B-NP
-B-CONJP
-B-NP
-I-NP
-O
-B-CONJP
-B-CONJP
-B-NP
-I-PP
-B-CONJP
-O
-O
-B-NP
-B-VP
-B-VP
-O
-B-CONJP
-
-B-VP
-B-VP
-B-NP
-B-CONJP
-B-CONJP
-I-CONJP
-B-CONJP
-B-CONJP
-O
-O
-B-CONJP
-B-CONJP
-I-SBAR
-I-ADVP
-B-VP
-I-NP
-B-PP
-B-CONJP
-O
-B-CONJP
-B-NP
-I-NP
-I-PP
-B-VP
-I-VP
-B-PRT
-O
-
-O
-B-CONJP
-O
-B-INTJ
-O
-I-PP
-B-VP
-I-VP
-I-VP
-B-SBAR
-I-ADVP
-B-VP
-B-NP
-I-NP
-B-PP
-I-VP
-B-CONJP
-O
-B-NP
-B-CONJP
-B-PP
-B-NP
-B-NP
-B-CONJP
-
-B-CONJP
-B-CONJP
-B-CONJP
-B-CONJP
-B-CONJP
-B-CONJP
-B-CONJP
-B-PP
-B-CONJP
-B-CONJP
-B-NP
-O
-
-B-CONJP
-B-NP
-I-VP
-B-PP
-I-VP
-B-PP
-B-NP
-B-PP
-B-CONJP
-
-B-CONJP
-I-INTJ
-O
-B-NP
-O
-
-B-ADJP
-B-NP
-B-VP
-B-CONJP
-B-VP
-B-PP
-I-PP
-I-NP
-I-NP
-I-PP
-I-INTJ
-I-NP
-I-SBAR
-B-NP
-B-VP
-I-VP
-B-PRT
-I-CONJP
-I-ADVP
-B-PP
-B-NP
-I-ADVP
-I-NP
-O
-
-O
-B-CONJP
-O
-O
-I-SBAR
-B-NP
-B-VP
-I-NP
-B-NP
-B-VP
-I-NP
-O
-B-CONJP
-
-B-CONJP
-O
-B-NP
-I-VP
-B-NP
-B-NP
-I-VP
-B-NP
-I-VP
-O
-B-NP
-B-VP
-B-NP
-I-VP
-I-NP
-O
-
-B-CONJP
-B-CONJP
-B-NP
-B-VP
-B-VP
-B-SBAR
-B-NP
-B-VP
-B-NP
-I-PP
-B-VP
-I-VP
-B-CONJP
-B-PP
-B-CONJP
-O
-B-ADVP
-B-NP
-I-NP
-B-VP
-B-PP
-B-NP
-B-NP
-B-VP
-B-PP
-B-CONJP
-O
-O
-B-CONJP
-O
-
-O
-B-CONJP
-O
-O
-I-SBAR
-B-NP
-B-VP
-I-NP
-B-SBAR
-B-NP
-B-VP
-B-NP
-O
-B-INTJ
-
-B-CONJP
-B-NP
-B-VP
-B-PP
-I-VP
-B-CONJP
-B-VP
-I-VP
-I-NP
-B-CONJP
-B-CONJP
-B-PP
-B-NP
-B-INTJ
-B-ADVP
-B-VP
-B-NP
-B-ADVP
-B-NP
-B-VP
-O
-
-B-CONJP
-I-ADJP
-I-VP
-I-VP
-B-PP
-B-NP
-I-NP
-B-PP
-B-NP
-I-NP
-B-NP
-O
-B-CONJP
-B-NP
-I-NP
-B-CONJP
-I-VP
-I-PP
-B-CONJP
-I-CONJP
-B-CONJP
-O
-B-CONJP
-B-PRT
-B-PP
-B-CONJP
-I-ADVP
-
-B-CONJP
-B-NP
-B-VP
-B-NP
-B-CONJP
-B-PP
-B-ADVP
-B-NP
-B-VP
-I-VP
-B-PP
-I-NP
-I-NP
-O
-B-CONJP
-I-NP
-B-CONJP
-B-CONJP
-B-CONJP
-O
-B-CONJP
-I-ADJP
-B-CONJP
-B-ADVP
-B-NP
-I-INTJ
-O
-
-O
-B-CONJP
-O
-B-CONJP
-B-CONJP
-B-CONJP
-O
-B-ADVP
-B-CONJP
-B-VP
-B-NP
-I-INTJ
-B-CONJP
-
-I-INTJ
-I-NP
-B-CONJP
-B-INTJ
-
-B-CONJP
-B-PP
-B-NP
-B-CONJP
-O
-B-CONJP
-I-NP
-O
-
-B-CONJP
-I-VP
-B-CONJP
-I-INTJ
-B-NP
-I-NP
-I-INTJ
-O
-B-CONJP
-I-INTJ
-B-NP
-B-CONJP
-B-CONJP
-I-INTJ
-I-SBAR
-B-NP
-B-VP
-I-NP
-
-B-CONJP
-O
-B-NP
-I-VP
-B-PP
-B-CONJP
-B-CONJP
-B-CONJP
-I-ADVP
-I-PP
-B-NP
-I-VP
-B-VP
-B-NP
-B-PP
-B-NP
-B-CONJP
-B-CONJP
-I-PP
-B-CONJP
-B-INTJ
-B-CONJP
-
-B-CONJP
-B-ADVP
-I-NP
-B-PP
-I-VP
-B-ADJP
-B-CONJP
-B-PP
-O
-B-VP
-B-NP
-B-CONJP
-B-CONJP
-O
-
-B-CONJP
-B-CONJP
-B-CONJP
-B-NP
-B-NP
-B-CONJP
-B-PP
-B-CONJP
-O
-B-CONJP
-B-VP
-B-NP
-B-NP
-I-INTJ
-O
-I-INTJ
-O
-
-B-CONJP
-B-CONJP
-B-NP
-B-VP
-I-VP
-I-VP
-B-CONJP
-B-NP
-I-NP
-O
-B-VP
-I-VP
-B-ADJP
-B-VP
-B-NP
-B-CONJP
-O
-B-NP
-B-VP
-I-VP
-B-PP
-B-CONJP
-B-CONJP
-I-ADVP
-B-NP
-B-NP
-O
-
+NO B-INTJ
+Saints B-NP
+R B-NP
+. O
+Buch B-NP
+might B-VP
+come B-VP
+back B-ADVP
+n I-ADJP
+play I-VP
+vs I-NP
+Seahawks B-NP
+on B-PP
+Sunday B-NP
+?? O
+ 
+Polling B-NP
+ends B-VP
+in B-PP
+Bihar B-NP
+today B-NP
+, O
+counting B-NP
+on B-PP
+November B-NP
+24 I-NP
+http://toi.in/ujtwya O
+ 
+Today B-NP
+has B-VP
+been I-VP
+a B-NP
+GREAT I-NP
+day I-NP
+__AND__ O
+it B-NP
+just B-ADVP
+keeps B-NP
+getting I-VP
+better I-ADVP
+!!! O
+Thank B-NP
+You B-NP
+Lord B-NP
+! O
+ 
+man I-NP
+my B-NP
+twin I-NP
+wanna B-VP
+act B-NP
+fake B-NP
+today B-NP
+but O
+its B-NP
+okay B-INTJ
+bcuz B-NP
+i B-NP
+still B-ADVP
+love B-VP
+you B-NP
+ 
+@iians B-NP
+Id B-NP
+love B-VP
+to B-PP
+see I-VP
+IDWT B-NP
+live I-VP
+from B-PP
+CES B-NP
+. O
+And O
+one B-NP
+day I-NP
+I B-NP
+hope B-VP
+to B-PP
+go I-VP
+to B-PP
+ces B-NP
+myself B-NP
+. O
+ 
+@Team_Panic B-NP
+omg B-INTJ
+, O
+i B-NP
+wish B-VP
+i B-NP
+got B-VP
+paid B-NP
+to B-PP
+freak B-NP
+people B-NP
+out B-PRT
+. O
+it B-NP
+'s B-VP
+so B-ADJP
+funny I-ADJP
+when B-ADVP
+they B-NP
+think B-VP
+you'r B-NP
+serious I-NP
+. O
+noobs B-NP
+. O
+ 
+fckn B-NP
+emily B-NP
+rodriguez B-NP
+did B-VP
+n't I-VP
+bring I-VP
+my B-NP
+cookies B-NP
+today B-NP
+!! O
+lil I-NP
+brat B-NP
+. O
+ 
+Amazon B-NP
+U.K. B-NP
+Offering B-NP
+HTC B-NP
+Desire B-NP
+Z B-NP
+Unlocked B-NP
+October I-NP
+11 I-NP
+: O
+We B-NP
+just B-ADVP
+got B-VP
+official B-NP
+word B-INTJ
+of I-CONJP
+the B-NP
+HTC B-NP
+Desire B-NP
+Z B-NP
+earlier I-ADVP
+in B-PP
+Lo B-NP
+... O
+http://bit.ly/bsyz9H B-NP
+ 
+Lmao B-NP
+.. O
+They B-NP
+#Hurrt B-NP
+! O
+RT O
+@_sofucKENNrude B-NP
+y B-ADVP
+every B-NP
+nigga B-NP
+tryna I-VP
+grow B-NP
+they B-NP
+hair I-NP
+out B-PRT
+. O
+should B-VP
+of I-CONJP
+did B-VP
+that B-SBAR
+a B-NP
+long I-NP
+time I-NP
+ago B-ADVP
+. O
+-_- I-INTJ
+skimp B-NP
+ass I-NP
+braids B-NP
+. O
+ 
+@ B-PP
+home I-NP
+chilling B-NP
+guess B-VP
+I B-NP
+'m B-VP
+staying I-VP
+in B-PP
+2day B-NP
+2 B-ADVP
+rest I-NP
+this B-NP
+week I-NP
+was B-VP
+crazy B-ADJP
+but O
+I B-NP
+'m B-VP
+ready B-ADJP
+for B-PP
+dis B-NP
+weekend I-NP
+ 
+On B-PP
+Thanksgiving B-NP
+after B-PP
+you B-NP
+done B-VP
+eating B-NP
+its B-NP
+#TimeToGetOut B-NP
+unless B-NP
+you B-NP
+wanna B-VP
+help I-VP
+with B-PP
+the B-NP
+dishes B-NP
+ 
+Got B-VP
+another B-NP
+two I-NP
+box B-NP
+of I-CONJP
+chocolate I-NP
+from B-PP
+sister I-NP
+. O
+. O
+Rewind B-NP
+the B-NP
+1st B-NP
+time I-NP
+I B-NP
+gave B-VP
+you B-NP
+a B-NP
+bar I-NP
+of I-CONJP
+chocolate I-NP
+. O
+. O
+Everything B-NP
+pratically B-NP
+remind B-VP
+me B-NP
+of I-CONJP
+you B-NP
+? O
+ 
+tomorrow B-NP
+no B-ADJP
+school B-NP
+for B-PP
+me B-NP
+but O
+I B-NP
+'m B-VP
+so B-ADJP
+anxious B-NP
+beacuse B-NP
+of I-CONJP
+tomorrow B-NP
+omg B-INTJ
+:/ B-INTJ
+ 
+PREACH B-NP
+!! O
+RT O
+@DJRyan1der B-NP
+: O
+These B-NP
+ppl B-NP
+do B-VP
+n't I-VP
+understand B-NP
+its B-NP
+Monday I-NP
+and I-PP
+I B-NP
+'m B-VP
+not I-VP
+in B-PP
+da B-NP
+mood I-NP
+to B-PP
+deal B-VP
+wit B-PP
+their B-NP
+bullshit B-NP
+!! O
+Fukk B-NP
+outta B-PP
+here B-ADVP
+!!! O
+ 
+The B-NP
+guys B-NP
+are B-VP
+cooking I-NP
+about I-PP
+a B-NP
+dozen B-NP
+pizzas B-NP
+at B-PP
+our B-NP
+house I-NP
+for B-PP
+the B-NP
+tailgate I-NP
+tonight B-NP
+. O
+Nonetheless B-NP
+it B-NP
+smells B-NP
+fresh B-VP
+in B-PP
+this B-NP
+place I-NP
+. O
+ 
+Think B-VP
+I'ma B-NP
+make B-VP
+@GrownWomanStuff B-NP
+have B-VP
+a B-NP
+shoegasm B-NP
+today B-NP
+hahahaha B-NP
+ 
+even B-ADVP
+better I-ADVP
+than I-ADVP
+cocktail B-NP
+friday I-NP
+! O
+http://is.gd/ffDb9 B-NP
+ 
+I B-NP
+kept B-NP
+telling B-NP
+niggers B-NP
+it'd B-NP
+happen B-NP
+. O
+Come B-VP
+Thursday B-NP
+im B-NP
+inna B-NP
+boardroom B-NP
+full B-ADJP
+of I-CONJP
+niggers B-NP
+3times B-NP
+my B-NP
+age B-NP
+. O
+. O
+. O
+at B-PP
+the B-NP
+tender B-NP
+age B-NP
+of I-CONJP
+17 I-NP
+!! O
+Im B-NP
+pleased B-NP
+. O
+ 
+Shower B-NP
+time I-NP
+the B-NP
+flyin B-NP
+pilot B-NP
+I B-NP
+was B-VP
+at B-PP
+last B-NP
+night I-NP
+did B-VP
+n't I-VP
+have B-VP
+no B-ADJP
+hot B-ADJP
+water B-NP
+uggghh B-NP
+ 
+@hime8644 B-NP
+LOL B-INTJ
+theres B-NP
+always B-ADVP
+some B-NP
+good I-NP
+vids B-NP
+I B-NP
+didnt B-VP
+see I-VP
+before B-SBAR
+like B-PP
+this B-NP
+one B-NP
+XD B-INTJ
+--- B-NP
+&gt; I-INTJ
+http://www.youtube.com/watch?v=8zJKZJ7TGlU B-NP
+OMG B-INTJ
+*DROOLS* B-NP
+ 
+It B-NP
+is B-VP
+Friday I-NP
+afternoon I-INTJ
+adn B-NP
+I B-NP
+could B-VP
+n't I-VP
+be I-VP
+happier B-NP
+. O
+Ending B-NP
+a B-NP
+crappy B-NP
+week I-NP
+on B-PP
+a B-NP
+good I-NP
+note B-NP
+is B-VP
+always B-ADVP
+nice I-ADJP
+. O
+ 
+LADY B-NP
+GAGA B-NP
+IS B-VP
+BETTER B-NP
+THE B-NP
+5th B-NP
+TIME I-NP
+OH B-NP
+BABY( B-NP
+: O
+ 
+Pope B-NP
+says B-NP
+religion B-NP
+' O
+marginalized': B-NP
+That B-NP
+'s B-VP
+why B-ADVP
+he B-NP
+ca B-VP
+n't I-VP
+get B-VP
+a B-NP
+headline B-NP
+printed B-NP
+anywhere B-NP
+, O
+because B-SBAR
+religion B-NP
+is B-VP
+so B-ADJP
+mar B-NP
+... O
+http://bit.ly/cBvt1u B-NP
+ 
+@ashhleybrookee B-NP
+it B-NP
+may B-VP
+be I-VP
+nasty I-ADJP
+but O
+... O
+it B-NP
+works B-VP
+. O
+ 
+So B-ADJP
+this B-NP
+will B-VP
+be I-VP
+more I-ADVP
+lhs B-NP
+games B-NP
+then B-ADVP
+i B-NP
+went B-VP
+to B-PP
+then B-ADVP
+when B-ADVP
+i B-NP
+went B-VP
+to B-PP
+lhs B-NP
+ 
+RT O
+@DamnTeenQuotes B-NP
+: O
+I B-NP
+remember B-VP
+when B-ADVP
+i B-NP
+was B-VP
+your B-NP
+age B-NP
+, O
+spencer B-NP
+from B-PP
+iCarly B-NP
+was B-VP
+Crazy B-NP
+Steve I-NP
+, O
+Carly B-NP
+was B-VP
+Megan B-NP
+and I-PP
+Josh B-NP
+was B-VP
+fat I-NP
+. O
+#damnteenquotes B-NP
+ 
+[ O
+GigaOM B-NP
+] O
+DRM B-NP
+FAIL B-NP
+: O
+Five B-NP
+Broken B-NP
+Copy B-NP
+Protection B-NP
+Schemes B-NP
+: O
+This B-NP
+week I-NP
+, O
+we B-NP
+learned B-NP
+that B-SBAR
+the B-NP
+HDCP B-NP
+copy I-NP
+protection B-NP
+scheme B-NP
+... O
+http://bit.ly/blWf0e B-NP
+ 
+Friday I-NP
+Night B-INTJ
+Eats B-NP
+http://twitpic.com/2pdvtr B-NP
+ 
+I B-NP
+remember B-VP
+when B-ADVP
+you B-NP
+all B-NP
+were B-VP
+thiiis B-NP
+big I-NP
+, O
+you B-NP
+know B-VP
+? O
+ 
+RT O
+@PeepsMagoo B-NP
+: O
+Please B-VP
+help I-VP
+me B-NP
+save B-VP
+Sunshine I-NP
+. O
+She B-NP
+is B-VP
+scheduled B-NP
+to B-PP
+be I-VP
+put B-VP
+down B-PRT
+at B-PP
+a B-NP
+Camarillo B-NP
+shelter B-NP
+on B-PP
+Jan B-NP
+6 B-NP
+http://fragurl.com/5P B-NP
+ 
+I B-NP
+have B-VP
+a B-NP
+strong I-ADJP
+hunch B-NP
+Adam B-NP
+will B-VP
+be I-VP
+a B-NP
+story I-NP
+on B-PP
+TMZ B-NP
+tonight B-NP
+. O
+Gulp B-NP
+. O
+ 
+WIN B-VP
+FREE B-ADJP
+PAMPERS B-NP
+FOR B-PP
+A B-NP
+YEAR I-NP
+!!! O
+And O
+more I-ADVP
+... O
+http://nblo.gs/80qJu B-NP
+ 
+holy B-NP
+FUCK B-NP
+THIS B-NP
+IS B-VP
+THE B-NP
+MOST B-NP
+BORING B-NP
+DAY I-NP
+EVER I-VP
+. O
+ 
+A B-NP
+TRUE B-NP
+friend I-NP
+walks B-NP
+in B-PP
+when B-ADVP
+everybody B-NP
+else B-SBAR
+walks B-NP
+out B-PRT
+! O
+ 
+#Astros B-NP
+lineup B-NP
+for B-PP
+tonight B-NP
+. O
+Keppinger B-NP
+sits B-NP
+, O
+Downs B-NP
+plays B-NP
+2B B-NP
+, O
+CJ B-NP
+bats B-NP
+5th B-NP
+. O
+@alysonfooter B-NP
+http://bit.ly/bHvgCS B-NP
+ 
+RT O
+@rockerfuckerak B-NP
+: O
+What B-NP
+'s B-VP
+done B-VP
+is B-VP
+done B-VP
+, O
+Just B-ADVP
+leave I-VP
+it B-NP
+alone B-NP
+, O
+and I-PP
+do B-VP
+n't I-VP
+regret B-NP
+. O
+Sometimes B-NP
+somethings B-NP
+turn B-VP
+in-to B-NP
+dumb B-ADJP
+things B-NP
+. O
+And O
+that B-SBAR
+'s B-VP
+when B-ADVP
+... O
+ 
+Long B-NP
+18k B-NP
+run I-VP
+done B-VP
+and I-PP
+in B-PP
+the B-NP
+books B-NP
+! O
+Beauty B-NP
+day I-NP
+. O
+Til B-PP
+now I-ADVP
+, O
+at B-PP
+dentist B-NP
+, O
+and I-PP
+lady I-NP
+next B-NP
+to B-PP
+me B-NP
+spilling B-NP
+over B-PRT
+to B-PP
+my B-NP
+chair B-NP
+.. O
+Just B-ADVP
+belched B-NP
+. O
+Loudly B-NP
+. O
++1 B-NP
+ 
+RT O
+@JupiterStorm B-NP
+: O
+1 I-NP
+. O
+6 B-NP
+. O
+2011 B-NP
+. O
+The B-NP
+day I-NP
+@owlcity B-NP
+went B-VP
+on B-PP
+an B-NP
+Emporer B-NP
+'s B-VP
+New I-NP
+Groove B-NP
+rampage B-NP
+through B-PP
+twitter B-NP
+. O
+xD B-INTJ
+ 
+hows B-NP
+everyones B-NP
+day I-NP
+goin B-VP
+? O
+ 
+@PERSONGUY6661 B-NP
+I B-NP
+have B-VP
+n't I-VP
+unfortunately B-NP
+:( B-INTJ
+I B-NP
+missed B-VP
+the B-NP
+chance I-NP
+when B-ADVP
+theycame B-NP
+to B-PP
+the B-NP
+uk B-NP
+this B-NP
+year I-NP
+, O
+you B-NP
+seen I-VP
+them B-NP
+? O
+ 
+@Yeweezii B-NP
+Jst B-NP
+lock B-NP
+her B-NP
+outside B-PP
+4 B-PP
+d B-NP
+nite B-INTJ
+. O
+It B-NP
+workz B-NP
+al I-NP
+d B-NP
+time I-NP
+:-D B-NP
+ 
+@keancipriano B-NP
+hey B-INTJ
+:) B-INTJ
+where B-ADVP
+exactly B-INTJ
+is B-VP
+your B-NP
+gig B-NP
+tonight B-NP
+? O
+:) B-INTJ
+ 
+@YoDayDay B-NP
+Nope B-INTJ
+! O
+*lil B-NP
+kid B-NP
+voice* B-NP
+im B-NP
+being I-VP
+stingy B-NP
+tonight B-NP
+!! O
+*hmph* B-NP
+ 
+@Phoebe1_ B-NP
+and I-PP
+i B-NP
+also B-ADVP
+loved B-VP
+the B-NP
+last B-NP
+years I-NP
+eurovision B-NP
+entry B-NP
+!! O
+hoppaa B-NP
+! O
+they B-NP
+were B-VP
+cool B-ADJP
+too B-ADJP
+!! O
+ 
+" O
+@DJDROC B-NP
+: O
+#beforeserato B-NP
+djs B-NP
+actually B-ADVP
+used B-VP
+headphones B-NP
+believe I-VP
+it B-NP
+or O
+not I-VP
+" O
+--- B-NP
+except B-NP
+majestic B-NP
+and I-PP
+me B-NP
+when B-ADVP
+we B-NP
+were B-VP
+drunk B-ADJP
+... O
+haha B-INTJ
+ 
+RT O
+@robmoysey B-NP
+Eyeopener B-NP
+vs I-NP
+. O
+Ryerson B-NP
+Quidditch B-NP
+team I-NP
+this B-NP
+Sunday B-NP
+at B-PP
+4 B-PP
+p.m. I-NP
+Anyone B-NP
+know B-VP
+where B-ADVP
+to B-PP
+get B-VP
+cheap B-NP
+brooms B-NP
+? O
+#Ryerson B-NP
+@RUQuidditch B-NP
+#Rams B-NP
+ 
+@yoopergirl89 B-NP
+Yeah B-INTJ
+it B-NP
+was B-VP
+a B-NP
+long I-NP
+week I-NP
+here B-ADVP
+too B-ADJP
+. O
+Luckily B-NP
+for B-PP
+me B-NP
+next B-NP
+is B-VP
+only I-CONJP
+Monday I-NP
+__AND__ O
+Tuesday B-NP
+week I-NP
+. O
+ 
+Day I-NP
+One B-NP
+: O
+Ten B-NP
+things B-NP
+you B-NP
+want B-VP
+to B-PP
+say B-VP
+to B-PP
+ten B-NP
+different B-NP
+people B-NP
+right B-ADVP
+now I-ADVP
+- I-INTJ
+1 I-NP
+) I-INTJ
+Eduardo B-NP
+Surita B-NP
+: O
+your B-NP
+a B-NP
+freaking B-NP
+... O
+http://tumblr.com/xmciuda0t B-NP
+ 
+Our B-NP
+Favorite I-NP
+YouTube B-NP
+Videos B-NP
+This B-NP
+Week I-NP
+: O
+The B-NP
+Drama B-NP
+Edition B-NP
+http://dlvr.it/5RfHy B-NP
+ 
+I B-NP
+just B-ADVP
+took B-VP
+" O
+After I-PP
+getting I-VP
+trampled I-VP
+at B-PP
+a B-NP
+Justin I-NP
+Bieber I-NP
+concert I-NP
+, O
+yoiu B-NP
+wake B-VP
+up B-PRT
+and I-PP
+..." O
+and I-PP
+got B-VP
+: O
+Part B-NP
+6 B-NP
+:) B-INTJ
+! O
+Try B-VP
+it B-NP
+: O
+http://tinyurl.com/233u5lu B-NP
+ 
+My B-NP
+first I-NP
+assignment B-NP
+was B-VP
+a B-NP
+medical B-NP
+illustration B-NP
+job I-NP
+through B-PP
+a B-NP
+friend I-NP
+. O
+After I-PP
+meeting B-NP
+with B-PP
+the B-NP
+surgeon B-NP
+, O
+I B-NP
+comple B-NP
+... O
+ 
+@Elinor_Althani B-NP
+ahhhh B-NP
+reading B-VP
+, O
+still B-ADVP
+i B-NP
+did B-VP
+n't I-VP
+finish B-VP
+my B-NP
+book I-NP
+=( B-INTJ
+i B-NP
+have B-VP
+to B-PP
+do B-VP
+it B-NP
+before B-SBAR
+Feb I-NP
+ends B-VP
+inshallah B-NP
+:) B-INTJ
+ 
+@justinbieber O
+I B-NP
+have B-VP
+this B-NP
+on B-PP
+my B-NP
+computer B-NP
+, O
+it B-NP
+gives B-NP
+me B-NP
+days I-NP
+, O
+hours I-NP
+, O
+mintues B-NP
+__AND__ O
+seconds B-NP
+till B-SBAR
+Feb I-NP
+9th B-NP
+! O
+#purpleglasses B-NP
+http://twitpic.com/3nouem B-NP
+ 
+i B-NP
+see I-VP
+some B-NP
+ppl B-NP
+celebrating B-NP
+their B-NP
+birthdays B-NP
+like B-PP
+2-3 B-NP
+times I-NP
+a B-NP
+year I-NP
+... O
+WTF B-INTJ
+?! O
+ 
+Class B-NP
+, O
+intelligence B-NP
+, O
+honesty B-NP
+, O
+and I-PP
+morals B-NP
+are B-VP
+non B-NP
+existent B-NP
+these B-NP
+days I-NP
+. O
+ 
+still B-ADVP
+fly I-VP
+from B-PP
+yesterday B-NP
+.... O
+same B-NP
+clothes B-NP
+from B-PP
+yesterday B-NP
+... O
+lmao B-INTJ
+ 
+RT O
+@Luq_Combs B-NP
+: O
+Funniest B-NP
+thing I-NP
+I B-NP
+heard B-NP
+this B-NP
+week I-NP
+. O
+Wingo B-NP
+tellin B-NP
+me B-NP
+and I-PP
+wood B-NP
+. O
+" O
+I B-NP
+'m B-VP
+scared B-VP
+" O
+#pow#pow#pow@Cowboy_Wingo B-NP
+ 
+Gotta B-VP
+love B-VP
+the B-NP
+bumper B-NP
+stickers B-NP
+of I-CONJP
+Fayette B-NP
+County B-NP
+: O
+" O
+Ever B-NP
+wonder B-NP
+if I-SBAR
+there I-ADVP
+is B-VP
+life I-NP
+after B-PP
+death B-NP
+? O
+Touch B-NP
+my B-NP
+truck I-NP
+and I-PP
+'ll B-VP
+find B-VP
+out B-PRT
+." O
+ 
+RT O
+@4MusicGossip B-NP
+: O
+Oh B-INTJ
+, O
+and I-PP
+do B-VP
+n't I-VP
+forget I-VP
+that B-SBAR
+there I-ADVP
+'s B-VP
+another B-NP
+chance I-NP
+to B-PP
+see I-VP
+@pink B-NP
+: O
+My B-NP
+Story B-NP
+at B-PP
+7pm B-NP
+tonight B-NP
+http://bit.ly/hLAnXp B-NP
+ 
+@joejonas B-NP
+@nickjonas B-NP
+@kevinjonas B-NP
+@papajonas B-NP
+@greggarbo B-NP
+@johnlloydtaylor B-NP
+Rock B-NP
+to B-PP
+SECTION B-NP
+204 B-NP
+tonight B-NP
+!!!! O
+ 
+@christinamarks_ B-NP
+u B-NP
+try B-VP
+to B-PP
+be I-VP
+like B-PP
+April B-NP
+on B-PP
+youtube B-NP
+ 
+@MeredithLim B-NP
+No I-INTJ
+. O
+Tomorrow B-NP
+. O
+ 
+So B-ADJP
+I B-NP
+'m B-VP
+currently B-NP
+looking B-VP
+at B-PP
+about I-PP
+5 I-NP
+years I-NP
+and I-PP
+3 I-INTJ
+months I-NP
+if I-SBAR
+I B-NP
+can B-VP
+get B-VP
+out B-PRT
+of I-CONJP
+there I-ADVP
+within B-PP
+the B-NP
+next B-NP
+month I-NP
+. O
+ 
+RT O
+@OMGwhatateen B-NP
+: O
+RT O
+if I-SBAR
+you B-NP
+are B-VP
+happy B-NP
+it B-NP
+'s B-VP
+friday I-NP
+. O
+#OMGwhatateen B-NP
+ 
+#blackholidays B-NP
+" O
+National B-NP
+forget I-VP
+the B-NP
+he B-NP
+say B-VP
+she B-NP
+say B-VP
+... O
+what B-NP
+do B-VP
+God B-NP
+say B-VP
+day I-NP
+" O
+ 
+@msloaf B-NP
+Though B-NP
+I B-NP
+do B-VP
+agree B-VP
+that B-SBAR
+it B-NP
+is B-VP
+offensive B-NP
+and I-PP
+would B-VP
+be I-VP
+difficult B-NP
+to B-PP
+explain B-NP
+. O
+When B-ADVP
+this B-NP
+stuff I-NP
+happens B-VP
+to B-PP
+me B-NP
+I B-NP
+want B-VP
+to B-PP
+yell B-NP
+, O
+" O
+URDUMB B-NP
+!" O
+ 
+RT O
+@Eeenie_Meenie B-NP
+: O
+RT O
+if I-SBAR
+you B-NP
+are B-VP
+happy B-NP
+that B-SBAR
+today B-NP
+is B-VP
+FRIDAY B-NP
+! O
+:) B-INTJ
+ 
+People B-NP
+who B-NP
+tweet B-VP
+to B-PP
+follow I-VP
+@GuyGirlTweets B-NP
+will B-VP
+get B-VP
+huge I-NP
+shout B-VP
+outs B-NP
+from B-PP
+me B-NP
+:) B-INTJ
+Just B-ADVP
+tell B-VP
+me B-NP
+when B-ADVP
+you B-NP
+do B-VP
+! O
+ 
+Was B-NP
+hard B-NP
+work B-NP
+going I-VP
+to B-PP
+the B-NP
+gym I-NP
+on B-PP
+my B-NP
+own I-NP
+tonight B-NP
+but O
+managed B-NP
+a B-NP
+30 I-NP
+min I-NP
+run I-VP
+and I-PP
+plenty B-NP
+of I-CONJP
+weights B-NP
+. O
+Catching B-NP
+up B-PRT
+on B-PP
+ufc B-NP
+now I-ADVP
+ 
+@paulwalk B-NP
+It B-NP
+'s B-VP
+the B-NP
+view B-NP
+from B-PP
+where B-ADVP
+I B-NP
+'m B-VP
+living I-NP
+for B-PP
+two I-NP
+weeks I-NP
+. O
+Empire B-NP
+State I-NP
+Building B-NP
+= B-NP
+ESB B-NP
+. O
+Pretty B-NP
+bad I-NP
+storm B-NP
+here B-ADVP
+last B-NP
+evening I-INTJ
+. O
+ 
+RT O
+@DesignerDepot B-NP
+: O
+Minimalist B-NP
+Web B-NP
+Design B-NP
+: O
+When B-ADVP
+Less B-NP
+is B-VP
+More B-NP
+- I-INTJ
+http://ow.ly/2FwyX B-NP
+ 
+No I-INTJ
+bike I-NP
+t'day B-NP
+:( B-INTJ
+ 
+bruise B-NP
+on B-PP
+my B-NP
+facee B-NP
+... O
+wild I-NP
+night I-NP
+! O
+ 
+plez B-NP
+check B-VP
+https://owensoto.wordpress.com/ B-NP
+( I-INTJ
+my B-NP
+blog I-NP
+) I-INTJ
+__AND__ O
+http://www.youtube.com/user/22Soto22?feature=mhum B-NP
+( I-INTJ
+my B-NP
+youtube B-NP
+channel B-NP
+) I-INTJ
+if I-SBAR
+u B-NP
+have B-VP
+time I-NP
+ 
+@jaredleto B-NP
+... O
+ive B-NP
+been I-VP
+to B-PP
+13 B-NP
+30stm B-NP
+concerts B-NP
+now I-ADVP
+and I-PP
+you B-NP
+never I-VP
+got B-VP
+me B-NP
+on B-PP
+stage B-NP
+during/before B-NP
+kings B-NP
+and I-PP
+queens B-NP
+:( B-INTJ
+(( B-NP
+ 
+http://bit.ly/aTTQYq B-NP
+When B-ADVP
+Pepsi I-NP
+to B-PP
+ring I-VP
+usually B-ADVP
+confirm B-VP
+to B-PP
+, O
+winning B-VP
+a B-NP
+Nokia B-NP
+5800 B-NP
+? O
+ 
+@Jezkwon B-NP
+@kpop_stuff B-NP
+Tweet B-NP
+me B-NP
+a B-NP
+member B-NP
+for B-PP
+picspam B-NP
+. O
+Will B-NP
+do B-VP
+them B-NP
+tomorrow B-NP
+morning I-NP
+. O
+( I-INTJ
+: O
+ 
+@BexsterBexster B-NP
+@shinobi32768 B-NP
+I B-NP
+'ve B-VP
+been I-VP
+having I-VP
+soup B-NP
+all B-NP
+week I-NP
+, O
+do B-VP
+n't I-VP
+really B-ADVP
+have B-VP
+a B-NP
+favourite I-NP
+. O
+It B-NP
+'s B-VP
+starting I-VP
+to B-PP
+taste B-NP
+pretty B-NP
+much I-ADVP
+the B-NP
+same B-NP
+. O
+ 
