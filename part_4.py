@@ -233,8 +233,8 @@ def train_preprocess(path_in, path_out, lang):
             data_out.append("")
             sentence = []
             sentence_tags = []
-        elif tag != "O":
-        # else:
+        # elif tag != "O":
+        else:
             sentence.append(word)
             sentence_tags.append(tag)
     with open(path_out, "w", encoding="utf-8") as f_out:
