@@ -76,6 +76,8 @@ def viterbi(sentence: str, transition: dict, emission: gen_e) -> tuple:
 
     states = [key for key in transition.keys() if key != "START"]
 
+    print("states:",states)
+
     # initialize the viterbi matrix
     viterbi = np.zeros((len(words), len(states)))
     backpointer = np.zeros((len(words)-1, len(states)))
@@ -86,6 +88,7 @@ def viterbi(sentence: str, transition: dict, emission: gen_e) -> tuple:
             key, 0) * emission.get_e(key, words[0]))
     # fill in the rest of the matrix
     for i in range(1, len(words)):
+        print(i, words[i])
         for j, tag in enumerate(states):
             # get probabilities for each state
             prob = [viterbi[i-1, k] + np.log(get_transition_probabilities(transition, states[k], tag)) + np.log(
@@ -96,6 +99,8 @@ def viterbi(sentence: str, transition: dict, emission: gen_e) -> tuple:
     S = np.zeros(len(words))
     last_state = np.argmax(viterbi[len(words) - 1, :])
     S[0] = last_state
+
+    print(viterbi)
 
     backtrack_index = 1
     for i in range(len(words) - 2, -1, -1):
@@ -112,34 +117,37 @@ def viterbi(sentence: str, transition: dict, emission: gen_e) -> tuple:
 
 if __name__ == "__main__":
     # generate the tags for FR/dev.in
-    count = gen_e("FR")
-    trans = estimate_transition_parameters("FR/train")
+    # count = gen_e("FR")
+    # trans = estimate_transition_parameters("FR/train")
 
-    path_in = "FR/dev.in"
-    path_out = "FR/dev.p2.out"
-    with open(path_in, 'r') as f:
-        data = f.read()
-    sentences = data.split("\n\n")[:-1]
+    # path_in = "FR/dev.in"
+    # path_out = "FR/dev.p2.out"
+    # with open(path_in, 'r') as f:
+    #     data = f.read()
+    # sentences = data.split("\n\n")[:-1]
 
-    tags = [viterbi(sentence, trans, count) for sentence in sentences]
+    # tags = [viterbi(sentence, trans, count) for sentence in sentences]
 
-    output = []
-    for i, sentence in enumerate(sentences):
-        words = sentence.split("\n")
-        for j, word in enumerate(words):
-            output.append(word + " " + tags[i][j])
-        output.append("")
-    final = "\n".join(output)
-    final = final + "\n"
-    with open(path_out, 'w') as f:
-        f.write(final)
+    # output = []
+    # for i, sentence in enumerate(sentences):
+    #     words = sentence.split("\n")
+    #     for j, word in enumerate(words):
+    #         output.append(word + " " + tags[i][j])
+    #     output.append("")
+    # final = "\n".join(output)
+    # final = final + "\n"
+    # with open(path_out, 'w') as f:
+    #     f.write(final)
 
     # generate the tags for EN/dev.in
     count = gen_e("EN")
     trans = estimate_transition_parameters("EN/train")
 
-    path_in = "EN/dev.in"
-    path_out = "EN/dev.p2.out"
+    # print("transition probabilities")
+    # print(trans)
+
+    path_in = "EN/dev_test.in"
+    path_out = "EN/dev_test.p2.out"
     with open(path_in, 'r') as f:
         data = f.read()
     sentences = data.split("\n\n")[:-1]
