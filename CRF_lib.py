@@ -3,6 +3,7 @@ from itertools import chain
 import nltk
 import sklearn
 import scipy.stats
+from scipy.optimize import minimize
 from sklearn.metrics import make_scorer
 from sklearn.model_selection import cross_val_score
 from sklearn.model_selection import RandomizedSearchCV
@@ -110,10 +111,29 @@ def get_words(filename):
 
     return words
 
+x_train, y_train = gen_xy("EN/train")
+
+def cost(p):
+
+    crf = sklearn_crfsuite.CRF(
+        algorithm='lbfgs',
+        c1=p[0],
+        c2=p[1],
+        max_iterations=100,
+        all_possible_transitions=True
+    )
+    crf.fit(x_train, y_train)
+
+    x_test,y_test = gen_xy("EN/dev.out")
+
+    y_pred = crf.predict(x_test)
+
+    print(metrics.flat_f1_score(y_test, y_pred,average='weighted'))
+
+    return 1-metrics.flat_f1_score(y_test, y_pred,average='weighted')
+
 if __name__ == "__main__":
     print("hello world!")
-
-    x_train, y_train = gen_xy("FR/train")
 
     # print(words_train)
     # print(y_train)
@@ -122,24 +142,30 @@ if __name__ == "__main__":
 
     ###Training###
 
+    #Best c1 and c2 for FR: [0.11246274, 0.07448621]
+    #Best c1 and c2 for EN: [0.10365608 0.10154963]
+
+    #1e-8 error acceptable in convergence
+    res = minimize(cost, [0.1,0.1], method='nelder-mead', options={'xatol':1e-8,'disp':True})
+
+    print(res.x)
+
     crf = sklearn_crfsuite.CRF(
         algorithm='lbfgs',
-        c1=0.1,
-        c2=0.1,
+        c1=res.x[0],
+        c2=res.x[1],
         max_iterations=100,
         all_possible_transitions=True
     )
     crf.fit(x_train, y_train)
 
-    x_test,y_test = gen_xy("FR/dev.out")
+    x_test,y_test = gen_xy("EN/dev.out")
 
     y_pred = crf.predict(x_test)
-    print(metrics.flat_f1_score(y_test, y_pred,
-    average='weighted'))
+    
+    words = get_words("EN/dev.in")
 
-    words = get_words("FR/dev.in")
-
-    fileout = "FR/dev.crf.out"
+    fileout = "EN/dev.crf.out"
 
     with open(fileout, "w",encoding="utf8") as file:
         for i in range(len(words)):

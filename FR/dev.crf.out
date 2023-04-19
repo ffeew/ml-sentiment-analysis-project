@@ -361,7 +361,7 @@ divin O
 ) O
 . O
 
-Personnel B-negative
+Personnel B-positive
 hyper O
 sympa O
 et O
@@ -893,7 +893,7 @@ Ce O
 restaurant O
 sur O
 le O
-port B-positive
+port O
 à O
 attirer O
 notre O
@@ -1847,7 +1847,7 @@ boutique O
 J'ai O
 mangé O
 un O
-poulet O
+poulet B-negative
 surcruit O
 et O
 très O
@@ -1964,7 +1964,7 @@ prix O
 prohibitifs O
 pour O
 un O
-dîner O
+dîner B-positive
 très O
 moyen O
 en O
@@ -2988,8 +2988,8 @@ mangé O
 ) O
 , O
 le O
-poulet O
-croustillant O
+poulet B-negative
+croustillant I-negative
 ne O
 l'est O
 pas O
@@ -3684,9 +3684,9 @@ très O
 vite O
 ? O
 
-Menus B-negative
-à O
-prix O
+Menus B-neutral
+à I-neutral
+prix I-neutral
 raisonables O
 et O
 très O

@@ -323,8 +323,8 @@ place I-NP
 Think B-VP
 I'ma I-VP
 make I-VP
-@GrownWomanStuff I-VP
-have I-VP
+@GrownWomanStuff O
+have B-VP
 a B-NP
 shoegasm I-NP
 today B-NP
@@ -362,9 +362,9 @@ age I-NP
 at B-PP
 the B-NP
 tender I-NP
-age B-PP
-of B-NP
-17 I-NP
+age I-NP
+of B-PP
+17 B-NP
 !! O
 Im B-NP
 pleased I-NP
@@ -418,7 +418,7 @@ I B-NP
 could B-VP
 n't I-VP
 be I-VP
-happier I-VP
+happier B-NP
 . O
 Ending B-VP
 a B-NP
@@ -670,8 +670,8 @@ RT O
 @rockerfuckerak O
 : O
 What B-NP
-'s B-VP
-done B-NP
+'s B-NP
+done I-NP
 is B-VP
 done I-VP
 , O
@@ -683,7 +683,7 @@ alone I-NP
 and O
 do B-VP
 n't I-VP
-regret I-VP
+regret B-NP
 . O
 Sometimes B-NP
 somethings I-NP
@@ -710,7 +710,7 @@ books I-NP
 Beauty B-NP
 day I-NP
 . O
-Til B-INTJ
+Til B-NP
 now B-ADVP
 , O
 at B-PP
@@ -802,7 +802,7 @@ workz I-NP
 al I-NP
 d I-NP
 time I-NP
-:-D O
+:-D I-NP
 
 @keancipriano O
 hey B-INTJ
@@ -1379,9 +1379,9 @@ Building I-NP
 = I-NP
 ESB I-NP
 . O
-Pretty B-ADJP
-bad I-ADJP
-storm I-ADJP
+Pretty B-NP
+bad I-NP
+storm I-NP
 here B-ADVP
 last B-NP
 evening I-NP
@@ -1401,8 +1401,8 @@ More B-NP
 - O
 http://ow.ly/2FwyX O
 
-No B-INTJ
-bike I-INTJ
+No B-NP
+bike I-NP
 t'day O
 :( B-INTJ
 
@@ -1452,15 +1452,15 @@ on B-PP
 stage B-NP
 during/before O
 kings B-NP
-and O
-queens O
+and I-NP
+queens I-NP
 :( B-INTJ
 (( I-INTJ
 
 http://bit.ly/aTTQYq O
 When B-ADVP
-Pepsi B-VP
-to I-VP
+Pepsi B-NP
+to B-VP
 ring I-VP
 usually B-ADVP
 confirm B-VP
@@ -1487,8 +1487,8 @@ them B-NP
 tomorrow B-NP
 morning I-NP
 . O
-( B-INTJ
-: I-INTJ
+( O
+: O
 
 @BexsterBexster O
 @shinobi32768 O
