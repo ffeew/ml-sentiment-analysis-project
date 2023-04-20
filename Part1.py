@@ -138,20 +138,16 @@ class gen_e:
             self.x = file.read().split("\n")
 
     def get_e(self, y, o):
-        if(y!="O"):
-            senti = y.split("-")[1]
-        else:
-            senti = y
-        max_p = 0
-        for y_ in self.e.keys():
-            if o in self.x:
-                if o in self.e[y_].keys() and (senti in y_) and self.e[y_][o]>max_p:
-                    max_p = self.e[y_][o]
+
+        if o in self.x:
+            if o in self.e[y].keys():
+                return self.e[y][o]
             else:
-                # if (senti in y_) and self.k/(self.y_count[y_]+self.k)>max_p:
-                #     max_p = self.k/(self.y_count[y_]+self.k)
-                max_p = 1
-        return max_p
+                return 0
+        else:
+            # if (senti in y_) and self.k/(self.y_count[y_]+self.k)>max_p:
+            return self.k/(self.y_count[y]+self.k)
+
     
     def get_p(self, y, o):
 
