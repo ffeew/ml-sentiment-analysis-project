@@ -57,53 +57,6 @@ def gen_features(words):
 
     return features
 
-def gen_features2(words,tags):
-
-    features = []
-
-    for i in range(len(words)):
-
-        ft = {
-            'bias':1.0,
-            'word.length':len(words[i]),
-            'word.lower()':words[i].lower(),
-            'word.isupper()':words[i].isupper(),
-            'word.istitle()':words[i].istitle(),
-            'word.isdigit()':words[i].isdigit(),
-            'word.isalnum()':words[i].isalnum(),
-            'word[-2:]':words[i][-2:]
-        }
-
-        if i>0:
-
-            ft.update({
-                '-1:word.lower()':words[i-1].lower(),
-                '-1:word.isupper()':words[i-1].isupper(),
-                '-1:word.istitle()':words[i-1].istitle(),
-                '-1:word.isdigit()':words[i-1].isdigit(),
-                '-1:tag':tags[i-1]
-            })
-
-        else:
-            ft["BOS"] = True
-
-        if i< len(words)-1:
-
-            ft.update({
-                '+1:word.lower()':words[i+1].lower(),
-                '+1:word.isupper()':words[i+1].isupper(),
-                '+1:word.istitle()':words[i+1].istitle(),
-                '+1:word.isdigit()':words[i+1].isdigit(),
-                '+1:tag':tags[i+1]
-            })
-
-        else:
-            ft["EOS"] = True
-
-        features.append(ft)
-
-    return features
-
 def words2features(words):
 
     return [gen_features(sentence) for sentence in words]
@@ -160,70 +113,74 @@ def get_words(filename):
 
     return words
 
-x_train, y_train = gen_xy("EN/train")
+class optimizer:
 
-def cost(p):
+    def __init__(self,lang):
 
-    crf = sklearn_crfsuite.CRF(
-        algorithm='lbfgs',
-        c1=p[0],
-        c2=p[1],
-        max_iterations=100,
-        all_possible_transitions=True
-    )
-    crf.fit(x_train, y_train)
-    
-    labels = list(crf.classes_)
+        self.x_train, self.y_train = gen_xy(lang+"/train")
 
-    labels.remove('O')
+    def cost(self, p):
 
-    x_test,y_test = gen_xy("EN/dev.out")
+        crf = sklearn_crfsuite.CRF(
+            algorithm='lbfgs',
+            c1=p[0],
+            c2=p[1],
+            max_iterations=100,
+            all_possible_transitions=True
+        )
+        crf.fit(self.x_train, self.y_train)
+        
+        labels = list(crf.classes_)
 
-    y_pred = crf.predict(x_test)
+        labels.remove('O')
 
-    print(metrics.flat_f1_score(y_test, y_pred,average='weighted',labels=labels))
+        x_test,y_test = gen_xy("EN/dev.out")
 
-    return 1-metrics.flat_f1_score(y_test, y_pred,average='weighted',labels=labels)
+        y_pred = crf.predict(x_test)
 
-if __name__ == "__main__":
-    print("hello world!")
+        print(metrics.flat_f1_score(y_test, y_pred,average='weighted',labels=labels))
 
-    # print(words_train)
-    # print(y_train)
+        return 1-metrics.flat_f1_score(y_test, y_pred,average='weighted',labels=labels)
 
-    #print(x_train[:10])
+def train_predict(lang):
 
-    ###Training###
+    best_params = {"EN":[0.1075, 0.09], "FR":[0.09875066, 0.09940136]}
 
-    #Best c1 and c2 for FR: [0.09875066 0.09940136]
-    #Best c1 and c2 for EN: [0.1075     0.09000002]
+    opt = optimizer(lang)
 
     #1e-8 error acceptable in convergence
-    res = minimize(cost, [0.1,0.1], method='nelder-mead', options={'xatol':1e-8,'disp':True})
-
-    print(res.x)
+    # res = minimize(opt.cost, best_params[lang], method='nelder-mead', options={'xatol':1e-8,'disp':True})
 
     crf = sklearn_crfsuite.CRF(
         algorithm='lbfgs',
-        c1=res.x[0],
-        c2=res.x[1],
+        c1=best_params[lang][0],
+        c2=best_params[lang][1],
         max_iterations=100,
         all_possible_transitions=True
     )
-    crf.fit(x_train, y_train)
+    crf.fit(opt.x_train, opt.y_train)
 
-    # x_test,y_test = gen_xy("FR/dev.out")
-
-    x_test = get_words("FR/test.in")
+    x_test = get_words(lang+"/test.in")
 
     y_pred = crf.predict(x_test)
     
-    words = get_words("EN/dev.in")
+    words = get_words(lang+"/test.in")
 
-    fileout = "EN/dev.crf.out"
+    fileout = lang+"/test.crf.out"
 
     with open(fileout, "w",encoding="utf8") as file:
         for i in range(len(words)):
             for j in range(len(words[i])):
                 file.write(words[i][j]+" "+y_pred[i][j]+"\n")
             file.write("\n")
+
+if __name__ == "__main__":
+    print("hello world!")
+
+    ###Training###
+
+    train_predict("EN")
+
+
+
+    
