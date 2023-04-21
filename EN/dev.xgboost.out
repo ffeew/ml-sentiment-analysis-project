@@ -1,14 +1,14 @@
 NO B-INTJ
 Saints I-NP
-R I-NP
+R B-NP
 . O
 Buch B-NP
 might I-NP
 come B-VP
 back B-ADVP
-n I-NP
+n O
 play I-NP
-vs I-NP
+vs B-NP
 Seahawks B-NP
 on B-PP
 Sunday B-NP
@@ -39,12 +39,12 @@ keeps B-VP
 getting B-VP
 better I-NP
 !!! O
-Thank B-NP
+Thank B-VP
 You B-NP
 Lord I-NP
 ! O
 
-man B-NP
+man B-INTJ
 my B-NP
 twin I-NP
 wanna B-VP
@@ -53,29 +53,29 @@ fake I-NP
 today B-NP
 but O
 its B-NP
-okay B-ADJP
-bcuz I-NP
+okay I-NP
+bcuz O
 i B-NP
 still B-VP
-love B-NP
+love I-VP
 you B-NP
 
 @iians O
 Id B-NP
 love B-VP
-to B-PP
+to I-VP
 see I-VP
-IDWT B-NP
+IDWT I-NP
 live I-NP
 from B-PP
 CES B-NP
 . O
 And O
-one B-VP
+one B-NP
 day I-NP
 I B-NP
 hope B-VP
-to B-PP
+to B-VP
 go I-VP
 to I-VP
 ces I-VP
@@ -90,7 +90,7 @@ wish B-VP
 i B-NP
 got B-VP
 paid B-NP
-to B-PP
+to B-VP
 freak I-VP
 people B-NP
 out B-PRT
@@ -105,7 +105,7 @@ think B-VP
 you'r O
 serious B-NP
 . O
-noobs O
+noobs B-INTJ
 . O
 
 fckn B-NP
@@ -127,7 +127,7 @@ U.K. I-NP
 Offering B-NP
 HTC I-NP
 Desire I-NP
-Z I-NP
+Z B-NP
 Unlocked I-NP
 October I-NP
 11 I-NP
@@ -135,13 +135,13 @@ October I-NP
 We B-NP
 just B-VP
 got B-VP
-official B-NP
+official I-NP
 word I-NP
 of B-PP
 the B-NP
 HTC I-NP
 Desire I-NP
-Z I-NP
+Z B-NP
 earlier I-NP
 in B-PP
 Lo B-NP
@@ -164,10 +164,10 @@ they B-NP
 hair B-VP
 out B-PRT
 . O
-should B-VP
+should B-NP
 of B-PP
 did B-NP
-that B-NP
+that B-SBAR
 a B-NP
 long I-NP
 time I-NP
@@ -175,7 +175,7 @@ ago B-ADVP
 . O
 -_- O
 skimp B-NP
-ass I-NP
+ass B-NP
 braids I-NP
 . O
 
@@ -210,7 +210,7 @@ done B-VP
 eating I-NP
 its B-NP
 #TimeToGetOut O
-unless B-NP
+unless B-VP
 you B-NP
 wanna B-VP
 help I-VP
@@ -228,7 +228,7 @@ from B-PP
 sister B-NP
 . O
 . O
-Rewind B-NP
+Rewind B-VP
 the B-NP
 1st I-NP
 time I-NP
@@ -243,7 +243,7 @@ chocolate B-NP
 . O
 Everything B-NP
 pratically I-NP
-remind I-NP
+remind B-VP
 me B-NP
 of B-PP
 you B-NP
@@ -283,14 +283,14 @@ I B-NP
 not I-VP
 in B-PP
 da B-NP
-mood I-NP
-to B-PP
+mood B-VP
+to B-VP
 deal I-VP
-wit I-NP
+wit B-PP
 their B-NP
 bullshit I-NP
 !! O
-Fukk B-NP
+Fukk B-INTJ
 outta I-NP
 here B-ADVP
 !!! O
@@ -311,7 +311,7 @@ the B-NP
 tailgate I-NP
 tonight B-NP
 . O
-Nonetheless B-NP
+Nonetheless B-VP
 it B-NP
 smells B-VP
 fresh I-NP
@@ -330,9 +330,9 @@ shoegasm I-NP
 today B-NP
 hahahaha B-NP
 
-even B-NP
+even B-ADVP
 better I-ADVP
-than I-NP
+than B-PP
 cocktail I-NP
 friday I-NP
 ! O
@@ -353,11 +353,11 @@ boardroom I-NP
 full I-NP
 of B-PP
 niggers B-NP
-3times I-NP
+3times B-VP
 my B-NP
 age I-NP
 . O
-. O
+. B-INTJ
 . O
 at B-PP
 the B-NP
@@ -391,29 +391,29 @@ uggghh I-NP
 @hime8644 O
 LOL B-INTJ
 theres I-NP
-always I-NP
+always B-ADVP
 some B-NP
 good I-NP
 vids I-NP
 I B-NP
 didnt B-VP
-see I-NP
+see B-NP
 before B-PP
 like B-PP
 this B-NP
 one I-NP
-XD I-NP
+XD B-NP
 --- O
 &gt; O
 http://www.youtube.com/watch?v=8zJKZJ7TGlU O
-OMG I-NP
+OMG B-INTJ
 *DROOLS* O
 
 It B-NP
 is B-VP
 Friday B-NP
 afternoon I-NP
-adn I-NP
+adn O
 I B-NP
 could B-VP
 n't I-VP
@@ -436,16 +436,16 @@ nice I-NP
 LADY B-NP
 GAGA I-NP
 IS B-VP
-BETTER B-ADJP
+BETTER I-VP
 THE B-NP
 5th I-NP
 TIME I-NP
-OH I-NP
-BABY( O
-: O
+OH B-NP
+BABY( I-NP
+: I-INTJ
 
 Pope B-NP
-says B-NP
+says I-NP
 religion I-NP
 ' O
 marginalized': O
@@ -464,7 +464,7 @@ anywhere I-NP
 because B-NP
 religion I-NP
 is B-VP
-so B-ADVP
+so O
 mar I-ADVP
 ... O
 http://bit.ly/cBvt1u O
@@ -480,9 +480,9 @@ it B-NP
 works B-ADJP
 . O
 
-So B-ADVP
+So O
 this B-NP
-will I-NP
+will B-VP
 be I-VP
 more B-ADJP
 lhs I-NP
@@ -495,7 +495,7 @@ then I-VP
 when B-ADVP
 i B-NP
 went B-VP
-to B-PP
+to B-VP
 lhs I-VP
 
 RT O
@@ -513,21 +513,21 @@ spencer B-NP
 from B-PP
 iCarly B-NP
 was B-VP
-Crazy B-NP
+Crazy B-ADJP
 Steve I-NP
 , O
 Carly B-NP
 was B-VP
-Megan B-NP
+Megan B-ADJP
 and I-NP
 Josh B-VP
 was B-VP
-fat B-ADJP
+fat B-NP
 . O
 #damnteenquotes O
 
 [ O
-GigaOM B-INTJ
+GigaOM B-NP
 ] O
 DRM B-NP
 FAIL I-NP
@@ -567,14 +567,14 @@ thiiis I-NP
 big I-NP
 , O
 you B-NP
-know B-NP
+know B-VP
 ? O
 
 RT O
 @PeepsMagoo O
 : O
 Please B-VP
-help I-VP
+help B-VP
 me B-NP
 save B-NP
 Sunshine B-NP
@@ -582,9 +582,9 @@ Sunshine B-NP
 She B-NP
 is B-VP
 scheduled I-VP
-to B-PP
+to I-VP
 be I-VP
-put I-VP
+put B-ADJP
 down B-PRT
 at B-PP
 a B-NP
@@ -600,7 +600,7 @@ have B-VP
 a B-NP
 strong I-NP
 hunch I-NP
-Adam B-NP
+Adam I-NP
 will B-VP
 be I-VP
 a B-NP
@@ -613,7 +613,7 @@ Gulp B-INTJ
 . O
 
 WIN B-NP
-FREE B-ADJP
+FREE I-NP
 PAMPERS I-NP
 FOR B-PP
 A B-NP
@@ -625,9 +625,9 @@ more I-NP
 http://nblo.gs/80qJu O
 
 holy B-NP
-FUCK B-NP
+FUCK I-NP
 THIS B-NP
-IS I-NP
+IS B-VP
 THE B-NP
 MOST I-NP
 BORING I-NP
@@ -643,12 +643,12 @@ in B-PP
 when B-ADVP
 everybody B-NP
 else I-NP
-walks I-NP
+walks B-VP
 out B-PP
 ! O
 
 #Astros O
-lineup B-INTJ
+lineup B-VP
 for B-PP
 tonight B-NP
 . O
@@ -700,9 +700,9 @@ when B-ADVP
 
 Long B-NP
 18k B-NP
-run B-NP
+run I-INTJ
 done I-NP
-and O
+and I-NP
 in B-PP
 the B-NP
 books I-NP
@@ -717,18 +717,18 @@ at B-PP
 dentist B-NP
 , O
 and O
-lady B-VP
+lady I-NP
 next B-NP
 to B-PP
 me B-NP
-spilling B-NP
-over I-NP
+spilling I-NP
+over B-VP
 to B-PP
 my B-NP
 chair I-NP
 .. O
 Just B-ADVP
-belched I-NP
+belched B-VP
 . O
 Loudly B-INTJ
 . O
@@ -739,9 +739,9 @@ RT O
 : O
 1 B-NP
 . O
-6 I-NP
+6 B-NP
 . O
-2011 I-NP
+2011 B-NP
 . O
 The B-NP
 day I-NP
@@ -751,7 +751,7 @@ on B-PP
 an B-NP
 Emporer I-NP
 's B-NP
-New I-NP
+New B-NP
 Groove I-NP
 rampage I-NP
 through I-NP
@@ -770,7 +770,7 @@ I B-NP
 have B-VP
 n't I-VP
 unfortunately I-VP
-:( B-INTJ
+:( O
 I B-NP
 missed B-VP
 the B-NP
@@ -789,23 +789,23 @@ them B-NP
 ? O
 
 @Yeweezii O
-Jst I-NP
-lock I-NP
+Jst B-NP
+lock B-VP
 her B-NP
-outside I-NP
-4 B-NP
-d I-NP
+outside B-PP
+4 I-NP
+d B-NP
 nite I-NP
 . O
 It B-NP
 workz B-VP
-al I-NP
-d I-NP
+al B-NP
+d B-NP
 time I-NP
 :-D B-INTJ
 
 @keancipriano O
-hey B-INTJ
+hey B-NP
 :) B-INTJ
 where B-ADVP
 exactly I-NP
@@ -817,7 +817,7 @@ tonight B-NP
 :) B-INTJ
 
 @YoDayDay O
-Nope B-NP
+Nope B-INTJ
 ! O
 *lil O
 kid B-NP
@@ -833,7 +833,7 @@ tonight B-NP
 and O
 i B-NP
 also B-VP
-loved I-NP
+loved B-VP
 the B-NP
 last I-NP
 years I-NP
@@ -845,7 +845,7 @@ hoppaa B-INTJ
 they B-NP
 were B-VP
 cool I-NP
-too I-NP
+too B-ADVP
 !! O
 
 " O
@@ -856,7 +856,7 @@ djs B-NP
 actually I-NP
 used I-NP
 headphones I-NP
-believe I-NP
+believe B-VP
 it B-NP
 or B-VP
 not O
@@ -889,9 +889,9 @@ p.m. O
 Anyone B-NP
 know I-NP
 where B-ADVP
-to B-PP
+to B-VP
 get I-VP
-cheap B-NP
+cheap B-ADJP
 brooms I-NP
 ? O
 #Ryerson B-INTJ
@@ -899,14 +899,14 @@ brooms I-NP
 #Rams O
 
 @yoopergirl89 O
-Yeah B-NP
+Yeah B-VP
 it B-NP
 was B-VP
 a B-NP
 long I-NP
 week I-NP
 here B-ADVP
-too I-NP
+too B-ADVP
 . O
 Luckily B-NP
 for B-PP
@@ -915,21 +915,21 @@ next B-NP
 is B-VP
 only B-NP
 Monday I-NP
-__AND__ O
+__AND__ I-NP
 Tuesday B-NP
 week I-NP
 . O
 
 Day B-NP
-One I-NP
+One I-INTJ
 : O
 Ten B-NP
-things I-NP
+things B-VP
 you B-NP
 want B-VP
 to B-VP
 say I-VP
-to B-PP
+to B-VP
 ten I-VP
 different I-NP
 people B-NP
@@ -951,7 +951,7 @@ Our B-NP
 Favorite I-NP
 YouTube I-NP
 Videos B-NP
-This B-NP
+This I-NP
 Week I-NP
 : O
 The B-NP
@@ -973,7 +973,7 @@ Bieber I-NP
 concert I-NP
 , O
 yoiu B-NP
-wake I-NP
+wake B-VP
 up B-PRT
 and O
 ..." O
@@ -984,7 +984,7 @@ Part B-NP
 6 I-NP
 :) B-INTJ
 ! O
-Try B-NP
+Try B-VP
 it B-NP
 : O
 http://tinyurl.com/233u5lu O
@@ -996,13 +996,13 @@ was B-VP
 a B-NP
 medical I-NP
 illustration I-NP
-job I-NP
-through I-NP
+job B-NP
+through B-VP
 a B-NP
 friend I-NP
 . O
 After B-PP
-meeting B-NP
+meeting B-VP
 with B-PP
 the B-NP
 surgeon I-NP
@@ -1012,10 +1012,10 @@ comple B-VP
 ... O
 
 @Elinor_Althani O
-ahhhh B-NP
-reading I-INTJ
+ahhhh B-VP
+reading I-NP
 , O
-still B-ADVP
+still B-NP
 i B-NP
 did B-VP
 n't I-VP
@@ -1047,14 +1047,14 @@ gives B-VP
 me B-NP
 days I-NP
 , O
-hours B-NP
+hours I-NP
 , O
 mintues B-NP
 __AND__ O
 seconds B-NP
 till I-NP
 Feb B-NP
-9th I-NP
+9th I-INTJ
 ! O
 #purpleglasses O
 http://twitpic.com/3nouem O
@@ -1068,7 +1068,7 @@ their B-NP
 birthdays I-NP
 like B-PP
 2-3 O
-times B-NP
+times B-VP
 a B-NP
 year I-NP
 ... O
@@ -1082,7 +1082,7 @@ intelligence B-NP
 honesty B-NP
 , O
 and O
-morals B-VP
+morals I-NP
 are B-VP
 non I-VP
 existent I-NP
@@ -1090,7 +1090,7 @@ these B-NP
 days I-NP
 . O
 
-still B-ADVP
+still B-NP
 fly B-NP
 from B-PP
 yesterday B-NP
@@ -1113,7 +1113,7 @@ this B-NP
 week I-NP
 . O
 Wingo B-NP
-tellin I-NP
+tellin B-VP
 me B-NP
 and O
 wood I-NP
@@ -1135,16 +1135,16 @@ Fayette B-NP
 County I-NP
 : O
 " O
-Ever B-NP
+Ever I-NP
 wonder I-NP
 if B-SBAR
 there B-NP
 is B-VP
-life I-VP
+life B-NP
 after B-PP
 death B-NP
 ? O
-Touch B-NP
+Touch B-VP
 my B-NP
 truck I-NP
 and O
@@ -1163,11 +1163,11 @@ do B-VP
 n't I-VP
 forget I-VP
 that B-NP
-there B-ADVP
+there B-NP
 's B-VP
 another B-NP
 chance I-NP
-to B-PP
+to I-VP
 see I-VP
 @pink O
 : O
@@ -1184,8 +1184,8 @@ http://bit.ly/hLAnXp O
 @papajonas O
 @greggarbo O
 @johnlloydtaylor O
-Rock B-NP
-to B-PP
+Rock B-VP
+to B-VP
 SECTION I-VP
 204 I-NP
 tonight B-NP
@@ -1194,7 +1194,7 @@ tonight B-NP
 @christinamarks_ O
 u B-NP
 try B-VP
-to B-PP
+to I-VP
 be I-VP
 like B-PP
 April B-NP
@@ -1217,7 +1217,7 @@ about B-PP
 5 B-NP
 years I-NP
 and O
-3 B-NP
+3 I-NP
 months I-NP
 if B-SBAR
 I B-NP
@@ -1226,7 +1226,7 @@ get I-VP
 out B-PP
 of B-PP
 there B-NP
-within I-NP
+within B-PP
 the B-NP
 next I-NP
 month I-NP
@@ -1249,7 +1249,7 @@ friday I-NP
 #blackholidays O
 " O
 National B-NP
-forget I-NP
+forget B-VP
 the B-NP
 he I-NP
 say B-VP
@@ -1268,7 +1268,7 @@ Though B-NP
 I B-NP
 do B-VP
 agree I-VP
-that B-NP
+that B-SBAR
 it B-NP
 is B-VP
 offensive I-VP
@@ -1276,18 +1276,18 @@ and O
 would B-VP
 be I-VP
 difficult I-VP
-to B-PP
+to B-VP
 explain I-VP
 . O
 When B-ADVP
 this B-NP
 stuff I-NP
-happens I-NP
+happens B-VP
 to B-PP
 me B-NP
 I B-NP
 want B-VP
-to B-PP
+to B-VP
 yell I-VP
 , O
 " O
@@ -1302,7 +1302,7 @@ if B-SBAR
 you B-NP
 are B-VP
 happy I-VP
-that B-NP
+that I-NP
 today B-NP
 is B-VP
 FRIDAY B-NP
@@ -1312,7 +1312,7 @@ FRIDAY B-NP
 People B-NP
 who B-NP
 tweet B-VP
-to B-PP
+to B-VP
 follow I-VP
 @GuyGirlTweets O
 will B-VP
@@ -1332,7 +1332,7 @@ do B-VP
 ! O
 
 Was B-VP
-hard B-ADJP
+hard I-VP
 work I-NP
 going B-VP
 to B-PP
@@ -1343,13 +1343,13 @@ my B-NP
 own I-NP
 tonight B-NP
 but O
-managed B-NP
+managed B-VP
 a B-NP
 30 I-NP
-min I-NP
-run I-NP
+min B-NP
+run B-NP
 and O
-plenty B-VP
+plenty I-NP
 of B-PP
 weights B-NP
 . O
@@ -1377,7 +1377,7 @@ Empire B-NP
 State I-NP
 Building I-NP
 = O
-ESB B-NP
+ESB B-INTJ
 . O
 Pretty B-NP
 bad I-NP
@@ -1406,7 +1406,7 @@ bike I-NP
 t'day O
 :( B-INTJ
 
-bruise B-NP
+bruise B-VP
 on B-PP
 my B-NP
 facee I-NP
@@ -1453,20 +1453,20 @@ stage B-NP
 during/before O
 kings B-NP
 and O
-queens I-NP
+queens I-ADVP
 :( B-INTJ
 (( O
 
 http://bit.ly/aTTQYq O
 When B-ADVP
-Pepsi I-NP
+Pepsi B-NP
 to B-VP
 ring I-VP
 usually I-NP
-confirm I-NP
+confirm B-VP
 to B-PP
 , O
-winning B-NP
+winning B-VP
 a B-NP
 Nokia I-NP
 5800 I-NP
@@ -1474,7 +1474,7 @@ Nokia I-NP
 
 @Jezkwon O
 @kpop_stuff O
-Tweet B-NP
+Tweet B-VP
 me B-NP
 a B-NP
 member I-NP
@@ -1510,10 +1510,10 @@ favourite I-NP
 It B-NP
 's B-VP
 starting I-NP
-to B-PP
+to B-VP
 taste I-VP
 pretty I-NP
-much I-NP
+much B-PP
 the B-NP
 same I-NP
 . O
