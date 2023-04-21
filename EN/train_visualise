@@ -1,0 +1,32 @@
+Count
+The 'O' tag appeared: 2575 times
+The 1-length tag sequence had count:3206
+The 2-length tag sequence had count:795
+The 3-length tag sequence had count:281
+The 4-length tag sequence had count:78
+The 5-length tag sequence had count:26
+The 6-length tag sequence had count:5
+The 7-length tag sequence had count:6
+The 8-length tag sequence had count:1
+
+Relative Frequency
+The 'O' tag appeared: 0.3692815144127348 times
+The 1-length tag sequence had count:0.45977341173096226
+The 2-length tag sequence had count:0.11401118600315503
+The 3-length tag sequence had count:0.04029829341746737
+The 4-length tag sequence had count:0.011186003155026531
+The 5-length tag sequence had count:0.003728667718342177
+The 6-length tag sequence had count:0.0007170514842965725
+The 7-length tag sequence had count:0.000860461781155887
+The 8-length tag sequence had count:0.0001434102968593145
+
+Relative Frequency without "O"
+The 1-length tag sequence had count:0.7289677125966348
+The 2-length tag sequence had count:0.18076398362892224
+The 3-length tag sequence had count:0.06389267849022283
+The 4-length tag sequence had count:0.017735334242837655
+The 5-length tag sequence had count:0.005911778080945885
+The 6-length tag sequence had count:0.001136880400181901
+The 7-length tag sequence had count:0.001364256480218281
+The 8-length tag sequence had count:0.00022737608003638017
+
