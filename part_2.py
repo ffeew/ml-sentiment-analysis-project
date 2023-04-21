@@ -37,7 +37,6 @@ def estimate_transition_parameters(path: str) -> dict[dict]:
             inner[tag] = inner.get(tag, 0) + 1
             transition[previous] = inner
             previous = tag
-    print(transition)
 
     # divide by the number of times the previous tag occurs
     state_count = df["tag"].value_counts()
@@ -76,8 +75,6 @@ def viterbi(sentence: str, transition: dict, emission: gen_e) -> tuple:
 
     states = [key for key in transition.keys() if key != "START"]
 
-    print("states:",states)
-
     # initialize the viterbi matrix
     viterbi = np.zeros((len(words), len(states)))
     backpointer = np.zeros((len(words)-1, len(states)))
@@ -88,7 +85,6 @@ def viterbi(sentence: str, transition: dict, emission: gen_e) -> tuple:
             key, 0) * emission.get_e(key, words[0]))
     # fill in the rest of the matrix
     for i in range(1, len(words)):
-        print(i, words[i])
         for j, tag in enumerate(states):
             # get probabilities for each state
             prob = [viterbi[i-1, k] + np.log(get_transition_probabilities(transition, states[k], tag)) + np.log(
@@ -96,11 +92,10 @@ def viterbi(sentence: str, transition: dict, emission: gen_e) -> tuple:
             backpointer[i - 1, j] = np.argmax(prob)
             viterbi[i, j] = np.max(prob)
 
+    # generate the tag indexes that corresponds to the word
     S = np.zeros(len(words))
     last_state = np.argmax(viterbi[len(words) - 1, :])
     S[0] = last_state
-
-    print(viterbi)
 
     backtrack_index = 1
     for i in range(len(words) - 2, -1, -1):
@@ -109,6 +104,7 @@ def viterbi(sentence: str, transition: dict, emission: gen_e) -> tuple:
         backtrack_index += 1
     S = np.flip(S, axis=0)
 
+    # convert the tag indexes to the actual tags
     result = []
     for s in S:
         result.append(states[int(s)])
@@ -116,6 +112,7 @@ def viterbi(sentence: str, transition: dict, emission: gen_e) -> tuple:
 
 
 if __name__ == "__main__":
+    np.seterr(divide='ignore')
     # generate the tags for FR/dev.in
     # count = gen_e("FR")
     # trans = estimate_transition_parameters("FR/train")
@@ -146,8 +143,8 @@ if __name__ == "__main__":
     # print("transition probabilities")
     # print(trans)
 
-    path_in = "EN/dev_test.in"
-    path_out = "EN/dev_test.p2.out"
+    path_in = "EN/dev.in"
+    path_out = "EN/dev.p2.out"
     with open(path_in, 'r') as f:
         data = f.read()
     sentences = data.split("\n\n")[:-1]
