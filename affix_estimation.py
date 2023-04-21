@@ -5,7 +5,8 @@ from nltk.stem import WordNetLemmatizer
 from collections import Counter
 
 FILE_IN = ""
-FILE_OUT = "affix_tagged"
+PREFIX_OUT = "prefix_tagged"
+SUFFIX_OUT = "suffix_tagged"
 FILE_TEMP = ""
 MODE = "train"
 
@@ -108,7 +109,27 @@ def get_prefix_estimation(words, word):
             return get_prefix_estimation(words, word[:-1])
     return None
 
-def save_prefix_dictionary(f_in, f_out, f_temp):
+
+def get_suffix_estimation(words, word):
+    letters = [letter for letter in word[::-1]]
+    while len(letters) > 0:
+        if nested_get(words, letters) is not None:
+            dict_out = {}
+            list_of_probs = nested_get(words, letters + ["tag"])
+            for item in list_of_probs:
+                if type(item) is list:
+                    dict_out[item[0]] = float(item[1])
+            if dict_out:
+                return dict_out
+            else:
+                # assume flat list
+                return {list_of_probs[0]: float(list_of_probs[1])}
+        else:
+            return get_prefix_estimation(words, word[:-1])
+    return None
+
+
+def gen_affix_dictionaries(f_in, pf_out, sf_out, f_temp):
     words = {}
     word_Lemmatized = WordNetLemmatizer()
 
@@ -134,9 +155,6 @@ def save_prefix_dictionary(f_in, f_out, f_temp):
 
     # augment dict section
     stl_words = [(word, tag) for (word, tag) in sorted(words_tags, key=lambda x: len(x[0]))]
-
-    # TODO for suffix estimation
-    lts_words = stl_words[::-1]
 
     roots = {root: [] for root in words.keys()}
 
@@ -169,7 +187,7 @@ def save_prefix_dictionary(f_in, f_out, f_temp):
                 start_index = pseudoroots_counts[pseudoroot]
                 unique_pseudoroot = pseudoroot
         roots[root] = majority_pseudoroots_tags
-    # print(roots)
+    # print(roots["."])
 
     # propagate psuedoroots upstream; assign root tags
     for root, pseudoroots_tags in roots.items():
@@ -191,14 +209,99 @@ def save_prefix_dictionary(f_in, f_out, f_temp):
         words[root]["tag"] = roots[root]["tag"]
         words[root] = tag_tree(words[root])
     
+    # print(words["."])
+    # write dict out
+    with open(pf_out, "w", encoding="utf-8") as file_out:
+        file_out.write(json.dumps(words))
+
+    # TODO suffix
+
+    words = {}
+    word_Lemmatized = WordNetLemmatizer()
+
+    # sort data by word len, write to temp
+    with open(f_in, "r", encoding="utf-8") as file_in:
+        sentences = file_in.read().split("\n")
+        words_tags = [tuple(sentence.split(" ")) for sentence in sentences if sentence != ""]
+        words_tags = [(word_Lemmatized.lemmatize(word.lower())[::-1], tag) for (word, tag) in words_tags]
+        lines = [word + " " + tag + "\n" for (word, tag) in sorted(words_tags, key=lambda x: len(x[0]), reverse=True)]
+
+    with open(f_temp, "w", encoding="utf-8") as file_temp:
+        file_temp.writelines(lines)
+
+    # construct nested dict
+    with open(f_temp, "r", encoding="utf-8") as file_temp:
+        for line in file_temp:
+            if line == "\n":
+                continue
+            word, tag = line.split(" ")
+            tag = tag[:-1]
+            letters = [x for x in word]
+            nested_set(words, letters, tag)
+
+    # TODO for suffix estimation
+    stl_words_reversed = [(word[::-1], tag) for (word, tag) in stl_words]
+    print(stl_words_reversed)
+
+    roots = {root: [] for root in words.keys()}
+
+    # assign pseudoroot tags as majority of tags in roots
+    for root in words.keys():
+        shortest_len = 0
+        for word, tag in stl_words_reversed:
+            if shortest_len == 0:
+                if word.startswith(root):
+                    shortest_len = len(word)
+                    roots[root].append((word, tag))
+            else:
+                if len(word) > shortest_len:
+                    break
+                if word.startswith(root):
+                    roots[root].append((word,tag))
+    for root, pseudoroots_tags in roots.items():
+        pseudoroots_tags.sort(key=lambda x: x[0])
+        pseudoroots, tags  = list(zip(*pseudoroots_tags))
+        pseudoroots_counts = Counter(pseudoroots)
+        majority_pseudoroots_tags = {}
+        start_index = 0
+        unique_pseudoroot = ""
+        for pseudoroot in pseudoroots:
+            if pseudoroot != unique_pseudoroot:
+                # majority_pseudoroots_tags[pseudoroot] = Counter(tags[start_index:start_index + pseudoroots_counts[pseudoroot]]).most_common(1)[0][0]
+                majority_pseudoroots_tags[pseudoroot] = Counter(tags[start_index:start_index + pseudoroots_counts[pseudoroot]]).most_common(pseudoroots_counts[pseudoroot])
+                total_count = sum([count for _, count in majority_pseudoroots_tags[pseudoroot]])
+                majority_pseudoroots_tags[pseudoroot] = tuple([(tag, count / total_count) for (tag, count) in majority_pseudoroots_tags[pseudoroot]])
+                start_index = pseudoroots_counts[pseudoroot]
+                unique_pseudoroot = pseudoroot
+        roots[root] = majority_pseudoroots_tags
+
+    # propagate psuedoroots upstream; assign root tags
+    for root, pseudoroots_tags in roots.items():
+        # print(roots[root])
+        if len(pseudoroots_tags.keys()) == 1:
+            roots[root] = {"tag": list(pseudoroots_tags.values())[0]}
+            # print(roots[root])
+        # assume pseudoroots greater than length 2 affect root regardless of distance from root 
+        else:
+            # let Counter decide between ties of "O" and other tags which is more common
+            # roots[root]["tag"] = Counter(list(roots[root].values())).most_common(1)[0][0]
+            roots[root]["tag"] = max(roots[root].values(), key=len)
+    # print(roots)
+
+    # propagate tags downstream in words
+    for root in words.keys():
+        # print(roots[root]["tag"])
+        words[root]["tag"] = roots[root]["tag"]
+        words[root] = tag_tree(words[root])
+    print(words)
 
     # write dict out
-    with open(f_out, "w", encoding="utf-8") as file_out:
+    with open(sf_out, "w", encoding="utf-8") as file_out:
         file_out.write(json.dumps(words))
 
 
 def load_prefixes(lang):
-    with open("./" + lang + "/" + FILE_OUT, "r", encoding="utf-8") as file_out:
+    with open("./" + lang + "/" + PREFIX_OUT, "r", encoding="utf-8") as file_out:
         words = json.loads(file_out.read())
     return words
 
@@ -213,27 +316,45 @@ def main():
 
     LANG = sys.argv[1]
     FILE_IN = "./" + LANG + "/" + sys.argv[2]
-    FILE_OUT = "./" + LANG + "/" + sys.argv[3]
-    FILE_TEMP = "./" + LANG + "/" + sys.argv[4]
-    save_prefix_dictionary(FILE_IN, FILE_OUT, FILE_TEMP)
+    PREFIX_OUT = "./" + LANG + "/" + sys.argv[3]
+    SUFFIX_OUT = "./" + LANG + "/" + sys.argv[4]
+    FILE_TEMP = "./" + LANG + "/" + sys.argv[5]
+    gen_affix_dictionaries(FILE_IN, PREFIX_OUT, SUFFIX_OUT, FILE_TEMP)
 
-    # example call dict
-    with open(FILE_OUT, "r", encoding="utf-8") as file_out:
+    # # example call dict
+    # with open(PREFIX_OUT, "r", encoding="utf-8") as file_out:
+    #     words = json.loads(file_out.read())
+
+    # # example of using get_prefix_estimation
+    # if LANG == "FR":
+    #     # print(words)
+    #     print(get_prefix_estimation(words, "brasseri"))  # tag O
+    #     print(get_prefix_estimation(words, "purée"))  # tag B-positive based on majority
+    #     print(get_prefix_estimation(words, "pur"))  # tag O based on upstream tag i.e. suffix pur with tag O
+    #     print(get_prefix_estimation(words, "puréet"))  # estimated to be B-positive based on upstream tag i.e. purée with tag B-positive
+    # elif LANG == "EN":
+    #     print(get_prefix_estimation(words, "no"))  # tag B-NP by majority
+    #     print(get_prefix_estimation(words, "helpful"))  # tag I-ADJP
+    #     print(get_prefix_estimation(words, "helpfully"))  # tag I-ADJP based on upstream tag i.e. suffix helpful with tag I-ADJP
+    #     print(get_prefix_estimation(words, "hel"))  # tag B-NP based on upstream tag i.e. suffix hel with tag B-NP
+    #     print(get_prefix_estimation(words, "hell"))  # tag B-NP
+
+    with open(SUFFIX_OUT, "r", encoding="utf-8") as file_out:
         words = json.loads(file_out.read())
 
-    # example of using get_prefix_estimation
+    # example of using get_suffix_estimation
     if LANG == "FR":
-        print(words)
-        print(get_prefix_estimation(words, "brasseri"))  # tag O
-        print(get_prefix_estimation(words, "purée"))  # tag B-positive based on majority
-        print(get_prefix_estimation(words, "pur"))  # tag O based on upstream tag i.e. suffix pur with tag O
-        print(get_prefix_estimation(words, "puréet"))  # estimated to be B-positive based on upstream tag i.e. purée with tag B-positive
+        # print(words)
+        print(get_suffix_estimation(words, "rts")) 
+        print(get_suffix_estimation(words, "boulangerie"))
+        print(get_suffix_estimation(words, "eil")) 
+        print(get_suffix_estimation(words, "produitse")) 
     elif LANG == "EN":
-        print(get_prefix_estimation(words, "no"))  # tag B-NP by majority
-        print(get_prefix_estimation(words, "helpful"))  # tag I-ADJP
-        print(get_prefix_estimation(words, "helpfully"))  # tag I-ADJP based on upstream tag i.e. suffix helpful with tag I-ADJP
-        print(get_prefix_estimation(words, "hel"))  # tag B-NP based on upstream tag i.e. suffix hel with tag B-NP
-        print(get_prefix_estimation(words, "hell"))  # tag B-NP
+        print(get_suffix_estimation(words, "no"))
+        print(get_suffix_estimation(words, "helpful")) 
+        print(get_suffix_estimation(words, "helpfully"))
+        print(get_suffix_estimation(words, "hel"))
+        print(get_suffix_estimation(words, "hell"))
 
 if __name__ == "__main__":
     main()
