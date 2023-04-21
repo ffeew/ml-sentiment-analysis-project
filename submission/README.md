@@ -19,3 +19,9 @@ The part 4 files are:
 The part 4 files are set to generate the test outputs for both the french and english test files. The outputs are saved in the following respective FR and EN directories.
 
 Our final chosen model for the part 4 is part4_xgboost_classifier.py as it gave us the best results.
+
+# Requirements:
+
+- xgboost
+- scikit-learn
+- sklearn-crfsuite
