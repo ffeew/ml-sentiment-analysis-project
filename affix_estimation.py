@@ -106,7 +106,7 @@ def get_prefix_estimation(words, word):
                 return {list_of_probs[0]: float(list_of_probs[1])}
         else:
             return get_prefix_estimation(words, word[:-1])
-    return None
+    return {}
 
 def save_prefix_dictionary(f_in, f_out, f_temp):
     words = {}

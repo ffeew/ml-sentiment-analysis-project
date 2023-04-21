@@ -1,5 +1,6 @@
 import numpy as np
 import json
+import affix_estimation as shaun
 
 class gen_e:
 
@@ -11,10 +12,14 @@ class gen_e:
         self.x = []
         self.k = 1
         self.lang = lang
+        self.words = {}
 
         self.reload()
 
     def reload(self):
+
+        self.load_words("affix_tagged")
+
         try:
             self.load_e("count_e.json")
             self.load_y("count_y.json")
@@ -89,7 +94,6 @@ class gen_e:
                 y_p.append(max_y)
             else:
                 y_p.append("")
-        print(len(y_p))
 
         if(len(filename)):
             with open(self.lang+"/"+filename, "w",encoding="utf8") as file:
@@ -105,6 +109,7 @@ class gen_e:
         # print(self.e.keys())
         y_p = []
         total_y = np.sum(list(self.y_count.values()))
+    
         for k in range(len(dataset)):
             if len(dataset[k]):
                 max_p = 0
@@ -116,7 +121,6 @@ class gen_e:
                 y_p.append(max_y)
             else:
                 y_p.append("")
-        print(len(y_p))
 
         if(len(filename)):
             with open(self.lang+"/"+filename, "w",encoding="utf8") as file:
@@ -137,8 +141,12 @@ class gen_e:
         with open(self.lang+"/"+filename,"r",encoding="utf8") as file:
             self.x = file.read().split("\n")
 
-    def get_e(self, y, o):
+    def load_words(self,filename="affix_tagged"):
+        with open(self.lang+"/"+filename, "r", encoding="utf-8") as file:
+            self.words = json.loads(file.read())
 
+    def get_e(self, y, o):
+        
         if o in self.x:
             if o in self.e[y].keys():
                 return self.e[y][o]
@@ -146,7 +154,10 @@ class gen_e:
                 return 0
         else:
             # if (senti in y_) and self.k/(self.y_count[y_]+self.k)>max_p:
+
             return self.k/(self.y_count[y]+self.k)
+
+            # return shaun.get_prefix_estimation(self.words,o).get(y,0)
 
     
     def get_p(self, y, o):
@@ -163,6 +174,6 @@ class gen_e:
         
 
 if __name__ == "__main__":
-    count = gen_e("FR")
-    x_p = count.read_file("FR/dev.in")
-    count.naive_bayes(x_p, "dev.p1.out")
+    count = gen_e("EN")
+    x_p = count.read_file("EN/dev.in")
+    count.predict_y(x_p, "dev.p1.out")

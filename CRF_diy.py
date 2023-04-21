@@ -256,6 +256,9 @@ def feature_f(labels, sentence_features, j, i):
         #         return 0
         #     elif feature=="+1:tag" and (i==len(labels) or not labels[i+1]==feature_functions[j][feature]):
         #         return 0
+    if all(sentence_features[i].get(feature) == feature_functions[j].get(feature) for feature in feature_functions[j].keys()):
+        print(sentence_features[i])
+
     return int(all(sentence_features[i].get(feature) == feature_functions[j].get(feature) for feature in feature_functions[j].keys()))
 
 def p_sentence(sentence_features, weights, labels):
@@ -319,8 +322,10 @@ def training(x_train,y_train):
     #Combining tags with x features
 
     for i in range(len(x_train)):
-        gradient_descent(x_train[i],0.1,100,y_train[i])
+        # gradient_descent(x_train[i],0.1,100,y_train[i])
         # p_sentence(x_train[i], weights, y_train[i])
+        # for j in range(len(feature_functions)):
+        #     feature_f(y_train[0],x_train[0],j,0)
         print(i,"/",len(x_train),"sentences completed", end="\r")
 
     with open("EN/features_weights.npy","wb") as file:
