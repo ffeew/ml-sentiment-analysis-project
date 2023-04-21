@@ -98,7 +98,7 @@ d'ingurgiter O
 uniquement O
 de O
 la O
-pâte O
+pâte B-negative
 à O
 friture O
 baignée O
@@ -504,7 +504,7 @@ absolument O
 . O
 
 La O
-côte O
+côte B-positive
 de O
 veau O
 aussi O
@@ -1703,7 +1703,7 @@ ma O
 chance O
 avec O
 une O
-bière O
+bière B-negative
 bouteille O
 6 O
 euros O
@@ -2266,7 +2266,7 @@ Dommage O
 , O
 car O
 le O
-décor O
+décor B-positive
 demeure O
 impressionnant O
 . O
@@ -2798,7 +2798,7 @@ est O
 sobre O
 , O
 le O
-décor O
+décor B-positive
 intime O
 plait O
 . O
@@ -2828,7 +2828,7 @@ ensoleillée O
 le O
 dimanche O
 , O
-décor O
+décor B-positive
 plutôt O
 sympa O
 , O
@@ -3317,7 +3317,7 @@ limite O
 à O
 savoir O
 des O
-pâtes O
+pâtes B-negative
 desséchées O
 et O
 froides O
