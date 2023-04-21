@@ -89,8 +89,8 @@ def viterbi(sentence: str, transition: dict, emission: gen_e) -> tuple:
     states = [key for key in transition.keys() if key != "START"]
 
     # initialize the viterbi matrix
-    viterbi = np.zeros((len(words), len(states)))
-    backpointer = np.zeros((len(words)-1, len(states)))
+    viterbi = np.zeros((len(words), len(states) ** 2))
+    backpointer = np.zeros((len(words)-1, len(states) ** 2))
 
     # fill up the start probabilities
     for i, key in enumerate(states):
@@ -100,8 +100,8 @@ def viterbi(sentence: str, transition: dict, emission: gen_e) -> tuple:
     for i in range(1, len(words)):
         for j, tag in enumerate(states):
             # get probabilities for each state
-            prob = [viterbi[i-1, k] + np.log(get_transition_probabilities(transition, states[k], states[k], tag)) + np.log(
-                emission.get_e(tag, words[i])) for k in range(len(states))]
+            prob = [viterbi[i-1, k] + np.log(get_transition_probabilities(transition, states[k], states[l], tag)) + np.log(
+                emission.get_e(tag, words[i])) for k in range(len(states)) for l in range(len(states))]
             backpointer[i - 1, j] = np.argmax(prob)
             viterbi[i, j] = np.max(prob)
 
@@ -118,7 +118,7 @@ def viterbi(sentence: str, transition: dict, emission: gen_e) -> tuple:
 
     result = []
     for s in S:
-        result.append(states[int(s)])
+        result.append(states[int(s) % len(states)])
     return result
 
 
