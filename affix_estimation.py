@@ -5,7 +5,7 @@ from nltk.stem import WordNetLemmatizer
 from collections import Counter
 
 FILE_IN = ""
-FILE_OUT = ""
+FILE_OUT = "affix_tagged"
 FILE_TEMP = ""
 MODE = "train"
 
@@ -86,7 +86,7 @@ def tag_tree(tree):
                 tree[key] = {"tag": tuple([(tag, count / total_count) for (tag, count) in counts])}
                 # tree[key] = {"tag": Counter(branch).most_common(1)[0][0]}
             elif type(branch) is str:
-                tree[key] = {"tag": (branch, "1.0")}
+                tree[key] = {"tag": tuple((branch, 1.0))}
     return tree
 
 
@@ -94,7 +94,16 @@ def get_prefix_estimation(words, word):
     letters = [letter for letter in word]
     while len(letters) > 0:
         if nested_get(words, letters) is not None:
-            return nested_get(words, letters + ["tag"])
+            dict_out = {}
+            list_of_probs = nested_get(words, letters + ["tag"])
+            for item in list_of_probs:
+                if type(item) is list:
+                    dict_out[item[0]] = item[1]
+            if dict_out:
+                return dict_out
+            else:
+                # assume flat list
+                return {list_of_probs[0]: list_of_probs[1]}
         else:
             return get_prefix_estimation(words, word[:-1])
     return None
@@ -188,8 +197,8 @@ def save_prefix_dictionary(f_in, f_out, f_temp):
         file_out.write(json.dumps(words))
 
 
-def load_prefixes():
-    with open(FILE_OUT, "r", encoding="utf-8") as file_out:
+def load_prefixes(lang):
+    with open("./" + lang + "/" + FILE_OUT, "r", encoding="utf-8") as file_out:
         words = json.loads(file_out.read())
     return words
 
