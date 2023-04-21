@@ -18,12 +18,12 @@ class gen_e:
 
     def reload(self):
 
-        self.load_words("affix_tagged")
+        self.load_words("prefix_tagged")
 
         try:
-            self.load_e("count_e.json")
-            self.load_y("count_y.json")
-            self.load_x("x_set.json")
+            self.load_e("count_e_lower.json")
+            self.load_y("count_y_lower.json")
+            self.load_x("x_set_lower.json")
         except:
             print("Files not found. Initializing...")
             self.count_e(self.lang+"/train")
@@ -38,7 +38,6 @@ class gen_e:
         for i in range(len(raw)):
             data.append(raw[i].strip("\n").split())
         return data
-        #print(self.data)
 
     def count_e(self, filename):
 
@@ -65,56 +64,26 @@ class gen_e:
                 #     self.e[y][x] = self.k/(self.y_count[y]+self.k)
                 # else:
                 self.e[y][x] = self.e[y][x]/(self.y_count[y]+self.k)
-        with open(self.lang+"/count_e.json","w",encoding="utf8") as dict_file:
+        with open(self.lang+"/count_e_lower.json","w",encoding="utf8") as dict_file:
             json.dump(self.e,dict_file,indent=4)
         
-        with open(self.lang+"/count_y.json","w",encoding="utf8") as y_file:
+        with open(self.lang+"/count_y_lower.json","w",encoding="utf8") as y_file:
             json.dump(self.y_count,y_file, indent = 4)
 
-        with open(self.lang+"/x_set.json","w",encoding="utf8") as x_file:
+        with open(self.lang+"/x_set_lower.json","w",encoding="utf8") as x_file:
             for x_ in self.x:
                 x_file.write(x_+"\n")
-        
-        #print(self.e)
-
-    def predict_y(self, dataset, filename=""):
-
-        #require dataset to be a 2d numpy array
-        # print(dataset[0][0])
-        # print(self.e.keys())
-        y_p = []
-        for k in range(len(dataset)):
-            if len(dataset[k]):
-                max_p = 0
-                max_y = ""
-                for y in self.e.keys():
-                    if self.get_e(y,dataset[k][0].lower())>max_p:
-                        max_p = self.get_e(y,dataset[k][0].lower())
-                        max_y = y
-                y_p.append(max_y)
-            else:
-                y_p.append("")
-        print(len(y_p))
-
-        if(len(filename)):
-            with open(self.lang+"/"+filename, "w",encoding="utf8") as file:
-                for i in range(len(dataset)):
-                    file.write((dataset[i][0] if len(dataset[i]) else "")+" "+y_p[i]+"\n")
-
-        return y_p
+    
     
     def naive_bayes(self, dataset, filename=""):
 
-        #require dataset to be a 2d numpy array
-        # print(dataset[0][0])
-        # print(self.e.keys())
         y_p = []
         total_y = np.sum(list(self.y_count.values()))
     
         for k in range(len(dataset)):
             if len(dataset[k]):
                 max_p = 0
-                max_y = ""
+                max_y = "O"
                 for y in self.e.keys():
                     if self.get_e(y,dataset[k][0].lower())*self.y_count[y]/total_y>max_p:
                         max_p = self.get_e(y,dataset[k][0].lower())*self.y_count[y]/total_y
@@ -130,19 +99,19 @@ class gen_e:
 
         return y_p
     
-    def load_e(self,filename="count_e.json"):
+    def load_e(self,filename="count_e_lower.json"):
         with open(self.lang+"/"+filename,"r",encoding="utf8") as file:
             self.e = json.loads(file.read())
     
-    def load_y(self,filename="count_y.json"):
+    def load_y(self,filename="count_y_lower.json"):
         with open(self.lang+"/"+filename,"r",encoding="utf8") as file:
             self.y_count = json.loads(file.read())
     
-    def load_x(self,filename="x_set.json"):
+    def load_x(self,filename="x_set_lower.json"):
         with open(self.lang+"/"+filename,"r",encoding="utf8") as file:
             self.x = file.read().split("\n")
 
-    def load_words(self,filename="affix_tagged"):
+    def load_words(self,filename="prefix_tagged"):
         with open(self.lang+"/"+filename, "r", encoding="utf-8") as file:
             self.words = json.loads(file.read())
 
@@ -154,27 +123,19 @@ class gen_e:
             else:
                 return 0
         else:
-            # if (senti in y_) and self.k/(self.y_count[y_]+self.k)>max_p:
-
-            # return self.k/(self.y_count[y]+self.k)
-
+            
+            #If word is not found, we look for the most similar prefix
             return shaun.get_prefix_estimation(self.words,o).get(y,0)
-
-    
-    def get_p(self, y, o):
-
-        total_y = np.sum(list(self.y_count.values()))
-
-        if o in self.x:
-            if o in self.e[y].keys():
-                return self.e[y][o]
-            else:
-                return 0
-        else:
-            return self.get_e(y,o)*self.y_count[y]/total_y
         
 
 if __name__ == "__main__":
+    
+    #Generating test output for FR
     count = gen_e("FR")
-    x_p = count.read_file("FR/dev.in")
-    count.predict_y(x_p, "dev.nb.out")
+    x_p = count.read_file("FR/test.in")
+    count.naive_bayes(x_p, "test.p4.out")
+
+    #Generating test output for EN
+    count = gen_e("EN")
+    x_p = count.read_file("EN/test.in")
+    count.naive_bayes(x_p, "test.p4.out")

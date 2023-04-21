@@ -14,7 +14,7 @@ import xgboost as xgb
 from sklearn.preprocessing import OneHotEncoder
 import match_word
 
-words = 
+words_list = match_word.get_words("EN/x_set_lower.json")
 
 def gen_features(words,tags):
 
@@ -25,23 +25,42 @@ def gen_features(words,tags):
         ft = {
             # 'bias':1.0,
             # 'word.length':len(words[i]),
-            'word.lower()':words[i].lower(),
+            'word.lower()':words[i].lower(),#  if "[" not in words[i] and "]" not in words[i] and "<" not in words[i] else "" match_word.closest_word(words_list,words[i].lower()),
             'word.isupper()':int(words[i].isupper()),
             'word.istitle()':int(words[i].istitle()),
             'word.isdigit()':int(words[i].isdigit()),
             'word.isalnum()':int(words[i].isalnum()),
             'word.position':(i+1)/len(words),
-            'word_end':words[i].lower()[-4:]
+            # 'sentence_length':len(words)
+            # 'word_end':words[i].lower()[-4:]
         }
 
         if i>0:
-
             ft.update({
-                '-1:word.lower()':words[i-1].lower(),
+                '-1:word.lower()':words[i-1].lower(),#match_word.closest_word(words_list,words[i-1].lower()),
                 '-1:word.isupper()':int(words[i-1].isupper()),
                 '-1:word.istitle()':int(words[i-1].istitle()),
                 '-1:word.isalnum()':int(words[i-1].isalnum()),
-                '-1:tag':tags[i-1]
+                # '-1:word.length':len(words[i-1]),
+                # "-1:tag":tags[i-1],
+                # '-1:tag:0':int(tags[i-1]=="O"),
+                # '-1:tag:1':int(tags[i-1]=="B-INTJ"),
+                # '-1:tag:2':int(tags[i-1]=="B-PP"),
+                # '-1:tag:3':int(tags[i-1]=="B-NP"),
+                # '-1:tag:4':int(tags[i-1]=="I-NP"),
+                # '-1:tag:5':int(tags[i-1]=="B-VP"),
+                # '-1:tag:6':int(tags[i-1]=="B-PRT"),
+                # '-1:tag:7':int(tags[i-1]=="I-VP"),
+                # '-1:tag:8':int(tags[i-1]=="B-ADJP"),
+                # '-1:tag:9':int(tags[i-1]=="B-SBAR"),
+                # '-1:tag:10':int(tags[i-1]=="B-ADVP"),
+                # '-1:tag:11':int(tags[i-1]=="I-INTJ"),
+                # '-1:tag:12':int(tags[i-1]=="B-CONJP"),
+                # '-1:tag:13':int(tags[i-1]=="I-CONJP"),
+                # '-1:tag:14':int(tags[i-1]=="I-ADVP"),
+                # '-1:tag:15':int(tags[i-1]=="I-ADJP"),
+                # '-1:tag:16':int(tags[i-1]=="I-SBAR"),
+                # '-1:tag:17':int(tags[i-1]=="I-PP"),
                 # 'BOS':0
             })
 
@@ -51,17 +70,35 @@ def gen_features(words,tags):
                 '-1:word.isupper()':0,
                 '-1:word.istitle()':0,
                 '-1:word.isalnum()':0,
-                '-1:tag':""
+                # '-1:tag:0':0,
+                # '-1:tag:1':0,
+                # '-1:tag:2':0,
+                # '-1:tag:3':0,
+                # '-1:tag:4':0,
+                # '-1:tag:5':0,
+                # '-1:tag:6':0,
+                # '-1:tag:7':0,
+                # '-1:tag:8':0,
+                # '-1:tag:9':0,
+                # '-1:tag:10':0,
+                # '-1:tag:11':0,
+                # '-1:tag:12':0,
+                # '-1:tag:13':0,
+                # '-1:tag:14':0,
+                # '-1:tag:15':0,
+                # '-1:tag:16':0,
+                # '-1:tag:17':0,
+                # "-1:tag":"",
                 # 'BOS':1
             })
 
         if i< len(words)-1:
 
             ft.update({
-                '+1:word.lower()':words[i+1].lower(),
+                '+1:word.lower()':words[i+1].lower(),#match_word.closest_word(words_list,words[i+1].lower()),
                 '+1:word.isupper()':int(words[i+1].isupper()),
                 '+1:word.istitle()':int(words[i+1].istitle()),
-                '+1:word.isalnum()':int(words[i+1].isalnum())
+                '+1:word.isalnum()':int(words[i+1].isalnum()),
                 # '+1:tag':tags[i+1],
                 # 'EOS':0
             })
@@ -71,7 +108,7 @@ def gen_features(words,tags):
                 '+1:word.lower()':"",
                 '+1:word.isupper()':0,
                 '+1:word.istitle()':0,
-                '+1:word.isalnum()':0
+                '+1:word.isalnum()':0,
                 # '+1:tag':"",
                 # 'EOS':1
             })
@@ -130,7 +167,7 @@ def get_labels(filename):
 
     return y_count
 
-def gen_xy(filename):
+def gen_xy_train(filename):
 
     words = get_words(filename)
 
@@ -149,13 +186,58 @@ def gen_xy(filename):
 
     y = pd.DataFrame(y)
 
+    word_columns = ["word.lower()","+1:word.lower()","-1:word.lower()"]
+
+    x_words = x[word_columns]
+
+    x_words = pd.get_dummies(x_words,columns = word_columns)
+    
+    x_process = x.drop(word_columns, axis=1)
+
+    # x = pd.concat([x_process, x_words],axis=1)
+
     # y = pd.get_dummies(y,prefix="",prefix_sep="")
 
-    # enc = OneHotEncoder(handle_unknown='ignore')
+    enc = OneHotEncoder(handle_unknown='ignore')
 
-    # enc.fit(get_labels("EN/y_count.json"))
+    enc.fit(x_words)
 
-    # enc.transfom(list(chain.from_iterable(y_train)))
+    x_words = pd.DataFrame(enc.transform(x_words).toarray())
+
+    x = pd.concat([x_process, x_words],axis=1)
+
+    return x,y,enc
+
+def gen_xy_test(filename,enc):
+
+    words = get_words(filename)
+
+    words_train, y = process_tagging(words)
+
+    x = words2features(words_train)
+
+    labels = get_labels("EN/count_y.json")
+
+    for i in range(len(y)):
+        y[i]=labels[y[i]]
+
+    y = pd.DataFrame(y)
+
+    word_columns = ["word.lower()","+1:word.lower()","-1:word.lower()"]
+
+    x_words = x[word_columns]
+
+    x_words = pd.get_dummies(x_words,columns = word_columns)
+    
+    x_process = x.drop(word_columns, axis=1)
+
+    # x = pd.concat([x_process, x_words],axis=1)
+
+    # y = pd.get_dummies(y,prefix="",prefix_sep="")
+
+    x_words = pd.DataFrame(enc.transform(x_words).toarray())
+
+    x = pd.concat([x_process, x_words],axis=1)
 
     return x,y
 
@@ -177,38 +259,38 @@ if __name__=="__main__":
 
     #Training
 
-    # x_train, y_train = gen_xy("EN/train")
+    x_train, y_train, enc = gen_xy_train("EN/train")
 
     # x_train["word.lower()"] = x_train["word.lower()"].astype('category')
     # x_train["-1:word.lower()"] = x_train["-1:word.lower()"].astype("category")
     # x_train["+1:word.lower()"] = x_train["+1:word.lower()"].astype("category")
     # x_train["-1:tag"] = x_train["-1:tag"].astype("category")
-    # x_train["word_end"] = x_train["word_end"].astype("category")
-    # # x_train["+1:tag"] = x_train["+1:tag"].astype("category")
+    # x_train["+1:tag"] = x_train["+1:tag"].astype("category")
 
-    # # print(x_train)
-    # print(y_train)
+    # print(x_train)
+    print(x_train)
 
-    # clf = xgb.XGBClassifier(tree_method="gpu_hist", enable_categorical=True)
-    # clf.fit(x_train,y_train)
+    clf = xgb.XGBClassifier(tree_method="gpu_hist")
+    clf.fit(x_train,y_train)
 
-    # clf.save_model("EN/categorical-model2.json")
+    clf.save_model("EN/categorical-model3.json")
 
     #Testing
 
-    x_test,y_test = gen_xy("EN/dev.out")
+    x_test,y_test = gen_xy_test("EN/dev.out")
 
-    x_test["word.lower()"] = x_test["word.lower()"].astype('category')
-    x_test["-1:word.lower()"] = x_test["-1:word.lower()"].astype("category")
-    x_test["+1:word.lower()"] = x_test["+1:word.lower()"].astype("category")
-    x_test["-1:tag"] = x_test["-1:tag"].astype("category")
-    x_test["word_end"] = x_test["word_end"].astype("category")
+    # x_test["word.lower()"] = x_test["word.lower()"].astype('category')
+    # x_test["-1:word.lower()"] = x_test["-1:word.lower()"].astype("category")
+    # x_test["+1:word.lower()"] = x_test["+1:word.lower()"].astype("category")
+    # x_test["-1:tag"] = x_test["-1:tag"].astype("category")
+    # x_test["word_end"] = x_test["word_end"].astype("category")
 
     clf = xgb.XGBClassifier(tree_method="gpu_hist", enable_categorical=True)
-    clf.load_model("EN/categorical-model2.json")
+    clf.load_model("EN/categorical-model3.json")
 
-    with pd.option_context("display.max_columns", None):
-        print(x_test)
+    # with pd.option_context("display.max_columns", None):
+    #     print(x_test)
+    print(x_test)
 
     y_pred = clf.predict(x_test)
 

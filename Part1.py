@@ -40,9 +40,12 @@ class gen_e:
         return data
         #print(self.data)
 
-    def count_e(self, filename):
+    def count_e(self, filename, data=None):
 
-        self.data = self.read_file(filename)
+        if data!=None:
+            self.data = data
+        else:
+            self.data = self.read_file(filename)
          
         for pair in self.data:
 
@@ -174,6 +177,6 @@ class gen_e:
         
 
 if __name__ == "__main__":
-    count = gen_e("EN")
-    x_p = count.read_file("EN/dev.in")
+    count = gen_e("FR")
+    x_p = count.read_file("FR/dev.in")
     count.predict_y(x_p, "dev.p1.out")

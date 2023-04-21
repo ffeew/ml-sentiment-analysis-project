@@ -212,7 +212,9 @@ if __name__ == "__main__":
     )
     crf.fit(x_train, y_train)
 
-    x_test,y_test = gen_xy("EN/dev.out")
+    # x_test,y_test = gen_xy("FR/dev.out")
+
+    x_test = get_words("FR/test.in")
 
     y_pred = crf.predict(x_test)
     
