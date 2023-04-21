@@ -98,12 +98,12 @@ def get_prefix_estimation(words, word):
             list_of_probs = nested_get(words, letters + ["tag"])
             for item in list_of_probs:
                 if type(item) is list:
-                    dict_out[item[0]] = item[1]
+                    dict_out[item[0]] = float(item[1])
             if dict_out:
                 return dict_out
             else:
                 # assume flat list
-                return {list_of_probs[0]: list_of_probs[1]}
+                return {list_of_probs[0]: float(list_of_probs[1])}
         else:
             return get_prefix_estimation(words, word[:-1])
     return None
@@ -176,7 +176,7 @@ def save_prefix_dictionary(f_in, f_out, f_temp):
         # print(roots[root])
         if len(pseudoroots_tags.keys()) == 1:
             roots[root] = {"tag": list(pseudoroots_tags.values())[0]}
-            print(roots[root])
+            # print(roots[root])
         # assume pseudoroots greater than length 2 affect root regardless of distance from root 
         else:
             # let Counter decide between ties of "O" and other tags which is more common
@@ -187,10 +187,10 @@ def save_prefix_dictionary(f_in, f_out, f_temp):
     # print(words)
     # propagate tags downstream in words
     for root in words.keys():
-        print(roots[root]["tag"])
+        # print(roots[root]["tag"])
         words[root]["tag"] = roots[root]["tag"]
         words[root] = tag_tree(words[root])
-    print(words)
+    
 
     # write dict out
     with open(f_out, "w", encoding="utf-8") as file_out:
@@ -223,6 +223,7 @@ def main():
 
     # example of using get_prefix_estimation
     if LANG == "FR":
+        print(words)
         print(get_prefix_estimation(words, "brasseri"))  # tag O
         print(get_prefix_estimation(words, "purée"))  # tag B-positive based on majority
         print(get_prefix_estimation(words, "pur"))  # tag O based on upstream tag i.e. suffix pur with tag O
