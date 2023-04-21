@@ -12,6 +12,7 @@ import sklearn_crfsuite
 from sklearn_crfsuite import scorers
 from sklearn_crfsuite import metrics
 
+
 def gen_features(words):
 
     features = []
@@ -19,35 +20,35 @@ def gen_features(words):
     for i in range(len(words)):
 
         ft = {
-            'bias':1.0,
-            'word.length':len(words[i]),
-            'word.lower()':words[i].lower(),
-            'word.isupper()':words[i].isupper(),
-            'word.istitle()':words[i].istitle(),
-            'word.isdigit()':words[i].isdigit(),
-            'word.isalnum()':words[i].isalnum(),
-            'word[-4:]':words[i][-4:]
+            'bias': 1.0,
+            'word.length': len(words[i]),
+            'word.lower()': words[i].lower(),
+            'word.isupper()': words[i].isupper(),
+            'word.istitle()': words[i].istitle(),
+            'word.isdigit()': words[i].isdigit(),
+            'word.isalnum()': words[i].isalnum(),
+            'word[-4:]': words[i][-4:]
         }
 
-        if i>0:
+        if i > 0:
 
             ft.update({
-                '-1:word.lower()':words[i-1].lower(),
-                '-1:word.isupper()':words[i-1].isupper(),
-                '-1:word.istitle()':words[i-1].istitle(),
-                '-1:word.isdigit()':words[i-1].isdigit(),
+                '-1:word.lower()': words[i-1].lower(),
+                '-1:word.isupper()': words[i-1].isupper(),
+                '-1:word.istitle()': words[i-1].istitle(),
+                '-1:word.isdigit()': words[i-1].isdigit(),
             })
 
         else:
             ft["BOS"] = True
 
-        if i< len(words)-1:
+        if i < len(words)-1:
 
             ft.update({
-                '+1:word.lower()':words[i+1].lower(),
-                '+1:word.isupper()':words[i+1].isupper(),
-                '+1:word.istitle()':words[i+1].istitle(),
-                '+1:word.isdigit()':words[i+1].isdigit(),
+                '+1:word.lower()': words[i+1].lower(),
+                '+1:word.isupper()': words[i+1].isupper(),
+                '+1:word.istitle()': words[i+1].istitle(),
+                '+1:word.isdigit()': words[i+1].isdigit(),
             })
 
         else:
@@ -57,16 +58,19 @@ def gen_features(words):
 
     return features
 
+
 def words2features(words):
 
     return [gen_features(sentence) for sentence in words]
 
+
 def read_data(filename):
 
-    with open(filename, "r",encoding="utf8") as file:
+    with open(filename, "r", encoding="utf8") as file:
         raw = file.read()
-    
+
     return raw
+
 
 def sentence_cutting(raw):
 
@@ -74,12 +78,14 @@ def sentence_cutting(raw):
 
     return s
 
+
 def word_cutting(sentences):
     words = []
     for sentence in sentences:
         words.append(sentence.split("\n"))
-    
+
     return words
+
 
 def process_tagging(words):
     x = []
@@ -90,8 +96,9 @@ def process_tagging(words):
         for word in sentence:
             x[-1].append(word.split()[0])
             y[-1].append(word.split()[1])
-    
-    return x,y
+
+    return x, y
+
 
 def gen_xy(filename):
 
@@ -101,7 +108,8 @@ def gen_xy(filename):
 
     x_train = words2features(words_train)
 
-    return x_train,y_train
+    return x_train, y_train
+
 
 def get_words(filename):
 
@@ -113,9 +121,10 @@ def get_words(filename):
 
     return words
 
+
 class optimizer:
 
-    def __init__(self,lang):
+    def __init__(self, lang):
 
         self.x_train, self.y_train = gen_xy(lang+"/train")
 
@@ -129,26 +138,28 @@ class optimizer:
             all_possible_transitions=True
         )
         crf.fit(self.x_train, self.y_train)
-        
+
         labels = list(crf.classes_)
 
         labels.remove('O')
 
-        x_test,y_test = gen_xy("EN/dev.out")
+        x_test, y_test = gen_xy("EN/dev.out")
 
         y_pred = crf.predict(x_test)
 
-        print(metrics.flat_f1_score(y_test, y_pred,average='weighted',labels=labels))
+        print(metrics.flat_f1_score(y_test, y_pred,
+              average='weighted', labels=labels))
 
-        return 1-metrics.flat_f1_score(y_test, y_pred,average='weighted',labels=labels)
+        return 1-metrics.flat_f1_score(y_test, y_pred, average='weighted', labels=labels)
+
 
 def train_predict(lang):
 
-    best_params = {"EN":[0.1075, 0.09], "FR":[0.09875066, 0.09940136]}
+    best_params = {"EN": [0.1075, 0.09], "FR": [0.09875066, 0.09940136]}
 
     opt = optimizer(lang)
 
-    #1e-8 error acceptable in convergence
+    # 1e-8 error acceptable in convergence
     # res = minimize(opt.cost, best_params[lang], method='nelder-mead', options={'xatol':1e-8,'disp':True})
 
     crf = sklearn_crfsuite.CRF(
@@ -163,24 +174,22 @@ def train_predict(lang):
     x_test = get_words(lang+"/test.in")
 
     y_pred = crf.predict(x_test)
-    
+
     words = get_words(lang+"/test.in")
 
     fileout = lang+"/test.crf.out"
 
-    with open(fileout, "w",encoding="utf8") as file:
+    with open(fileout, "w", encoding="utf8") as file:
         for i in range(len(words)):
             for j in range(len(words[i])):
                 file.write(words[i][j]+" "+y_pred[i][j]+"\n")
             file.write("\n")
 
+
 if __name__ == "__main__":
     print("hello world!")
 
-    ###Training###
+    ### Training###
 
     train_predict("EN")
-
-
-
-    
+    train_predict("FR")
