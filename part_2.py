@@ -114,27 +114,27 @@ def viterbi(sentence: str, transition: dict, emission: gen_e) -> tuple:
 if __name__ == "__main__":
     np.seterr(divide='ignore')
     # generate the tags for FR/dev.in
-    # count = gen_e("FR")
-    # trans = estimate_transition_parameters("FR/train")
+    count = gen_e("FR")
+    trans = estimate_transition_parameters("FR/train")
 
-    # path_in = "FR/dev.in"
-    # path_out = "FR/dev.p2.out"
-    # with open(path_in, 'r') as f:
-    #     data = f.read()
-    # sentences = data.split("\n\n")[:-1]
+    path_in = "FR/dev.in"
+    path_out = "FR/dev.p2.out"
+    with open(path_in, 'r') as f:
+        data = f.read()
+    sentences = data.split("\n\n")[:-1]
 
-    # tags = [viterbi(sentence, trans, count) for sentence in sentences]
+    tags = [viterbi(sentence, trans, count) for sentence in sentences]
 
-    # output = []
-    # for i, sentence in enumerate(sentences):
-    #     words = sentence.split("\n")
-    #     for j, word in enumerate(words):
-    #         output.append(word + " " + tags[i][j])
-    #     output.append("")
-    # final = "\n".join(output)
-    # final = final + "\n"
-    # with open(path_out, 'w') as f:
-    #     f.write(final)
+    output = []
+    for i, sentence in enumerate(sentences):
+        words = sentence.split("\n")
+        for j, word in enumerate(words):
+            output.append(word + " " + tags[i][j])
+        output.append("")
+    final = "\n".join(output)
+    final = final + "\n"
+    with open(path_out, 'w') as f:
+        f.write(final)
 
     # generate the tags for EN/dev.in
     count = gen_e("EN")

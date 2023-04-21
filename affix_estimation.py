@@ -321,23 +321,23 @@ def main():
     FILE_TEMP = "./" + LANG + "/" + sys.argv[5]
     gen_affix_dictionaries(FILE_IN, PREFIX_OUT, SUFFIX_OUT, FILE_TEMP)
 
-    # # example call dict
-    # with open(PREFIX_OUT, "r", encoding="utf-8") as file_out:
-    #     words = json.loads(file_out.read())
+    # example call dict
+    with open(PREFIX_OUT, "r", encoding="utf-8") as file_out:
+        words = json.loads(file_out.read())
 
-    # # example of using get_prefix_estimation
-    # if LANG == "FR":
-    #     # print(words)
-    #     print(get_prefix_estimation(words, "brasseri"))  # tag O
-    #     print(get_prefix_estimation(words, "purée"))  # tag B-positive based on majority
-    #     print(get_prefix_estimation(words, "pur"))  # tag O based on upstream tag i.e. suffix pur with tag O
-    #     print(get_prefix_estimation(words, "puréet"))  # estimated to be B-positive based on upstream tag i.e. purée with tag B-positive
-    # elif LANG == "EN":
-    #     print(get_prefix_estimation(words, "no"))  # tag B-NP by majority
-    #     print(get_prefix_estimation(words, "helpful"))  # tag I-ADJP
-    #     print(get_prefix_estimation(words, "helpfully"))  # tag I-ADJP based on upstream tag i.e. suffix helpful with tag I-ADJP
-    #     print(get_prefix_estimation(words, "hel"))  # tag B-NP based on upstream tag i.e. suffix hel with tag B-NP
-    #     print(get_prefix_estimation(words, "hell"))  # tag B-NP
+    # example of using get_prefix_estimation
+    if LANG == "FR":
+        # print(words)
+        print(get_prefix_estimation(words, "brasseri"))  # tag O
+        print(get_prefix_estimation(words, "purée"))  # tag B-positive based on majority
+        print(get_prefix_estimation(words, "pur"))  # tag O based on upstream tag i.e. suffix pur with tag O
+        print(get_prefix_estimation(words, "puréet"))  # estimated to be B-positive based on upstream tag i.e. purée with tag B-positive
+    elif LANG == "EN":
+        print(get_prefix_estimation(words, "no"))  # tag B-NP by majority
+        print(get_prefix_estimation(words, "helpful"))  # tag I-ADJP
+        print(get_prefix_estimation(words, "helpfully"))  # tag I-ADJP based on upstream tag i.e. suffix helpful with tag I-ADJP
+        print(get_prefix_estimation(words, "hel"))  # tag B-NP based on upstream tag i.e. suffix hel with tag B-NP
+        print(get_prefix_estimation(words, "hell"))  # tag B-NP
 
     with open(SUFFIX_OUT, "r", encoding="utf-8") as file_out:
         words = json.loads(file_out.read())
