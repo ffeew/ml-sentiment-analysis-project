@@ -149,12 +149,12 @@ def train_predict(lang):
     opt = optimizer(lang)
 
     #1e-8 error acceptable in convergence
-    res = minimize(opt.cost, best_params[lang], method='nelder-mead', options={'xatol':1e-8,'disp':True})
+    # res = minimize(opt.cost, best_params[lang], method='nelder-mead', options={'xatol':1e-8,'disp':True})
 
     crf = sklearn_crfsuite.CRF(
         algorithm='lbfgs',
-        c1=res.x[0],
-        c2=res.x[1],
+        c1=best_params[lang][0],
+        c2=best_params[lang][1],
         max_iterations=100,
         all_possible_transitions=True
     )
@@ -164,9 +164,9 @@ def train_predict(lang):
 
     y_pred = crf.predict(x_test)
     
-    words = get_words(lang+"/dev.in")
+    words = get_words(lang+"/test.in")
 
-    fileout = lang+"/dev.crf.out"
+    fileout = lang+"/test.crf.out"
 
     with open(fileout, "w",encoding="utf8") as file:
         for i in range(len(words)):
