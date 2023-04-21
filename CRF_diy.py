@@ -14,6 +14,7 @@
 
 import numpy as np
 from itertools import permutations
+import json
 
 def gen_features(words):
 
@@ -163,8 +164,6 @@ def get_words(filename):
 
     return words
 
-x_train, y_train = gen_xy("EN/train")
-
 # def cost(p):
 
 #     crf = sklearn_crfsuite.CRF(
@@ -188,54 +187,148 @@ x_train, y_train = gen_xy("EN/train")
 
 #     return 1-metrics.flat_f1_score(y_test, y_pred,average='weighted',labels=labels)
 
-feature_functions = [
-    {}
-]
-weights = [] 
+feature_functions = []
+weights = np.array([])
+x_train, y_train = gen_xy("EN/train")
+random_labels = dict()
+pos_labels = []
 
-def gen_feature_f(feature_functions):
-    pass #TODO
+def load_y(filename):
+    y_count = dict()
+    with open(filename,"r",encoding="utf8") as file:
+        y_count = json.loads(file.read())
+    return list(y_count.keys())
 
-def feature_f(label, word_f,k):
+def generate_random_labels(length):
 
-    #Accepts word as a dicitonary and k as the index of the feature function
+    labels = []
+    for i in range(100):
+        labels.append(np.random.choice(pos_labels,length))
+    random_labels[length]=labels
 
-    if label!=feature_f[k]["tag"]:
-        return 0
+def gen_feature_f(x_train,y_train):
+    features2get = [
+        ["BOS","tag"],
+        ["EOS","tag"],
+        ["-1:tag","tag","+1:tag"],
+        ["word.lower()","word.isalnum()","word.istitle()","word.isupper()","tag"],
+        ["-1:word.lower()","+1:word.lower()","word.lower()","tag"],
+        ["-1:word.isalnum()","word.isalnum()","tag","+1:word.isalnum()"],
+        ["-1:word.istitle()","word.istitle()","tag","+1:word.istitle()"],
+        ["-1:word.isupper()","word.isupper()","tag","+1:word.isupper()"]
+    ]
 
-    for condition in feature_functions[k].keys():
-        if not word_f[condition]==feature_functions[k][condition]:
-            return 0
+    for i in range(len(x_train)):
+        for k in range(len(x_train[i])):
+            for j in range(len(features2get)):
+                dictionary = dict()
+                for feature in features2get[j]:
+                    if "tag" not in feature:
+                        dictionary[feature] = x_train[i][k].get(feature)
+                    else:
+                        if feature=="tag":
+                            dictionary[feature]=y_train[i][k]
+                        elif feature=="-1:tag":
+                            dictionary[feature]=y_train[i][k-1] if k>0 else None
+                        elif feature=="+1;tag":
+                            dictionary[feature]=y_train[i][k+1] if k<len(x_train[i])-1 else None 
+                feature_functions.append(dictionary)
 
-    return 1
+    # with open("EN/feature_functions.json","w",encoding="utf8") as y_file:
+    #     for function in feature_functions:
+    #         json.dump(function,y_file, indent = 4)
+    with open("EN/features_functions.npy","wb") as file:
+        np.save(file,feature_functions)
 
+def feature_f(labels, sentence_features, j, i):
 
-def p_sentence(words_features, weights, labels):
+    #Accepts sentence features as a list of dictionary of word features and j as the index of the feature function
+
+    # for feature in feature_functions[j].keys():
+    #     if not sentence_features[i].get(feature) == feature_functions[j].get(feature):
+    #         return 0
+        # if "tag" not in feature:
+            
+        # else:
+        #     if feature == "tag" and not labels[i]==feature_functions[j][feature]:
+        #         return 0
+        #     elif feature=="-1:tag" and (i==0 or not labels[i-1]==feature_functions[j][feature]):
+        #         return 0
+        #     elif feature=="+1:tag" and (i==len(labels) or not labels[i+1]==feature_functions[j][feature]):
+        #         return 0
+    return int(all(sentence_features[i].get(feature) == feature_functions[j].get(feature) for feature in feature_functions[j].keys()))
+
+def p_sentence(sentence_features, weights, labels):
+
     m = len(feature_functions)
-    l_score=0
-    for j in range(m):
-        for i in range(len(words_features)):
-            l_score+=weights[j]*feature_f(labels[i], words_features[i], j)
-    l_score = np.exp(l_score)
+    n_score=0
+    normalize = 0
 
-    for any_labels in permutations(labels):
+    #Combining tags with x features
+    for i in range(len(sentence_features)):
+        sentence_features[i]["tag"] = labels[i]
+        if i>0:
+            sentence_features[i]["-1:tag"] = labels[i]
+        if i<len(sentence_features[i])-1:
+            sentence_features[i]["+1:tag"] = labels[i]
+
+    for j in range(m):
+        print(j,end="\r")
+        for i in range(len(sentence_features)):
+           n_score+=weights[j]*feature_f(labels, sentence_features, j, i)
+    n_score = np.exp(n_score)
+
+    if random_labels.get(len(labels))==None:
+        generate_random_labels(len(labels))
+
+    for any_labels in random_labels[len(labels)]+[labels]:
+
+        #Combining tags with x features
+
+        for i in range(len(sentence_features)):
+            sentence_features[i]["tag"] = any_labels[i]
+            if i>0:
+                sentence_features[i]["-1:tag"] = any_labels[i]
+            if i<len(sentence_features[i])-1:
+                sentence_features[i]["+1:tag"] = any_labels[i]
+
         score=0
         for j in range(m):
-            for i in range(len(words_features)):
-                score+=weights[j]*feature_f(any_labels[i], words_features[i], j)
+            for i in range(len(sentence_features)):
+                score+=weights[j]*feature_f(any_labels, sentence_features, j, i)
         normalize += np.exp(score)
 
-        
-        return score/normalize
+    return score/normalize
     
-def gradient_descent(words_features, alpha, epochs,label):
+def gradient_descent(sentence_features, alpha, epochs, labels):
+    # print(labels)
+    for n in range(epochs):
 
-    for i in range(epochs):
+        if random_labels.get(len(labels))==None:
+            generate_random_labels(len(labels))
+
         for i in range(len(feature_functions)):
-            term1 = sum([feature_f(label,words_features[j],i) for j in range(len(words_features))])
-            term2 = sum([p_sentence(words_features, weights, any_label)*
-                        sum([feature_f(any_label[j],words_features[j],i)]) for any_label in permutations(label)])
+            term1 = sum([feature_f(labels,sentence_features,j,i) for j in range(len(sentence_features))])
+            term2 = sum([p_sentence(sentence_features, weights, any_label)*
+                        sum([feature_f(any_label,sentence_features,j,i) for j in range(len(sentence_features))])
+                        for any_label in random_labels[len(labels)]+[labels]])
             weights[i] += alpha*(term1-term2)
+
+def training(x_train,y_train):
+
+    #Combining tags with x features
+
+    for i in range(len(x_train)):
+        gradient_descent(x_train[i],0.1,100,y_train[i])
+        # p_sentence(x_train[i], weights, y_train[i])
+        print(i,"/",len(x_train),"sentences completed", end="\r")
+
+    with open("EN/features_weights.npy","wb") as file:
+        np.save(file,weights)
+    
+    with open("EN/random_labels.npy","wb") as file:
+        np.save(file,random_labels)
+
 
 if __name__ == "__main__":
     print("hello world!")
@@ -248,6 +341,32 @@ if __name__ == "__main__":
     # print(y_train)
 
     #print(x_train[:10])
+
+    pos_labels = load_y("EN/count_y.json")
+    
+    try:
+
+        with open("EN/features_functions.npy","rb") as file:
+            feature_functions = np.load(file)
+        print("Features functions loading completed")
+
+    except:
+
+        print("Error loading features functions")
+        gen_feature_f(x_train,y_train)
+
+    try:
+        
+        with open("EN/features_weights.npy","rb") as file:
+            weights = np.load(file)
+
+        print("Weights loading completed")
+
+    except:
+        print("Error loading weights")
+        weights = np.zeros(len(feature_functions)) 
+
+    training(x_train,y_train)
 
     ###Training###
 
