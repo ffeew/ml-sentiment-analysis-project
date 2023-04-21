@@ -12,7 +12,8 @@ import nltk
 import numpy as np
 import pandas as pd
 
-from Part1 import gen_e
+from ..Part1 import gen_e
+
 
 def nltk_setup():
     nltk.download('punkt')
@@ -67,7 +68,7 @@ def thede_smoothing(tags, lang):
                 y = deque()
                 y.append("START")
                 y.append("START")
-    
+
     ls = {0: 0, 1: 0, 2: 0, 3: 0}
     t = deque()
     # print(set(tags))
@@ -127,9 +128,11 @@ def thede_smoothing(tags, lang):
                 # out[(y[0], y[1], y[2])] = n_1 / c0
                 # out[(y[0], y[1], y[2])] = (n_3 / c_2) + (n_2 / c_1) + (n_1 / c0)
                 if lang == "english":
-                    out[(y[0], y[1], y[2])] = b3 * (n_3 / c_2) + b2 * (n_2 / c_1) + (b1 + (b0 / 3)) * (n_1 / c0)
+                    out[(y[0], y[1], y[2])] = b3 * (n_3 / c_2) + b2 * \
+                        (n_2 / c_1) + (b1 + (b0 / 3)) * (n_1 / c0)
                 elif lang == "french":
-                    out[(y[0], y[1], y[2])] = (b3 / 3) * (n_3 / c_2) + (b2 / 2) * (n_2 / c_1) + (b1 + b0) * (n_1 / c0)
+                    out[(y[0], y[1], y[2])] = (b3 / 3) * (n_3 / c_2) + \
+                        (b2 / 2) * (n_2 / c_1) + (b1 + b0) * (n_1 / c0)
             if tag == "STOP":
                 y = deque()
                 y.append("START")
@@ -184,7 +187,7 @@ def lexical_probability(words, tags):
                 y = deque()
                 y.append((None, "START"))
                 y.append((None, "START"))
-    
+
     # ls = {1: 0, 2: 0, 3: 0}
     # t = deque()
     # # print(set(tags))
@@ -220,7 +223,8 @@ def lexical_probability(words, tags):
                 c_2 = c2[(y[0][1], y[1][1])]
                 k_2 = (1 / (np.log(n_3 + 1) + 2))
                 k_3 = (np.log(n_3 + 1) + 1) / (np.log(n_3 + 1) + 2)
-                out[(y[0][1], y[1][1], y[2][0])] = (k_3 * (n_3 / c_2)) + (k_2 * (n_2 / c_1))
+                out[(y[0][1], y[1][1], y[2][0])] = (
+                    k_3 * (n_3 / c_2)) + (k_2 * (n_2 / c_1))
             if tag == "STOP":
                 y = deque()
                 y.append((None, "START"))
@@ -255,7 +259,7 @@ def estimate_new_transition_parameters(path: str, lang: str) -> dict[dict]:
     return transition, lexicon, b0
 
 
-def get_transition_probabilities(transition: dict, previous_1: str, previous_2:str, current: str, b0:float, lang: str) -> float:
+def get_transition_probabilities(transition: dict, previous_1: str, previous_2: str, current: str, b0: float, lang: str) -> float:
     """
     Helper function to get the transition probability when given the previous and current state
     """
@@ -265,7 +269,7 @@ def get_transition_probabilities(transition: dict, previous_1: str, previous_2:s
     return transition[previous_2].get((previous_1, current), x)
 
 
-def get_lexical_probabilities(lexicon: dict, previous_1: str, previous_2:str, current_word: str, lang: str) -> float:
+def get_lexical_probabilities(lexicon: dict, previous_1: str, previous_2: str, current_word: str, lang: str) -> float:
     """
     Helper function to get the transition probability when given the previous and current state
     """
@@ -300,10 +304,10 @@ def viterbi(sentence: str, transition: dict, lexicon: dict, emission: gen_e, b0:
         for j, tag in enumerate(states):
             # get probabilities for each state
 
-            # prob = [viterbi[i-1, k] + np.log(get_transition_probabilities(transition, states[k], states[k], tag, lang) * 
-            #                                  get_lexical_probabilities(lexicon, states[k], states[k], words[i], lang)) + 
+            # prob = [viterbi[i-1, k] + np.log(get_transition_probabilities(transition, states[k], states[k], tag, lang) *
+            #                                  get_lexical_probabilities(lexicon, states[k], states[k], words[i], lang)) +
             #                                  np.log(emission.get_p(tag, words[i])) for k in range(len(states))]
-            prob = [viterbi[i-1, k] + np.log(get_transition_probabilities(transition, states[k], states[k], tag, b0, lang)) + 
+            prob = [viterbi[i-1, k] + np.log(get_transition_probabilities(transition, states[k], states[k], tag, b0, lang)) +
                     np.log(emission.get_p(tag, words[i])) for k in range(len(states))]
             backpointer[i - 1, j] = np.argmax(prob)
             viterbi[i, j] = np.max(prob)
@@ -325,24 +329,26 @@ def viterbi(sentence: str, transition: dict, lexicon: dict, emission: gen_e, b0:
     return result
 
 
-def word_preprocess(sentences: list, lang:str, mode:str, sentence_tags: list=None) -> list:
+def word_preprocess(sentences: list, lang: str, mode: str, sentence_tags: list = None) -> list:
     if mode == "train":
         text = pd.DataFrame({"original": sentences, "tags": sentence_tags})
     else:
-        text = pd.DataFrame([" ".join(x.split("\n")) for x in sentences]).rename(columns={0: "original"})
+        text = pd.DataFrame([" ".join(x.split("\n"))
+                            for x in sentences]).rename(columns={0: "original"})
     # Step - a : Remove blank rows if any.
     text['original'].dropna(inplace=True)
     # Step - b : Change all the text to lower case. This is required as python interprets 'dog' and 'DOG' differently
     text['original'] = [entry.lower() for entry in text['original']]
     # Step - c : Tokenization : In this each entry in the corpus will be broken into set of words
-    text['original'] = [word_tokenize(entry, lang) for entry in text['original']]
+    text['original'] = [word_tokenize(entry, lang)
+                        for entry in text['original']]
     # Step - d : Remove Stop words, Non-Numeric and perfom Word Stemming/Lemmenting.
     # WordNetLemmatizer requires Pos tags to understand if the word is noun or verb or adjective etc. By default it is set to Noun
-    tag_map = defaultdict(lambda : wn.NOUN)
+    tag_map = defaultdict(lambda: wn.NOUN)
     tag_map['J'] = wn.ADJ
     tag_map['V'] = wn.VERB
     tag_map['R'] = wn.ADV
-    for index,entry in tqdm(enumerate(text['original'])):
+    for index, entry in tqdm(enumerate(text['original'])):
         # Declaring Empty List to store the words that follow the rules for this step
         Final_words = []
         # Initializing WordNetLemmatizer()
@@ -351,19 +357,21 @@ def word_preprocess(sentences: list, lang:str, mode:str, sentence_tags: list=Non
         for word, tag in pos_tag(entry):
             # Below condition is to check for Stop words and consider only alphabets
             if word not in stopwords.words(lang) and word.isalpha():
-            # if word.isalpha():
-                word_Final = word_Lemmatized.lemmatize(word,tag_map[tag[0]])
+                # if word.isalpha():
+                word_Final = word_Lemmatized.lemmatize(word, tag_map[tag[0]])
                 Final_words.append(word_Final)
             else:
                 Final_words.append(word)
         # The final processed set of words for each iteration will be stored in 'text_final'
-        text.loc[index,'text_final'] = str(Final_words)
+        text.loc[index, 'text_final'] = str(Final_words)
     # out = ["\n".join(x) for x in text.loc[:, 'text_final'].values.tolist()]
     if mode == "train":
-        out = [x[1:-1].split(", ") for x in text.loc[:, 'text_final'].values.tolist()]
+        out = [x[1:-1].split(", ")
+               for x in text.loc[:, 'text_final'].values.tolist()]
         out = ["".join([x[1:-1] for x in y]) for y in out]
     else:
-        out = [x[1:-1].split(", ") for x in text.loc[:, 'text_final'].values.tolist()]
+        out = [x[1:-1].split(", ")
+               for x in text.loc[:, 'text_final'].values.tolist()]
         out = ["\n".join([x[1:-1] for x in y]) for y in out]
     return out
 
@@ -382,7 +390,8 @@ def train_preprocess(path_in, path_out, lang):
     for word, tag in zip(text, tags):
         if word == '' and len(sentence) > 0:
             cleaned = word_preprocess(sentence, lang, "train", sentence_tags)
-            cleaned_data = list(filter(None, [[x, y] if x != "" else None for x, y in zip(cleaned, sentence_tags)]))
+            cleaned_data = list(filter(
+                None, [[x, y] if x != "" else None for x, y in zip(cleaned, sentence_tags)]))
             for x in cleaned_data:
                 data_out.append(x)
             data_out.append("")
@@ -397,12 +406,13 @@ def train_preprocess(path_in, path_out, lang):
             if x == "":
                 f_out.write("\n")
             else:
-                
+
                 if "\n" in x[0]:
                     x[0] = x[0].encode("unicode_escape").decode("utf-8")
                 f_out.write(x[0] + " " + x[1] + "\n")
 
-def main():  
+
+def main():
     # nltk_setup()
     # train_preprocess("EN/train", "EN/train_new", "english")
     # train_preprocess("FR/train", "FR/train_new", "french")
@@ -424,7 +434,8 @@ def main():
     # print(sentences)
     # return
     # tags = [viterbi(sentence, trans, count) for sentence in sentences]
-    tags = [viterbi(sentence, trans, lex, count, b0, "french") for sentence in sentences]
+    tags = [viterbi(sentence, trans, lex, count, b0, "french")
+            for sentence in sentences]
 
     output = []
     for i, sentence in enumerate(sentences):
@@ -450,7 +461,8 @@ def main():
     sentences = data.split("\n\n")[:-1]
     # sentences = word_preprocess(data.split("\n\n")[:-1], "english", "test")
 
-    tags = [viterbi(sentence, trans, lex, count, b0, "english") for sentence in sentences]
+    tags = [viterbi(sentence, trans, lex, count, b0, "english")
+            for sentence in sentences]
 
     output = []
     for i, sentence in enumerate(sentences):
