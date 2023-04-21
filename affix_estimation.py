@@ -188,6 +188,11 @@ def save_prefix_dictionary(f_in, f_out, f_temp):
         file_out.write(json.dumps(words))
 
 
+def load_prefixes():
+    with open(FILE_OUT, "r", encoding="utf-8") as file_out:
+        words = json.loads(file_out.read())
+    return words
+
 
 def main():
     if len(sys.argv) < 3:
