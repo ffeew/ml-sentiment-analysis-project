@@ -67,7 +67,12 @@ def nested_set(dic, keys, value):
 def tag_tree(tree):
     if "tag" in tree.keys():
         if type(tree["tag"]) is list:
-            tree["tag"] = Counter(tree["tag"]).most_common(1)[0][0]
+            # tree["tag"] = Counter(tree["tag"]).most_common(1)[0][0]
+            counts = Counter(tree["tag"]).most_common(len(tree["tag"]))
+            total_count = sum([count for (_, count) in counts])
+            tree["tag"] = tuple([(tag, count / total_count) for (tag, count) in counts])
+        elif type(tree["tag"]) is str:
+            tree["tag"] = (tree["tag"], 1.0)
         upstream_tag = tree["tag"]
     for key, branch in tree.items():
         if key != "tag":
@@ -76,9 +81,12 @@ def tag_tree(tree):
                     tree[key]["tag"] = upstream_tag
                 tree[key] = tag_tree(branch)
             elif type(branch) is list:
-                tree[key] = {"tag": Counter(branch).most_common(1)[0][0]}
+                counts = Counter(tree[key]).most_common(len(tree[key]))
+                total_count = sum([count for (_, count) in counts])
+                tree[key] = {"tag": tuple([(tag, count / total_count) for (tag, count) in counts])}
+                # tree[key] = {"tag": Counter(branch).most_common(1)[0][0]}
             elif type(branch) is str:
-                tree[key] = {"tag": branch}
+                tree[key] = {"tag": (branch, "1.0")}
     return tree
 
 
@@ -145,23 +153,35 @@ def save_prefix_dictionary(f_in, f_out, f_temp):
         unique_pseudoroot = ""
         for pseudoroot in pseudoroots:
             if pseudoroot != unique_pseudoroot:
-                majority_pseudoroots_tags[pseudoroot] = Counter(tags[start_index:start_index + pseudoroots_counts[pseudoroot]]).most_common(1)[0][0]
+                # majority_pseudoroots_tags[pseudoroot] = Counter(tags[start_index:start_index + pseudoroots_counts[pseudoroot]]).most_common(1)[0][0]
+                majority_pseudoroots_tags[pseudoroot] = Counter(tags[start_index:start_index + pseudoroots_counts[pseudoroot]]).most_common(pseudoroots_counts[pseudoroot])
+                total_count = sum([count for _, count in majority_pseudoroots_tags[pseudoroot]])
+                majority_pseudoroots_tags[pseudoroot] = tuple([(tag, count / total_count) for (tag, count) in majority_pseudoroots_tags[pseudoroot]])
                 start_index = pseudoroots_counts[pseudoroot]
                 unique_pseudoroot = pseudoroot
         roots[root] = majority_pseudoroots_tags
+    # print(roots)
+
     # propagate psuedoroots upstream; assign root tags
     for root, pseudoroots_tags in roots.items():
+        # print(roots[root])
         if len(pseudoroots_tags.keys()) == 1:
             roots[root] = {"tag": list(pseudoroots_tags.values())[0]}
+            print(roots[root])
         # assume pseudoroots greater than length 2 affect root regardless of distance from root 
         else:
             # let Counter decide between ties of "O" and other tags which is more common
-            roots[root]["tag"] = Counter(list(roots[root].values())).most_common(1)[0][0]
+            # roots[root]["tag"] = Counter(list(roots[root].values())).most_common(1)[0][0]
+            roots[root]["tag"] = max(roots[root].values(), key=len)
+    # print(roots)
 
+    # print(words)
     # propagate tags downstream in words
     for root in words.keys():
+        print(roots[root]["tag"])
         words[root]["tag"] = roots[root]["tag"]
         words[root] = tag_tree(words[root])
+    print(words)
 
     # write dict out
     with open(f_out, "w", encoding="utf-8") as file_out:
@@ -189,9 +209,9 @@ def main():
 
     # example of using get_prefix_estimation
     if LANG == "FR":
-        print(get_prefix_estimation(words, "brasserie"))  # tag O
+        print(get_prefix_estimation(words, "brasseri"))  # tag O
         print(get_prefix_estimation(words, "purée"))  # tag B-positive based on majority
-        print(get_prefix_estimation(words, "puré"))  # tag O based on upstream tag i.e. suffix pur with tag O
+        print(get_prefix_estimation(words, "pur"))  # tag O based on upstream tag i.e. suffix pur with tag O
         print(get_prefix_estimation(words, "puréet"))  # estimated to be B-positive based on upstream tag i.e. purée with tag B-positive
     elif LANG == "EN":
         print(get_prefix_estimation(words, "no"))  # tag B-NP by majority
